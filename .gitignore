@@ -1,0 +1,12 @@
+# Còpies automàtiques que fa l'editor abans de cada desada
+_copies/
+
+# Temporals
+__pycache__/
+*.pyc
+*.bak
+*~
+
+
+# Web generat per publica.py
+docs/

@@ -1,0 +1,410 @@
+#!/usr/bin/env python3
+"""Traçabilitat amb el currículum de la Generalitat (0228 Aplicacions web).
+
+    python3 Programación_didactica/curriculum.py            # blocs curriculars
+    python3 Programación_didactica/curriculum.py --matriu   # i matriu
+
+El mapa MAP d'aquest fitxer és l'única font: els blocs de les pàgines i la
+matriu de cobertura en surten tots dos. La matriu és per al professorat i es
+queda al repositori privat, dins de Programación_didactica/: publica.py no la copia a docs/.
+"""
+import re, sys, pathlib, html as _html
+
+ARREL = pathlib.Path(__file__).resolve().parent.parent
+
+CA = {
+ '1.1': "Identifica els requeriments necessaris per instal·lar gestors de continguts.",
+ '1.2': "Gestiona usuaris amb rols diferents.",
+ '1.3': "Personalitza la interfície del gestor de continguts.",
+ '1.4': "Realitza proves de funcionament.",
+ '1.5': "Realitza tasques d'actualització del gestor de continguts, especialment les de seguretat.",
+ '1.6': "Instal·la i configura els mòduls i menús necessaris.",
+ '1.7': "Activa i configura els mecanismes de seguretat proporcionats pel propi gestor de continguts.",
+ '1.8': "Habilita fòrums i estableix regles d'accés.",
+ '1.9': "Realitza proves de funcionament.",
+ '1.10': "Realitza còpies de seguretat dels continguts del gestor.",
+ '2.1': "Reconeix l'estructura del lloc i la jerarquia de directoris generada.",
+ '2.2': "Realitza modificacions en l'estètica o aspecte del lloc.",
+ '2.3': "Manipula i genera perfils personalitzats.",
+ '2.4': "Comprova la funcionalitat de les comunicacions mitjançant fòrums, consultes, entre d'altres.",
+ '2.5': "Importa i exporta continguts en diferents formats.",
+ '2.6': "Realitza còpies de seguretat i restauracions.",
+ '2.7': "Realitza informes d'accés i utilització del lloc.",
+ '2.8': "Comprova la seguretat del lloc.",
+ '3.1': "Estableix la utilitat d'un servei de gestió d'arxius web.",
+ '3.2': "Descriu diferents aplicacions de gestió d'arxius web.",
+ '3.3': "Instal·la i adapta una eina de gestió d'arxius web.",
+ '3.4': "Crea i classifica comptes d'usuari en funció dels seus permisos.",
+ '3.5': "Gestiona arxius i directoris.",
+ '3.6': "Utilitza arxius d'informació addicional.",
+ '3.7': "Aplica criteris d'indexació sobre els arxius i directoris.",
+ '3.8': "Comprova la seguretat del gestor d'arxius.",
+ '4.1': "Estableix la utilitat de les aplicacions d'ofimàtica web.",
+ '4.2': "Descriu diferents aplicacions d'ofimàtica web (processador de textos, full de càlcul, entre altres).",
+ '4.3': "Instal·la aplicacions d'ofimàtica web.",
+ '4.4': "Gestiona els comptes d'usuari.",
+ '4.5': "Aplica criteris de seguretat en l'accés dels usuaris.",
+ '4.6': "Reconeix les prestacions específiques de cadascuna de les aplicacions instal·lades.",
+ '4.7': "Utilitza les aplicacions de forma col·laborativa.",
+ '5.1': "Descriu diferents aplicacions web d'escriptori.",
+ '5.2': "Instal·la aplicacions per a proveir d'accés web al servei de correu electrònic.",
+ '5.3': "Configura les aplicacions per a integrar-les amb un servidor de correu.",
+ '5.4': "Gestiona els comptes d'usuari.",
+ '5.5': "Verifica l'accés al correu electrònic.",
+ '5.6': "Instal·la aplicacions de calendari web.",
+ '5.7': "Reconeix les prestacions específiques de les aplicacions instal·lades (cites, tasques, entre altres).",
+}
+
+CONT = {
+ '1.1': "Instal·lació en sistemes operatius lliures i propietaris.",
+ '1.2': "Creació d'usuaris i grups d'usuaris.",
+ '1.3': "Utilització de la interfície gràfica. Personalització de l'entorn. Funcionalitats proporcionades pel gestor de continguts. Sindicació.",
+ '1.4': "Funcionament dels gestors de continguts.",
+ '1.5': "Actualitzacions del gestor de continguts. Configuració de mòduls i menús.",
+}
+
+RA = {
+ '1': "Instal·la gestors de continguts, identificant-ne les aplicacions i configurant-los segons requeriments.",
+ '2': "Instal·la sistemes de gestió d'aprenentatge a distància, descrivint-ne l'estructura del lloc i la jerarquia de directoris generada.",
+ '3': "Instal·la serveis de gestió d'arxius web, identificant-ne les aplicacions i verificant-ne la integritat.",
+ '4': "Instal·la aplicacions d'ofimàtica web, descrivint-ne les característiques i entorns d'ús.",
+ '5': "Instal·la aplicacions web d'escriptori, descrivint-ne les característiques i entorns d'ús.",
+}
+
+# De cada pàgina: (continguts, criteris). Les guies també hi són: surten a la
+# matriu i al quadre del RA, però no porten bloc a la pàgina. Els criteris de
+# les pràctiques no s'escriuen aquí: surten de la seva rúbrica (PRACTIQUES).
+MAP = {
+ 'RA1/teoria/t1-1-com-funciona-una-aplicacio-web': (['1.4'], ['1.1']),
+ 'RA1/teoria/t1-2-html-i-css':                     (['1.3'], ['1.3']),
+ 'RA1/teoria/t1-3-capses-i-disposicio':            (['1.3'], ['1.3']),
+ 'RA1/teoria/t1-4-gestors-de-continguts':          (['1.1', '1.3', '1.4'], ['1.1', '1.6']),
+ 'RA1/teoria/t1-5-usuaris-i-rols':                 (['1.2'], ['1.2']),
+ 'RA1/teoria/t1-6-mantenir-un-gestor':             (['1.5'], ['1.4', '1.5', '1.7', '1.9', '1.10']),
+ 'RA1/guies/g1-1-entorn-de-laboratori':            (['1.1'], ['1.1']),
+ 'RA1/guies/g1-2-pila-lamp':                       (['1.1'], ['1.1', '1.4']),
+ 'RA1/guies/g1-3-wordpress':                       (['1.1', '1.2', '1.3', '1.5'], ['1.2', '1.3', '1.5', '1.6', '1.7', '1.8', '1.9', '1.10']),
+ 'RA1/guies/g1-4-migrar-wordpress':                (['1.1'], ['1.4', '1.9', '1.10']),
+ 'RA1/activitats/a1-1-estatic-i-dinamic':          (['1.1', '1.4'], ['1.1', '1.4']),
+ 'RA1/activitats/a1-2-targeta-pokemon':            (['1.3'], ['1.3']),
+ 'RA1/activitats/a1-3-landing-page':               (['1.3'], ['1.3']),
+ 'RA1/activitats/a1-4-zoo-interactiu':             (['1.3'], ['1.3']),
+ 'RA1/activitats/a1-5-web-html5':                  (['1.3'], ['1.3', '1.4']),
+ 'RA1/activitats/a1-6-portal-wordpress':           (['1.1', '1.2', '1.3', '1.4', '1.5'], []),
+ 'RA1/activitats/a1-7-botigues-virtuals':          (['1.1', '1.2', '1.3', '1.4'], []),
+}
+
+# Rúbrica de cada pràctica final: (nom, pes al RA, [(apartat, criteris, punts)]).
+# D'aquí surten el bloc «rúbrica» de la pàgina, els criteris del seu bloc de
+# currículum i els criteris que exercita cada prova.
+PRACTIQUES = {
+ 'RA1/activitats/a1-6-portal-wordpress': ('Pràctica A1.6', 50, [
+   ("Instal·lació: requeriments comprovats, host virtual, base de dades i enllaços permanents", ['1.1'], 1),
+   ("Blog: entrades, categories, publicació programada, comentaris i funció extra", ['1.3'], 1.5),
+   ("Portal: menú, portada, pàgines pròpies, contacte i mapa", ['1.6'], 1.5),
+   ("Aparença: tema diferent personalitzat amb CSS addicional", ['1.3'], 1),
+   ("Idiomes, ginys i una extensió nova configurada", ['1.6'], 1),
+   ("Usuaris amb tres rols, provats amb intents fallits", ['1.2'], 1),
+   ("Fòrum amb zona pública i zona per a registrats", ['1.8'], 0.5),
+   ("Actualitzacions aplicades i Salut del lloc sense avisos crítics", ['1.5'], 0.5),
+   ("Mecanismes de seguretat del gestor activats", ['1.7'], 0.5),
+   ("Còpia de seguretat completa i restauració documentada", ['1.10'], 0.5),
+   ("Publicació a l'allotjament i llista de proves de funcionament passada", ['1.4', '1.9'], 1),
+ ]),
+ 'RA1/activitats/a1-7-botigues-virtuals': ('Pràctica A1.7', 20, [
+   ("Dues plataformes instal·lades amb els requeriments comprovats", ['1.1'], 2),
+   ("Aparença personalitzada a cada botiga", ['1.3'], 1.5),
+   ("Catàleg: categories, productes i divisa", ['1.6'], 2),
+   ("Botiga en dos idiomes amb productes traduïts", ['1.6'], 1),
+   ("Registre de clients i subscripció al butlletí", ['1.2'], 1),
+   ("Proves de funcionament i regla dels tres clics", ['1.4', '1.9'], 1),
+   ("Comparació raonada de requeriments, ús i manteniment", ['1.1'], 1.5),
+ ]),
+}
+
+
+def _ordena(codis):
+    return sorted(set(codis), key=lambda x: tuple(map(int, x.split('.'))))
+
+
+for _k, (_n, _pes, _files) in PRACTIQUES.items():
+    assert abs(sum(f[2] for f in _files) - 10) < 1e-9, f'{_k}: la rúbrica no suma 10'
+    MAP[_k] = (MAP[_k][0], _ordena(c for f in _files for c in f[1]))
+
+PROVA = {nom: _ordena(c for f in files for c in f[1])
+         for nom, _, files in PRACTIQUES.values()}
+
+
+def pagines_de(codi, contingut=False):
+    """Codis de les pàgines que treballen un criteri (o un contingut)."""
+    out = []
+    for key, parell in MAP.items():
+        if codi not in parell[0 if contingut else 1]:
+            continue
+        m = re.match(r'([tga])(\d+)-(\d+)', key.rsplit('/', 1)[1])
+        out.append(f'{m.group(1).upper()}{m.group(2)}.{m.group(3)}')
+    return out
+
+
+def instrument(ca):
+    """Amb què s'avalua realment un criteri, sense etiquetes genèriques.
+
+    Si cap prova no l'exercita i el criteri es treballa en alguna activitat,
+    hi ha rúbrica i document entregat. Si només es treballa a la teoria no hi
+    ha cap entrega: l'evidència és l'observació del professor durant el RA i
+    la rúbrica és on es registra. No s'inventa cap paper per omplir la casella.
+    """
+    if proves := [nom for nom, cas in PROVA.items() if ca in cas]:
+        return ' · '.join(proves)
+    hi_ha_activitat = any(ca in crit for key, (_, crit) in MAP.items()
+                          if '/activitats/' in key)
+    return 'rúbrica i entrega' if hi_ha_activitat else 'rúbrica'
+
+
+BLOCK_RE = re.compile(
+    r'\n*<!-- =+ CURRÍCULUM =+ -->\n<div class="cq-block" data-kind="currículum">.*?\n</div>\n',
+    re.S)
+ANCHOR = '<!-- === PEU DE NAVEGACIÓ INICI === -->'
+
+
+def block(cont, crit):
+    rows = []
+    for c in cont:
+        rows.append(f'  <p><span class="lbl">Contingut {c}</span> {CONT[c]}</p>')
+    for c in crit:
+        rows.append(f'  <p><span class="lbl">CA {c}</span> {CA[c]}</p>')
+    return ('\n<!-- ============ CURRÍCULUM ============ -->\n'
+            '<div class="cq-block" data-kind="currículum">\n'
+            '  <h2>Al currículum</h2>\n' + '\n'.join(rows) + '\n</div>\n')
+
+
+RA_NOM = {
+ '1': 'Gestors de continguts',
+ '2': "Sistemes de gestió d'aprenentatge",
+ '3': "Serveis de gestió d'arxius web",
+ '4': "Aplicacions d'ofimàtica web",
+ '5': "Aplicacions web d'escriptori",
+}
+
+
+def etiqueta(key):
+    """RA5/activitats/a5-2-dos-llocs → A5.2, i el títol curt del fitxer."""
+    nom = key.rsplit('/', 1)[1]
+    num = re.match(r'([TGA])(\d+)-(\d+)', nom.upper())
+    codi = f'{num.group(1)}{num.group(2)}.{num.group(3)}' if num else nom
+    titol = re.search(r'<header class="cq-header">.*?<h1>(.*?)</h1>',
+                      (ARREL / (key + '.html')).read_text(), re.S)
+    t = re.sub(r'<[^>]+>', '', titol.group(1)).strip() if titol else ''
+    return codi, _html.escape(t)
+
+
+def matriu():
+    """Regenera cobertura.html: cada CA i cada contingut, amb qui el treballa."""
+    per_ca, per_cont = {}, {}
+    for key, (cont, crit) in MAP.items():
+        codi, titol = etiqueta(key)
+        for c in crit:
+            per_ca.setdefault(c, []).append((codi, titol))
+        for c in cont:
+            per_cont.setdefault(c, []).append((codi, titol))
+
+    css = re.search(r'/\* === SINAPSI-CSS INICI.*?/\* === SINAPSI-CSS FI[^\n]*\n',
+                    (ARREL / 'index.html').read_text(), re.S).group(0)
+
+    out = ['<!DOCTYPE html>', '<html lang="ca">', '<head>',
+           '<meta charset="utf-8">',
+           '<meta name="viewport" content="width=device-width, initial-scale=1">',
+           '<title>Cobertura del currículum — 0228 Aplicacions web</title>',
+           '<style>', css, '</style>', '</head>', '<body>',
+           '<header class="cq-header">',
+           '  <div class="eyebrow">CFGM SMX · Mòdul 0228 · ús intern</div>',
+           '  <h1>Cobertura del currículum</h1>',
+           '  <p class="lede">Cada criteri d\'avaluació i cada contingut del '
+           'currículum de la Generalitat, amb les pàgines que el treballen. '
+           'Document de programació: no es publica al web de l\'alumnat.</p>',
+           '</header>']
+
+    sense, nomes_rubrica, forans = [], [], []
+    for ra in sorted(RA_NOM):
+        cas = [c for c in CA if c.split('.')[0] == ra]
+        conts = [c for c in CONT if c.split('.')[0] == ra]
+        out += [f'\n<div class="cq-block" data-kind="RA{ra}">',
+                f'  <h2>RA{ra} · {RA_NOM[ra]}</h2>',
+                '  <div class="cq-tablewrap"><table class="cq-table">',
+                '    <thead><tr><th>Criteri</th><th>Enunciat</th>'
+                '<th>On es treballa</th><th>Instrument</th></tr></thead><tbody>']
+        for c in cas:
+            pags = per_ca.get(c, [])
+            if not pags:
+                sense.append(c)
+            cel = ' · '.join(f'{k}' for k, _ in pags) or \
+                  '<strong>sense cobrir</strong>'
+            # Criteri que només es treballa fora del seu NF: l'evidència val
+            # igualment per a aquest RA, que és qui el qualifica.
+            if pags and all(k[1] != ra for k, _ in pags):
+                forans.append(c)
+                cel += (f' <em>(fora del NF{ra}; l\'evidència s\'utilitza per '
+                        f'avaluar el RA{ra})</em>')
+            inst = instrument(c)
+            if not inst.startswith('Pràctica'):
+                nomes_rubrica.append(c)
+                inst = f'<em>{inst}</em>'
+            out.append(f'    <tr><td><code>{c}</code></td>'
+                       f'<td>{_html.escape(CA[c])}</td><td>{cel}</td>'
+                       f'<td>{inst}</td></tr>')
+        for c in conts:
+            pags = per_cont.get(c, [])
+            cel = ' · '.join(k for k, _ in pags) or '<strong>sense cobrir</strong>'
+            out.append(f'    <tr><td><code>C {c}</code></td>'
+                       f'<td>{_html.escape(CONT[c])}</td><td>{cel}</td>'
+                       f'<td>—</td></tr>')
+        if not cas and not conts:
+            out.append('    <tr><td colspan="4"><strong>El mòdul encara no '
+                       'té material d\'aquest resultat d\'aprenentatge.'
+                       '</strong></td></tr>')
+        out += ['    </tbody></table></div>', '</div>']
+
+    out += ['\n<div class="cq-block" data-kind="proves">',
+            '  <h2>Què exercita cada pràctica</h2>',
+            '  <p>Les pràctiques finals són el 70 % de la nota del RA1 '
+            '(A1.6 el 50 % i A1.7 el 20 %). Es corregeixen amb demostració en '
+            'directe i README. Aquesta taula documenta què s\'hi posa a prova.</p>',
+            '  <div class="cq-tablewrap"><table class="cq-table">',
+            '    <thead><tr><th>Pràctica</th><th>Criteris que exercita</th>'
+            '</tr></thead><tbody>']
+    for nom, cas in PROVA.items():
+        out.append(f'    <tr><td>{nom}</td>'
+                   f'<td>{" · ".join(f"<code>{c}</code>" for c in cas)}</td></tr>')
+    out += ['    </tbody></table></div>', '</div>',
+            '\n<div class="cq-block" data-kind="resum">',
+            '  <h2>Què queda per cobrir</h2>',
+            '  <p>Criteris sense cap pàgina: ' +
+            (', '.join(f'<code>{c}</code>' for c in sorted(sense)) or 'cap') +
+            '.</p>',
+            '  <p>Criteris que es treballen només a la teoria i que, per tant, '
+            '<strong>no generen cap evidència documental pròpia</strong>: ' +
+            (', '.join(f'<code>{c}</code>' for c in sorted(
+                (c for c in nomes_rubrica if instrument(c) == 'rúbrica'),
+                key=lambda x: tuple(map(int, x.split('.'))))) or 'cap') +
+            '. L\'evidència és l\'observació del professor de l\'aprenentatge '
+            'durant el RA, i la rúbrica és l\'instrument on es registra aquesta '
+            'valoració. No s\'hi afegeixen activitats per produir paper.</p>',
+            '  <p>Criteris sense prova però amb activitat, avaluats amb la '
+            'rúbrica i el document entregat: ' +
+            (', '.join(f'<code>{c}</code>' for c in sorted(
+                (c for c in nomes_rubrica if instrument(c) == 'rúbrica i entrega'),
+                key=lambda x: tuple(map(int, x.split('.'))))) or 'cap') +
+            '.</p>',
+            '  <p>Criteris que només es treballen fora del seu nucli formatiu: ' +
+            (', '.join(f'<code>{c}</code>' for c in sorted(
+                forans, key=lambda x: tuple(map(int, x.split('.'))))) or 'cap') +
+            '. L\'evidència s\'utilitza per avaluar-los al RA que els conté.</p>',
+            '</div>', '</body>', '</html>']
+
+    sortida = pathlib.Path(__file__).with_name('cobertura.html')
+    sortida.write_text('\n'.join(out) + '\n')
+    print(f'{sortida}  ·  {len(sense)} criteris sense cobrir  ·  '
+          f'{len(nomes_rubrica)} sense prova  ·  {len(forans)} fora del seu NF')
+
+
+def punts(x):
+    return f'{x:g}'.replace('.', ',')
+
+
+RUB_RE = re.compile(
+    r'\n*<!-- =+ RÚBRICA =+ -->\n<div class="cq-block" data-kind="rúbrica">.*?\n</div>\n',
+    re.S)
+
+
+def rubrica(key):
+    """Bloc «rúbrica» d'una pràctica final: apartats, criteris i punts."""
+    nom, pes, files = PRACTIQUES[key]
+    rows = '\n'.join(
+        f'        <tr><td>{a}</td><td>{" · ".join(f"<code>{c}</code>" for c in cas)}</td>'
+        f'<td>{punts(pt)}</td></tr>' for a, cas, pt in files)
+    return ('\n<!-- ============ RÚBRICA ============ -->\n'
+            '<div class="cq-block" data-kind="rúbrica">\n'
+            '  <h2>Com es qualifica</h2>\n'
+            f'  <p>Aquesta pràctica és el {pes} % de la nota del RA1. Cada apartat '
+            'es puntua a la demostració i amb les evidències del README: la '
+            'puntuació sencera si funciona, la meitat si funciona amb mancances '
+            'i zero si no es pot demostrar.</p>\n'
+            '  <div class="cq-tablewrap">\n    <table class="cq-table">\n'
+            '      <thead><tr><th>Apartat</th><th>Criteri</th><th>Punts</th></tr></thead>\n'
+            f'      <tbody>\n{rows}\n'
+            '        <tr><td><strong>Total</strong></td><td></td><td><strong>10</strong></td></tr>\n'
+            '      </tbody>\n    </table>\n  </div>\n</div>\n')
+
+
+IDX_RE = re.compile(r'<!-- === CURRÍCULUM DEL RA INICI === -->.*?'
+                    r'<!-- === CURRÍCULUM DEL RA FI === -->', re.S)
+
+
+def avalua(ca):
+    """Instruments d'un criteri al quadre del RA: pràctiques i rúbrica contínua."""
+    parts = [nom for nom, cas in PROVA.items() if ca in cas]
+    return ' · '.join(parts + ['rúbrica contínua'])
+
+
+def index_ra(ra):
+    """Bloc «Al currículum» de RAn/index.html: RA, criteris i continguts."""
+    p = ARREL / f'RA{ra}' / 'index.html'
+    if not p.exists():
+        return
+    def on(codi, cont=False):
+        return ' · '.join(pagines_de(codi, cont)) or '<strong>sense cobrir</strong>'
+    f_ca = '\n'.join(
+        f'        <tr><td><code>{c}</code></td><td>{_html.escape(CA[c])}</td>'
+        f'<td>{on(c)}</td><td>{avalua(c)}</td></tr>'
+        for c in CA if c.split('.')[0] == ra)
+    f_co = '\n'.join(
+        f'        <tr><td><code>{c}</code></td><td>{_html.escape(CONT[c])}</td>'
+        f'<td>{on(c, True)}</td></tr>'
+        for c in CONT if c.split('.')[0] == ra)
+    bloc = ('<!-- === CURRÍCULUM DEL RA INICI === -->\n'
+            '<div class="cq-block" data-kind="currículum">\n'
+            '  <h2>Al currículum</h2>\n'
+            f'  <p><span class="lbl">RA{ra}</span> {_html.escape(RA[ra])}</p>\n'
+            '  <div class="cq-tablewrap">\n    <table class="cq-table">\n'
+            '      <thead><tr><th>Criteri</th><th>Enunciat</th>'
+            '<th>On es treballa</th><th>Com s\'avalua</th></tr></thead>\n'
+            f'      <tbody>\n{f_ca}\n      </tbody>\n    </table>\n  </div>\n'
+            '  <div class="cq-tablewrap">\n    <table class="cq-table">\n'
+            '      <thead><tr><th>Contingut</th><th>Enunciat</th>'
+            '<th>On es treballa</th></tr></thead>\n'
+            f'      <tbody>\n{f_co}\n      </tbody>\n    </table>\n  </div>\n'
+            '</div>\n'
+            '<!-- === CURRÍCULUM DEL RA FI === -->')
+    s = p.read_text()
+    if not IDX_RE.search(s):
+        print('SENSE MARCADORS DE CURRÍCULUM:', p)
+        return
+    p.write_text(IDX_RE.sub(lambda m: bloc, s))
+
+
+def main():
+    n = 0
+    for ra in RA_NOM:
+        index_ra(ra)
+    for key, (cont, crit) in MAP.items():
+        if '/guies/' in key:
+            continue
+        p = ARREL / (key + '.html')
+        s = p.read_text()
+        s = BLOCK_RE.sub('\n', s)
+        s = RUB_RE.sub('\n', s)
+        if key in PRACTIQUES and ANCHOR in s:
+            s = s.replace(ANCHOR, rubrica(key) + '\n' + ANCHOR, 1)
+        if ANCHOR not in s:
+            print('SENSE ÀNCORA:', p)
+            continue
+        s = s.replace(ANCHOR, block(cont, crit) + '\n' + ANCHOR, 1)
+        p.write_text(s)
+        n += 1
+    print(f'{n} pàgines amb bloc de currículum')
+
+
+if __name__ == '__main__':
+    main()
+    if '--matriu' in sys.argv:
+        matriu()
