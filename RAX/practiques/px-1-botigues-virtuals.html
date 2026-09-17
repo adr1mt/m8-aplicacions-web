@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>A1.4 · Zoo interactiu — Aplicacions Web (0228)</title>
+<title>PX.1 · Pràctica: botigues virtuals — Aplicacions Web (0228)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500;700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -530,8 +530,8 @@
 <!-- === NAVEGACIÓ INICI === -->
 <nav class="cq-nav">
   <div class="inner">
-    <a href="../index.html">‹ RA1 · Instal·lació de gestors de continguts</a>
-    <span class="pos">A1.4 · 14/17</span>
+    <a href="../index.html">‹ RAX · HTML i CSS</a>
+    <span class="pos">PX.1 · 6/6</span>
   </div>
 </nav>
 <!-- === NAVEGACIÓ FI === -->
@@ -539,165 +539,140 @@
 <main>
 
 <header class="cq-header">
-  <div class="eyebrow">0228 · Aplicacions Web · RA1 · A1.4</div>
-  <h1>Zoo interactiu</h1>
-  <p class="lede">Els mateixos animals en graella o en fila: Grid i Flexbox cara a cara.</p>
+  <div class="eyebrow">0228 · Aplicacions Web · RAX · PX.1</div>
+  <h1>Pràctica: botigues virtuals</h1>
+  <p class="lede">Dues plataformes de comerç electrònic, la mateixa botiga i una comparació honesta.</p>
 </header>
 
 <!-- ============ 1 · OBJECTIUS ============ -->
 <div class="cq-block" data-kind="objectius">
   <h2>Què has de saber abans de començar</h2>
-  <p>Teoria <a class="cq-ref" href="../teoria/t1-3-capses-i-disposicio.html">T1.3</a>, Flexbox i Grid. Per al repositori, G4.3.</p>
-  <p>Faràs un zoo virtual on els animals es distribueixen amb Grid, i un botó els passa a Flexbox per comparar com reparteix l'espai cada sistema.</p>
+  <p>Teories <a class="cq-ref" href="../../RA1/teoria/t1-3-gestors-de-continguts.html">T1.3</a> i <a class="cq-ref" href="../../RA1/teoria/t1-5-mantenir-un-gestor.html">T1.5</a>. Les guies <a class="cq-ref" href="../../RA1/guies/g1-2-pila-lamp.html">G1.2</a> i <a class="cq-ref" href="../../RA1/guies/g1-3-wordpress.html">G1.3</a> et serveixen per a qualsevol aplicació PHP.</p>
+  <p>Instal·laràs almenys dues plataformes de botiga, les configuraràs amb el mateix catàleg i compararàs quina és més fàcil d'instal·lar, de fer servir i de mantenir.</p>
 </div>
 
 <!-- ============ 2 · ESCENARI ============ -->
 <div class="cq-block" data-kind="escenari">
   <h2>Amb què treballaràs</h2>
   <ul>
-    <li>Un repositori nou a GitHub anomenat <code>zoo</code>.</li>
-    <li>Almenys sis imatges d'animals amb llicència lliure, per exemple de Wikimedia Commons, a la carpeta <code>images</code>.</li>
+    <li>Una màquina nova a IsardVDI amb la pila LAMP, i un host virtual i una base de dades per botiga.</li>
+    <li>Plataformes a triar: <strong>WooCommerce</strong> (sobre WordPress), <strong>PrestaShop</strong>, <strong>OpenCart</strong>, <strong>CubeCart</strong> o <strong>Zen Cart</strong>.</li>
   </ul>
 </div>
 
 <!-- ============ 3 · ENUNCIAT ============ -->
 <div class="cq-block" data-kind="enunciat">
-  <h2>Punt de partida</h2>
-  <p>Estructura HTML; afegeix-hi animals fins a sis com a mínim:</p>
-<pre>&lt;header&gt;
-  &lt;h1&gt;Benvingut al Zoo Interactiu!&lt;/h1&gt;
-  &lt;p&gt;Explora els nostres animals i canvia com es mostren!&lt;/p&gt;
-&lt;/header&gt;
-&lt;main&gt;
-  &lt;section class="zoo-grid"&gt;
-    &lt;div class="animal"&gt;
-      &lt;img src="images/lleo.jpg" alt="Lleó"&gt;
-      &lt;h2&gt;Lleó&lt;/h2&gt;
-      &lt;p&gt;El rei de la sabana.&lt;/p&gt;
-    &lt;/div&gt;
-    &lt;!-- més animals aquí --&gt;
-  &lt;/section&gt;
-&lt;/main&gt;
-&lt;footer&gt;
-  &lt;button id="toggle-layout"&gt;Canvia a Flex&lt;/button&gt;
-&lt;/footer&gt;
-&lt;script src="script.js"&gt;&lt;/script&gt;</pre>
-  <p>El botó alterna una classe; tot el canvi d'aspecte ha d'estar al CSS:</p>
-<pre>// script.js
-const zoo = document.querySelector('.zoo-grid');
-const boto = document.getElementById('toggle-layout');
-
-boto.addEventListener('click', () =&gt; {
-  zoo.classList.toggle('mode-flex');
-  boto.textContent = zoo.classList.contains('mode-flex')
-    ? 'Canvia a Grid' : 'Canvia a Flex';
-});</pre>
+  <h2>Què has de fer a cada botiga</h2>
+  <div class="cq-tablewrap">
+    <table class="cq-table">
+      <thead><tr><th>Requisit</th><th>Detall</th></tr></thead>
+      <tbody>
+        <tr><td>Aparença</td><td>Canviar el tema i personalitzar colors, tipus de lletra o disposició</td></tr>
+        <tr><td>Categories</td><td>Tres categories principals</td></tr>
+        <tr><td>Productes</td><td>Tres per categoria, amb nom, descripció de dues o tres frases i preu</td></tr>
+        <tr><td>Divisa</td><td>Una divisa configurada que es vegi bé a tots els preus</td></tr>
+        <tr><td>Idiomes</td><td>Dos idiomes com a mínim, amb nom i descripció de productes traduïts</td></tr>
+        <tr><td>Clients</td><td>Registre d'usuaris i subscripció al butlletí</td></tr>
+        <tr><td>Usabilitat</td><td>Qualsevol producte a <strong>tres clics o menys</strong> des de la portada</td></tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <!-- ============ 4 · ENUNCIAT ============ -->
-<div class="cq-block" data-kind="enunciat">
-  <h2>Què has de fer</h2>
-  <ol>
-    <li>Distribueix els animals amb <code>display: grid</code> i columnes que s'adaptin soles a l'amplada.</li>
-    <li>Escriu la regla <code>.zoo-grid.mode-flex</code> amb <code>display: flex</code>, <code>flex-wrap</code> i centrat.</li>
-    <li>Dona a cada targeta ombra, cantonades arrodonides i una imatge retallada a la mateixa alçada amb <code>object-fit</code>.</li>
-    <li>Afegeix una animació en passar-hi el ratolí: <code>transform: scale(1.05)</code> amb <code>transition</code>.</li>
-    <li>Opcional: en clicar un animal, mostra més informació.</li>
-  </ol>
-</div>
-
-<!-- ============ 5 · ENUNCIAT ============ -->
 <div class="cq-block" data-kind="enunciat">
   <h2>D'on has de treure cada cosa</h2>
   <div class="cq-tablewrap">
     <table class="cq-table">
       <thead><tr><th>Què has de fer</th><th>On ho tens</th></tr></thead>
       <tbody>
-        <tr><td>Graella que s'adapta sola</td><td>Teoria <a class="cq-ref" href="../teoria/t1-3-capses-i-disposicio.html">T1.3</a>, exemple <code>repeat(auto-fit, …)</code></td></tr>
-        <tr><td>Fila que salta de línia</td><td>Teoria <a class="cq-ref" href="../teoria/t1-3-capses-i-disposicio.html">T1.3</a>, taula Flexbox i Grid</td></tr>
-        <tr><td>Selector amb dues classes</td><td>Teoria <a class="cq-ref" href="../teoria/t1-2-html-i-css.html">T1.2</a>, selectors</td></tr>
-        <tr><td>Repositori i GitHub Pages</td><td>Guia G4.3</td></tr>
+        <tr><td>Pila LAMP, host virtual i base de dades per botiga</td><td>Guia <a class="cq-ref" href="../../RA1/guies/g1-2-pila-lamp.html">G1.2</a></td></tr>
+        <tr><td>Requeriments de cada plataforma</td><td>La documentació oficial de cadascuna</td></tr>
+        <tr><td>WooCommerce</td><td>Guia <a class="cq-ref" href="../../RA1/guies/g1-3-wordpress.html">G1.3</a>, extensions</td></tr>
+        <tr><td>Què és una botiga sobre un CMS</td><td>Teoria <a class="cq-ref" href="../../RA1/teoria/t1-3-gestors-de-continguts.html">T1.3</a>, cas real</td></tr>
       </tbody>
     </table>
   </div>
 </div>
 
-<!-- ============ 6 · RECORDATORI ============ -->
+<!-- ============ 5 · RECORDATORI ============ -->
 <div class="cq-block" data-kind="recordatori">
-  <h2>El JavaScript no dona estil</h2>
-  <p>La versió anterior d'aquest exercici canviava l'estil des del JavaScript. Ara el botó només posa o treu una classe: el disseny continua sencer al CSS, que és on es busca quan alguna cosa no es veu bé.</p>
+  <h2>Requeriments abans d'instal·lar</h2>
+  <p>Cada plataforma demana unes versions concretes de PHP i unes extensions. Mira-les a la documentació abans de començar: Ubuntu 26.04 porta PHP 8.5, i una plataforma que encara no el suporti fallarà a mitja instal·lació. Anota-ho a la comparació.</p>
 </div>
 
-<!-- ============ 7 · OBSERVACIÓ ============ -->
+<!-- ============ 6 · OBSERVACIÓ ============ -->
 <div class="cq-block" data-kind="observació">
-  <h2>Veure la graella</h2>
-  <p>A l'inspector, al costat de <code>.zoo-grid</code> surt l'etiqueta <code>grid</code> o <code>flex</code>. Si hi fas clic, el navegador dibuixa les columnes i els espais: fes-ho en els dos modes i compara.</p>
+  <h2>Comptar clics</h2>
+  <p>Demana a un company que trobi un producte concret a la teva botiga sense ajuda i compta els clics. És la manera real de comprovar la regla dels tres clics.</p>
 </div>
 
-<!-- ============ 8 · COMPROVACIÓ ============ -->
+<!-- ============ 7 · COMPROVACIÓ ============ -->
 <div class="cq-block" data-kind="comprovació">
   <h2>Com sabràs que ho has fet bé</h2>
   <ul>
-    <li>En mode Grid totes les targetes d'una fila fan la mateixa amplada.</li>
-    <li>En mode Flex salten de línia i queden centrades.</li>
-    <li>A 375 px es veu una sola columna sense desbordament horitzontal.</li>
-    <li>Les imatges tenen totes la mateixa alçada sense deformar-se.</li>
+    <li>Les dues botigues tenen 3 categories i 9 productes amb preu a la divisa triada.</li>
+    <li>Un client nou es pot registrar i subscriure al butlletí.</li>
+    <li>El canvi d'idioma tradueix nom i descripció dels productes.</li>
+    <li>Cada producte és a tres clics o menys de la portada.</li>
   </ul>
 </div>
 
-<!-- ============ 9 · PROBLEMES ============ -->
+<!-- ============ 8 · PROBLEMES ============ -->
 <div class="cq-block" data-kind="problemes">
   <h2>Si alguna cosa no va</h2>
   <dl class="cq-issues">
-    <dt>El botó no fa res</dt>
+    <dt>L'instal·lador diu que falta una extensió de PHP</dt>
     <dd>
-      <p><span class="lbl">Causa</span> <code>script.js</code> no es carrega o s'executa abans que existeixin els elements.</p>
-      <p><span class="lbl">Solució</span> Mira la consola (F12) i deixa el <code>&lt;script&gt;</code> al final del <code>body</code>.</p>
+      <p><span class="lbl">Causa</span> La plataforma en demana alguna que no porta la pila bàsica.</p>
+      <p><span class="lbl">Solució</span> Instal·la el paquet <code>php-…</code> que falti i reinicia Apache.</p>
     </dd>
-    <dt>Les imatges surten deformades</dt>
+    <dt>Les dues botigues es barregen</dt>
     <dd>
-      <p><span class="lbl">Causa</span> Tenen amplada i alçada fixes sense retallar.</p>
-      <p><span class="lbl">Solució</span> Afegeix <code>object-fit: cover</code>.</p>
+      <p><span class="lbl">Causa</span> Comparteixen host virtual o base de dades.</p>
+      <p><span class="lbl">Solució</span> Una carpeta, un host virtual i una base de dades per botiga.</p>
     </dd>
   </dl>
 </div>
 
-<!-- ============ 10 · LLIURAMENT ============ -->
+<!-- ============ 9 · LLIURAMENT ============ -->
 <div class="cq-block" data-kind="lliurament">
   <h2>Què has d'entregar</h2>
-  <ol class="cq-steps">
-    <li>
-      <p><strong>Publica els canvis</strong> des de la carpeta del repositori:</p>
-<pre>git add .
-git commit -m "Descripció dels canvis"
-git push</pre>
-    </li>
-    <li>
-      <p><strong>Activa GitHub Pages:</strong> <strong>Settings → Pages → Branch: main</strong> i desa.</p>
-    </li>
-    <li>
-      <p><strong>Copia l'adreça publicada</strong> al camp <strong>Website</strong> de la secció <strong>About</strong> del repositori.</p>
-    </li>
-  </ol>
-  <p>Entrega l'enllaç. Respon al <code>README.md</code>: <strong>en quin cas triaries Grid i en quin Flexbox? Posa-hi una captura de cada mode.</strong></p>
+  <p><strong>Demostració en directe</strong> de les botigues, explicant on és cada funció i quines dificultats has resolt.</p>
+  <p>Un repositori públic a GitHub amb tot a <code>README.md</code> (sense PDF): plataformes amb versió i entorn, captures de cada requisit i una <strong>reflexió comparativa de 150 paraules com a mínim</strong>: quina és més intuïtiva i per què, quines dificultats has trobat i si compleixen la regla dels tres clics.</p>
+  <p>Per pujar nota: una tercera plataforma i una taula comparativa de facilitat d'instal·lació, personalització, escalabilitat i extensions.</p>
 </div>
 
 
-<!-- ============ CURRÍCULUM ============ -->
-<div class="cq-block" data-kind="currículum">
-  <h2>Al currículum</h2>
-  <p><span class="lbl">Contingut 1.3</span> Utilització de la interfície gràfica. Personalització de l'entorn. Funcionalitats proporcionades pel gestor de continguts. Sindicació.</p>
-  <p><span class="lbl">CA 1.3</span> Personalitza la interfície del gestor de continguts.</p>
+<!-- ============ QUALIFICACIÓ ============ -->
+<div class="cq-block" data-kind="qualificació">
+  <h2>Com es qualifica</h2>
+  <p>Aquesta pràctica és la principal del <a class="cq-ref" href="../index.html">RAX</a> i és el 60 % de la seva nota. Cada apartat es puntua a la demostració i amb les evidències del README: la puntuació sencera si funciona, la meitat si funciona amb mancances i zero si no es pot demostrar.</p>
+  <div class="cq-tablewrap">
+    <table class="cq-table">
+      <thead><tr><th>Apartat</th><th>Punts</th></tr></thead>
+      <tbody>
+        <tr><td>Dues plataformes instal·lades amb els requeriments comprovats</td><td>2</td></tr>
+        <tr><td>Aparença personalitzada a cada botiga</td><td>1,5</td></tr>
+        <tr><td>Catàleg: categories, productes i divisa</td><td>2</td></tr>
+        <tr><td>Botiga en dos idiomes amb productes traduïts</td><td>1</td></tr>
+        <tr><td>Registre de clients i subscripció al butlletí</td><td>1</td></tr>
+        <tr><td>Proves de funcionament i regla dels tres clics</td><td>1</td></tr>
+        <tr><td>Comparació raonada de requeriments, ús i manteniment</td><td>1,5</td></tr>
+        <tr><td><strong>Total</strong></td><td><strong>10</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <!-- === PEU DE NAVEGACIÓ INICI === -->
 <nav class="cq-pager">
-  <a class="prev" href="a1-3-landing-page.html">
-    <span class="dir">Anterior · A1.3</span>
-    <span class="ttl">Landing page</span></a>
-  <a class="next" href="a1-5-web-html5.html">
-    <span class="dir">Següent · A1.5</span>
+  <a class="prev" href="../activitats/ax-4-web-html5.html">
+    <span class="dir">Anterior · AX.4</span>
     <span class="ttl">Web HTML5</span></a>
+  <a class="next" href="../index.html">
+    <span class="dir">Has acabat el · RAX</span>
+    <span class="ttl">RAX · HTML i CSS</span></a>
 </nav>
 <!-- === PEU DE NAVEGACIÓ FI === -->
 

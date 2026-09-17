@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>A1.1 · Estàtic i dinàmic — Aplicacions Web (0228)</title>
+<title>AX.1 · Targeta Pokémon — Aplicacions Web (0228)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500;700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -530,8 +530,8 @@
 <!-- === NAVEGACIÓ INICI === -->
 <nav class="cq-nav">
   <div class="inner">
-    <a href="../index.html">‹ RA1 · Instal·lació de gestors de continguts</a>
-    <span class="pos">A1.1 · 10/16</span>
+    <a href="../index.html">‹ RAX · HTML i CSS</a>
+    <span class="pos">AX.1 · 2/6</span>
   </div>
 </nav>
 <!-- === NAVEGACIÓ FI === -->
@@ -539,156 +539,161 @@
 <main>
 
 <header class="cq-header">
-  <div class="eyebrow">0228 · Aplicacions Web · RA1 · A1.1</div>
-  <h1>Estàtic i dinàmic</h1>
-  <p class="lede">Un servidor, tres pàgines i un mur de signatures: veure com respon cada una.</p>
+  <div class="eyebrow">0228 · Aplicacions Web · RAX · AX.1</div>
+  <h1>Targeta Pokémon</h1>
+  <p class="lede">Donar estil a un HTML que no es pot tocar: només amb CSS.</p>
 </header>
 
 <!-- ============ 1 · OBJECTIUS ============ -->
 <div class="cq-block" data-kind="objectius">
   <h2>Què has de saber abans de començar</h2>
-  <p>Teoria <a class="cq-ref" href="../teoria/t1-1-com-funciona-una-aplicacio-web.html">T1.1</a> (URL, HTTP, estàtic i dinàmic). La guia <a class="cq-ref" href="../guies/g1-2-pila-lamp.html">G1.2</a> és el manual que consultaràs mentre treballes.</p>
-  <p>Muntaràs la pila LAMP, publicaràs un lloc <code>web.internal</code> i hi compararàs un fitxer que no canvia amb dos programes PHP: un que llegeix la URL i un altre que llegeix la base de dades.</p>
+  <p>Teories <a class="cq-ref" href="../../RA1/teoria/t1-2-html-i-css.html">T1.2</a> (selectors i propietats) i <a class="cq-ref" href="../teoria/tx-1-capses-i-disposicio.html">TX.1</a> (model de capsa i Flexbox). Per al repositori, G4.3.</p>
+  <p>Faràs una targeta visualment atractiva a partir d'una estructura HTML fixa, escrivint només el fitxer <code>styles.css</code> amb selectors de classe.</p>
 </div>
 
 <!-- ============ 2 · ESCENARI ============ -->
 <div class="cq-block" data-kind="escenari">
   <h2>Amb què treballaràs</h2>
-  <div class="cq-tablewrap">
-    <table class="cq-table">
-      <thead><tr><th>Màquina</th><th>Sistema</th><th>Nom del lloc</th></tr></thead>
-      <tbody>
-        <tr><td>Escriptori nou a IsardVDI</td><td>Ubuntu 26.04 LTS</td><td><code>web.internal</code></td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p>El navegador és a la mateixa màquina, i el nom es resol amb <code>/etc/hosts</code>.</p>
+  <ul>
+    <li>Visual Studio Code i un navegador.</li>
+    <li>Un repositori nou a GitHub anomenat <code>pokemon</code>, amb <code>README.md</code> i llicència GPL v3, clonat per SSH.</li>
+    <li>La imatge <a href="../img/bulbasaur.png">bulbasaur.png</a>, desada a la carpeta <code>images</code>.</li>
+  </ul>
 </div>
 
 <!-- ============ 3 · ENUNCIAT ============ -->
 <div class="cq-block" data-kind="enunciat">
-  <h2>Què has de fer</h2>
-  <ol>
-    <li>Instal·la la pila LAMP i crea el host virtual <code>web.internal</code>.</li>
-    <li>Publica <code>index.html</code>, <code>xxx.html</code> i <code>aaa/bbb/mmm.html</code>. Demana una pàgina que no existeix i una carpeta sense <code>index.html</code>: anota què respon el servidor.</li>
-    <li>Crea <code>data.html</code> amb una data escrita a mà i <code>data.php</code> amb el codi de sota. Recarrega totes dues.</li>
-    <li>Crea <code>hola.php</code>, que saluda el nom que arriba a la consulta: <code>hola.php?nom=Anna</code>.</li>
-    <li>Crea la base de dades <code>muraldb</code> amb l'SQL de sota, el seu usuari, i el programa <code>mur.php</code>, que mostra les signatures i en deixa afegir.</li>
-  </ol>
-  <p><code>data.php</code> i <code>hola.php</code>:</p>
-<pre>&lt;?php // data.php
-echo "&lt;p&gt;La data del servidor és: " . date('d/m/Y H:i:s') . "&lt;/p&gt;";</pre>
-<pre>&lt;?php // hola.php
-$nom = htmlspecialchars($_GET['nom'] ?? 'desconegut');
-echo "&lt;h1&gt;Hola, $nom&lt;/h1&gt;";</pre>
-  <p>Base de dades del mur:</p>
-<pre>CREATE TABLE signatures (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  text VARCHAR(200) NOT NULL,
-  creada TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-INSERT INTO signatures (text) VALUES ('Hola, món'), ('Passava per aquí');</pre>
-  <p><code>mur.php</code> (canvia la contrasenya per la teva):</p>
-<pre>&lt;?php
-$db = new PDO('mysql:host=localhost;dbname=muraldb;charset=utf8mb4',
-              'muraluser', 'Canvia-la-2026');
-if (!empty($_POST['text'])) {
-    $alta = $db-&gt;prepare('INSERT INTO signatures (text) VALUES (?)');
-    $alta-&gt;execute([$_POST['text']]);
-}
-echo '&lt;form method="post"&gt;&lt;input name="text" maxlength="200"&gt;';
-echo '&lt;button&gt;Signa&lt;/button&gt;&lt;/form&gt;&lt;ul&gt;';
-foreach ($db-&gt;query('SELECT text, creada FROM signatures
-                     ORDER BY creada DESC') as $fila) {
-    echo '&lt;li&gt;' . htmlspecialchars($fila['text']) . ' · '
-       . $fila['creada'] . '&lt;/li&gt;';
-}
-echo '&lt;/ul&gt;';</pre>
+  <h2>L'HTML, que no es pot modificar</h2>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="ca"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Targeta de Pokémon&lt;/title&gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class="pokemon-card"&gt;
+    &lt;img class="pokemon-image" src="images/bulbasaur.png"
+         alt="Imatge del Pokémon"&gt;
+    &lt;div class="pokemon-info"&gt;
+      &lt;h2 class="pokemon-name"&gt;Bulbasaur&lt;/h2&gt;
+      &lt;p class="pokemon-type plant"&gt;Planta&lt;/p&gt;
+      &lt;p class="pokemon-type poison"&gt;Verí&lt;/p&gt;
+      &lt;p class="pokemon-description"&gt;
+        Bulbasaur és un Pokémon de tipus Planta i Verí. És fàcil
+        distingir-lo per la llavor que té a l'esquena, que creix a
+        mesura que ell ho fa.
+      &lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
 </div>
 
 <!-- ============ 4 · ENUNCIAT ============ -->
+<div class="cq-block" data-kind="enunciat">
+  <h2>Què has de fer</h2>
+  <div class="cq-tablewrap">
+    <table class="cq-table">
+      <thead><tr><th>Classe</th><th>Estil que ha de tenir</th></tr></thead>
+      <tbody>
+        <tr><td><code>.pokemon-card</code></td><td>Fons gris clar, cantonades arrodonides, ombra, farciment, centrada horitzontalment i verticalment a la pantalla</td></tr>
+        <tr><td><code>.pokemon-image</code></td><td>Amplada màxima, cantonades arrodonides i marge inferior</td></tr>
+        <tr><td><code>.pokemon-info</code></td><td>Fons verd clar, cantonades arrodonides i farciment</td></tr>
+        <tr><td><code>.pokemon-name</code></td><td>Tipus de lletra distintiu i color que contrasti</td></tr>
+        <tr><td><code>.pokemon-type</code></td><td>Un color per tipus (<code>.plant</code>, <code>.poison</code>) i marge inferior</td></tr>
+        <tr><td><code>.pokemon-description</code></td><td>Lletra més petita que el nom i color gris</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ============ 5 · ENUNCIAT ============ -->
 <div class="cq-block" data-kind="enunciat">
   <h2>D'on has de treure cada cosa</h2>
   <div class="cq-tablewrap">
     <table class="cq-table">
       <thead><tr><th>Què has de fer</th><th>On ho tens</th></tr></thead>
       <tbody>
-        <tr><td>Preparar l'escriptori</td><td>Guia <a class="cq-ref" href="../guies/g1-1-entorn-de-laboratori.html">G1.1</a></td></tr>
-        <tr><td>Instal·lar Apache, MySQL i PHP</td><td>Guia <a class="cq-ref" href="../guies/g1-2-pila-lamp.html">G1.2</a>, primer pas a pas</td></tr>
-        <tr><td>Crear el host virtual i el nom</td><td>Guia <a class="cq-ref" href="../guies/g1-2-pila-lamp.html">G1.2</a>, host virtual</td></tr>
-        <tr><td>Crear la base de dades i l'usuari</td><td>Guia <a class="cq-ref" href="../guies/g1-2-pila-lamp.html">G1.2</a>, base de dades</td></tr>
-        <tr><td>Què vol dir cada codi d'estat</td><td>Teoria <a class="cq-ref" href="../teoria/t1-1-com-funciona-una-aplicacio-web.html">T1.1</a></td></tr>
-        <tr><td>Per què una pàgina canvia i l'altra no</td><td>Teoria <a class="cq-ref" href="../teoria/t1-1-com-funciona-una-aplicacio-web.html">T1.1</a>, estàtic i dinàmic</td></tr>
+        <tr><td>Crear i clonar el repositori per SSH</td><td>Guia G4.3</td></tr>
+        <tr><td>Selectors de classe i propietats de color i lletra</td><td>Teoria <a class="cq-ref" href="../../RA1/teoria/t1-2-html-i-css.html">T1.2</a></td></tr>
+        <tr><td>Farciment, vores i marges</td><td>Teoria <a class="cq-ref" href="../teoria/tx-1-capses-i-disposicio.html">TX.1</a>, model de capsa</td></tr>
+        <tr><td>Centrar la targeta a la pantalla</td><td>Teoria <a class="cq-ref" href="../teoria/tx-1-capses-i-disposicio.html">TX.1</a>, exemple de Flexbox</td></tr>
+        <tr><td>Publicar-la a GitHub Pages</td><td>Pas a pas del lliurament</td></tr>
       </tbody>
     </table>
   </div>
 </div>
 
-<!-- ============ 5 · RECORDATORI ============ -->
+<!-- ============ 6 · RECORDATORI ============ -->
 <div class="cq-block" data-kind="recordatori">
-  <h2>Mai confiïs en el que arriba per la URL</h2>
-  <p>Tot el que ve de la consulta o d'un formulari ho escriu el visitant, i pot ser codi. Per això <code>hola.php</code> passa el nom per <code>htmlspecialchars</code> i el mur fa servir una consulta preparada. Un programa que executi o guardi tal qual el que rep deixa el servidor a mans de qualsevol.</p>
+  <h2>Dues classes al mateix element</h2>
+  <p><code>class="pokemon-type plant"</code> vol dir que l'element té dues classes. <code>.pokemon-type</code> dona l'estil comú a tots els tipus i <code>.plant</code> només el color propi. Així no es repeteix el mateix CSS.</p>
 </div>
 
-<!-- ============ 6 · OBSERVACIÓ ============ -->
+<!-- ============ 7 · OBSERVACIÓ ============ -->
 <div class="cq-block" data-kind="observació">
-  <h2>La mateixa petició vista de dues maneres</h2>
-  <p>Obre les eines de desenvolupador del navegador (F12, pestanya Xarxa) i compara la resposta de <code>data.html</code> i de <code>data.php</code>. El navegador rep HTML en tots dos casos: el codi PHP no surt mai del servidor.</p>
+  <h2>Provar abans d'escriure</h2>
+  <p>A l'inspector del navegador pots escriure propietats sobre <code>.pokemon-card</code> i veure'n l'efecte a l'instant. Quan t'agradi, copia-les a <code>styles.css</code>.</p>
 </div>
 
-<!-- ============ 7 · COMPROVACIÓ ============ -->
+<!-- ============ 8 · COMPROVACIÓ ============ -->
 <div class="cq-block" data-kind="comprovació">
   <h2>Com sabràs que ho has fet bé</h2>
   <ul>
-    <li><code>curl -I http://web.internal/no-existeix.html</code> respon <code>404</code>.</li>
-    <li><code>curl -s http://web.internal/data.php</code> dona una hora diferent a cada execució; <code>data.html</code>, sempre la mateixa.</li>
-    <li><code>curl -s "http://web.internal/hola.php?nom=%3Cb%3EAnna%3C/b%3E"</code> mostra les etiquetes com a text, no en negreta.</li>
-    <li>Una signatura nova apareix al mur i continua després de recarregar.</li>
+    <li><code>index.html</code> és idèntic a l'original.</li>
+    <li>La targeta queda centrada tant en pantalla gran com a 375 px d'amplada.</li>
+    <li>Tots els estils fan servir selectors de classe.</li>
+    <li>La pàgina publicada a GitHub Pages es veu igual que en local.</li>
   </ul>
 </div>
 
-<!-- ============ 8 · PROBLEMES ============ -->
+<!-- ============ 9 · PROBLEMES ============ -->
 <div class="cq-block" data-kind="problemes">
   <h2>Si alguna cosa no va</h2>
   <dl class="cq-issues">
-    <dt><code>mur.php</code> surt en blanc</dt>
+    <dt>No surt la imatge a GitHub Pages però sí en local</dt>
     <dd>
-      <p><span class="lbl">Causa</span> Hi ha un error de PHP i Apache no el mostra.</p>
-      <p><span class="lbl">Solució</span> Llegeix el registre d'errors del lloc, tal com diu <a class="cq-ref" href="../guies/g1-2-pila-lamp.html">G1.2</a>.</p>
+      <p><span class="lbl">Causa</span> El nom de la carpeta o del fitxer no coincideix en majúscules i minúscules.</p>
+      <p><span class="lbl">Solució</span> GitHub Pages distingeix <code>Images</code> d'<code>images</code>: fes-los coincidir.</p>
     </dd>
-    <dt><code>could not find driver</code></dt>
+    <dt>La targeta no es centra verticalment</dt>
     <dd>
-      <p><span class="lbl">Causa</span> Falta l'extensió de PHP per a MySQL.</p>
-      <p><span class="lbl">Solució</span> Instal·la <code>php-mysql</code> i reinicia Apache.</p>
+      <p><span class="lbl">Causa</span> El contenidor flex no té alçada.</p>
+      <p><span class="lbl">Solució</span> Dona <code>min-height: 100vh</code> al <code>body</code>.</p>
     </dd>
   </dl>
 </div>
 
-<!-- ============ 9 · LLIURAMENT ============ -->
+<!-- ============ 10 · LLIURAMENT ============ -->
 <div class="cq-block" data-kind="lliurament">
   <h2>Què has d'entregar</h2>
-  <p>Un repositori a GitHub amb un <code>README.md</code> que tingui captures de cada punt de l'enunciat i la sortida de les comprovacions.</p>
-  <p>Respon-hi també: <strong>què veuria un visitant si <code>hola.php</code> fes <code>echo $_GET['nom']</code> sense <code>htmlspecialchars</code> i algú hi enviés codi JavaScript? Per què és un problema del servidor i no del navegador?</strong></p>
-</div>
-
-
-<!-- ============ CURRÍCULUM ============ -->
-<div class="cq-block" data-kind="currículum">
-  <h2>Al currículum</h2>
-  <p><span class="lbl">Contingut 1.1</span> Instal·lació en sistemes operatius lliures i propietaris.</p>
-  <p><span class="lbl">Contingut 1.4</span> Funcionament dels gestors de continguts.</p>
-  <p><span class="lbl">CA 1.1</span> Identifica els requeriments necessaris per instal·lar gestors de continguts.</p>
-  <p><span class="lbl">CA 1.4</span> Realitza proves de funcionament.</p>
+  <ol class="cq-steps">
+    <li>
+      <p><strong>Publica els canvis</strong> des de la carpeta del repositori:</p>
+<pre>git add .
+git commit -m "Descripció dels canvis"
+git push</pre>
+    </li>
+    <li>
+      <p><strong>Activa GitHub Pages:</strong> <strong>Settings → Pages → Branch: main</strong> i desa.</p>
+    </li>
+    <li>
+      <p><strong>Copia l'adreça publicada</strong> al camp <strong>Website</strong> de la secció <strong>About</strong> del repositori.</p>
+    </li>
+  </ol>
+  <p>Entrega l'enllaç al repositori. Respon al <code>README.md</code>: <strong>quina propietat has fet servir per centrar la targeta i per què funciona?</strong></p>
 </div>
 
 <!-- === PEU DE NAVEGACIÓ INICI === -->
 <nav class="cq-pager">
-  <a class="prev" href="../guies/g1-4-migrar-wordpress.html">
-    <span class="dir">Anterior · G1.4</span>
-    <span class="ttl">Guia: migrar WordPress a un allotjament</span></a>
-  <a class="next" href="a1-2-requeriments-i-instal-lacio.html">
-    <span class="dir">Següent · A1.2</span>
-    <span class="ttl">Requeriments i instal·lació</span></a>
+  <a class="prev" href="../teoria/tx-1-capses-i-disposicio.html">
+    <span class="dir">Anterior · TX.1</span>
+    <span class="ttl">Capses i disposició</span></a>
+  <a class="next" href="ax-2-landing-page.html">
+    <span class="dir">Següent · AX.2</span>
+    <span class="ttl">Landing page</span></a>
 </nav>
 <!-- === PEU DE NAVEGACIÓ FI === -->
 

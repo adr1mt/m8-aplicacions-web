@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>A1.1 · Estàtic i dinàmic — Aplicacions Web (0228)</title>
+<title>AX.4 · Web HTML5 — Aplicacions Web (0228)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500;700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -530,8 +530,8 @@
 <!-- === NAVEGACIÓ INICI === -->
 <nav class="cq-nav">
   <div class="inner">
-    <a href="../index.html">‹ RA1 · Instal·lació de gestors de continguts</a>
-    <span class="pos">A1.1 · 10/16</span>
+    <a href="../index.html">‹ RAX · HTML i CSS</a>
+    <span class="pos">AX.4 · 5/6</span>
   </div>
 </nav>
 <!-- === NAVEGACIÓ FI === -->
@@ -539,71 +539,45 @@
 <main>
 
 <header class="cq-header">
-  <div class="eyebrow">0228 · Aplicacions Web · RA1 · A1.1</div>
-  <h1>Estàtic i dinàmic</h1>
-  <p class="lede">Un servidor, tres pàgines i un mur de signatures: veure com respon cada una.</p>
+  <div class="eyebrow">0228 · Aplicacions Web · RAX · AX.4</div>
+  <h1>Web HTML5</h1>
+  <p class="lede">Un web propi de tres pàgines, semàntic, animat i adaptat al mòbil.</p>
 </header>
 
 <!-- ============ 1 · OBJECTIUS ============ -->
 <div class="cq-block" data-kind="objectius">
   <h2>Què has de saber abans de començar</h2>
-  <p>Teoria <a class="cq-ref" href="../teoria/t1-1-com-funciona-una-aplicacio-web.html">T1.1</a> (URL, HTTP, estàtic i dinàmic). La guia <a class="cq-ref" href="../guies/g1-2-pila-lamp.html">G1.2</a> és el manual que consultaràs mentre treballes.</p>
-  <p>Muntaràs la pila LAMP, publicaràs un lloc <code>web.internal</code> i hi compararàs un fitxer que no canvia amb dos programes PHP: un que llegeix la URL i un altre que llegeix la base de dades.</p>
+  <p>Teories <a class="cq-ref" href="../../RA1/teoria/t1-2-html-i-css.html">T1.2</a> i <a class="cq-ref" href="../teoria/tx-1-capses-i-disposicio.html">TX.1</a> senceres i les activitats <a class="cq-ref" href="ax-1-targeta-pokemon.html">AX.1</a> a <a class="cq-ref" href="ax-3-zoo-interactiu.html">AX.3</a>.</p>
+  <p>Faràs un projecte complet només amb HTML5 i CSS, sobre un tema que triïs, i en documentaràs les decisions de disseny.</p>
 </div>
 
 <!-- ============ 2 · ESCENARI ============ -->
 <div class="cq-block" data-kind="escenari">
   <h2>Amb què treballaràs</h2>
-  <div class="cq-tablewrap">
-    <table class="cq-table">
-      <thead><tr><th>Màquina</th><th>Sistema</th><th>Nom del lloc</th></tr></thead>
-      <tbody>
-        <tr><td>Escriptori nou a IsardVDI</td><td>Ubuntu 26.04 LTS</td><td><code>web.internal</code></td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p>El navegador és a la mateixa màquina, i el nom es resol amb <code>/etc/hosts</code>.</p>
+  <ul>
+    <li>Un repositori nou a GitHub amb GitHub Pages activat.</li>
+    <li>Carpetes separades per a CSS i imatges.</li>
+    <li>Tema lliure: bloc personal, web d'empresa, catàleg de productes…</li>
+  </ul>
 </div>
 
 <!-- ============ 3 · ENUNCIAT ============ -->
 <div class="cq-block" data-kind="enunciat">
   <h2>Què has de fer</h2>
-  <ol>
-    <li>Instal·la la pila LAMP i crea el host virtual <code>web.internal</code>.</li>
-    <li>Publica <code>index.html</code>, <code>xxx.html</code> i <code>aaa/bbb/mmm.html</code>. Demana una pàgina que no existeix i una carpeta sense <code>index.html</code>: anota què respon el servidor.</li>
-    <li>Crea <code>data.html</code> amb una data escrita a mà i <code>data.php</code> amb el codi de sota. Recarrega totes dues.</li>
-    <li>Crea <code>hola.php</code>, que saluda el nom que arriba a la consulta: <code>hola.php?nom=Anna</code>.</li>
-    <li>Crea la base de dades <code>muraldb</code> amb l'SQL de sota, el seu usuari, i el programa <code>mur.php</code>, que mostra les signatures i en deixa afegir.</li>
-  </ol>
-  <p><code>data.php</code> i <code>hola.php</code>:</p>
-<pre>&lt;?php // data.php
-echo "&lt;p&gt;La data del servidor és: " . date('d/m/Y H:i:s') . "&lt;/p&gt;";</pre>
-<pre>&lt;?php // hola.php
-$nom = htmlspecialchars($_GET['nom'] ?? 'desconegut');
-echo "&lt;h1&gt;Hola, $nom&lt;/h1&gt;";</pre>
-  <p>Base de dades del mur:</p>
-<pre>CREATE TABLE signatures (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  text VARCHAR(200) NOT NULL,
-  creada TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-INSERT INTO signatures (text) VALUES ('Hola, món'), ('Passava per aquí');</pre>
-  <p><code>mur.php</code> (canvia la contrasenya per la teva):</p>
-<pre>&lt;?php
-$db = new PDO('mysql:host=localhost;dbname=muraldb;charset=utf8mb4',
-              'muraluser', 'Canvia-la-2026');
-if (!empty($_POST['text'])) {
-    $alta = $db-&gt;prepare('INSERT INTO signatures (text) VALUES (?)');
-    $alta-&gt;execute([$_POST['text']]);
-}
-echo '&lt;form method="post"&gt;&lt;input name="text" maxlength="200"&gt;';
-echo '&lt;button&gt;Signa&lt;/button&gt;&lt;/form&gt;&lt;ul&gt;';
-foreach ($db-&gt;query('SELECT text, creada FROM signatures
-                     ORDER BY creada DESC') as $fila) {
-    echo '&lt;li&gt;' . htmlspecialchars($fila['text']) . ' · '
-       . $fila['creada'] . '&lt;/li&gt;';
-}
-echo '&lt;/ul&gt;';</pre>
+  <div class="cq-tablewrap">
+    <table class="cq-table">
+      <thead><tr><th>Apartat</th><th>Requisits</th><th>Punts</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Layout</strong></td><td>Esquema dibuixat al README. Etiquetes semàntiques (<code>header</code>, <code>nav</code>, <code>main</code>, <code>section</code>, <code>article</code>, <code>footer</code>). Sense <code>&lt;br&gt;</code> ni marcs.</td><td>2,5</td></tr>
+        <tr><td><strong>Navegació</strong></td><td>Dins de <code>&lt;nav&gt;</code>, fixa o enganxosa, amb efecte a <code>:hover</code> i adaptació al mòbil.</td><td>1,5</td></tr>
+        <tr><td><strong>Continguts i estil</strong></td><td>Tres pàgines com a mínim, amb un sol <code>styles.css</code> extern i estils per a lletra, colors, marges, imatges i enllaços.</td><td>2</td></tr>
+        <tr><td><strong>Visualització i animació</strong></td><td>Un efecte (carrusel, paral·laxi o transicions) i animacions amb <code>@keyframes</code>, <code>transition</code> o <code>transform</code>.</td><td>1,5</td></tr>
+        <tr><td><strong>Disseny adaptable</strong></td><td><em>Media queries</em> per a pantalla petita, mitjana i gran.</td><td>1</td></tr>
+        <tr><td><strong>Codi net</strong></td><td>Indentació, comentaris on calgui i fitxers ordenats. HTML sense errors al validador del W3C.</td><td>1,5</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Extres valorats: tipus de lletra propis, icones SVG, formulari de contacte i multimèdia.</p>
 </div>
 
 <!-- ============ 4 · ENUNCIAT ============ -->
@@ -613,12 +587,11 @@ echo '&lt;/ul&gt;';</pre>
     <table class="cq-table">
       <thead><tr><th>Què has de fer</th><th>On ho tens</th></tr></thead>
       <tbody>
-        <tr><td>Preparar l'escriptori</td><td>Guia <a class="cq-ref" href="../guies/g1-1-entorn-de-laboratori.html">G1.1</a></td></tr>
-        <tr><td>Instal·lar Apache, MySQL i PHP</td><td>Guia <a class="cq-ref" href="../guies/g1-2-pila-lamp.html">G1.2</a>, primer pas a pas</td></tr>
-        <tr><td>Crear el host virtual i el nom</td><td>Guia <a class="cq-ref" href="../guies/g1-2-pila-lamp.html">G1.2</a>, host virtual</td></tr>
-        <tr><td>Crear la base de dades i l'usuari</td><td>Guia <a class="cq-ref" href="../guies/g1-2-pila-lamp.html">G1.2</a>, base de dades</td></tr>
-        <tr><td>Què vol dir cada codi d'estat</td><td>Teoria <a class="cq-ref" href="../teoria/t1-1-com-funciona-una-aplicacio-web.html">T1.1</a></td></tr>
-        <tr><td>Per què una pàgina canvia i l'altra no</td><td>Teoria <a class="cq-ref" href="../teoria/t1-1-com-funciona-una-aplicacio-web.html">T1.1</a>, estàtic i dinàmic</td></tr>
+        <tr><td>Etiquetes semàntiques</td><td>Teoria <a class="cq-ref" href="../../RA1/teoria/t1-2-html-i-css.html">T1.2</a>, taula d'etiquetes</td></tr>
+        <tr><td>Estructura de la pàgina</td><td>Teoria <a class="cq-ref" href="../teoria/tx-1-capses-i-disposicio.html">TX.1</a>, Grid</td></tr>
+        <tr><td>Menú enganxós</td><td>Teoria <a class="cq-ref" href="../teoria/tx-1-capses-i-disposicio.html">TX.1</a>, <code>position: sticky</code></td></tr>
+        <tr><td>Adaptació al mòbil</td><td>Teoria <a class="cq-ref" href="../teoria/tx-1-capses-i-disposicio.html">TX.1</a>, <em>media queries</em></td></tr>
+        <tr><td>Publicació</td><td>Guia G4.3 i lliurament d'<a class="cq-ref" href="ax-1-targeta-pokemon.html">AX.1</a></td></tr>
       </tbody>
     </table>
   </div>
@@ -626,24 +599,24 @@ echo '&lt;/ul&gt;';</pre>
 
 <!-- ============ 5 · RECORDATORI ============ -->
 <div class="cq-block" data-kind="recordatori">
-  <h2>Mai confiïs en el que arriba per la URL</h2>
-  <p>Tot el que ve de la consulta o d'un formulari ho escriu el visitant, i pot ser codi. Per això <code>hola.php</code> passa el nom per <code>htmlspecialchars</code> i el mur fa servir una consulta preparada. Un programa que executi o guardi tal qual el que rep deixa el servidor a mans de qualsevol.</p>
+  <h2>Primer el dibuix</h2>
+  <p>Dibuixa el layout en paper abans d'escriure codi: quines zones hi ha, com es col·loquen en pantalla gran i com s'apilen al mòbil. Amb el dibuix fet, les <code>grid-template-areas</code> gairebé s'escriuen soles.</p>
 </div>
 
 <!-- ============ 6 · OBSERVACIÓ ============ -->
 <div class="cq-block" data-kind="observació">
-  <h2>La mateixa petició vista de dues maneres</h2>
-  <p>Obre les eines de desenvolupador del navegador (F12, pestanya Xarxa) i compara la resposta de <code>data.html</code> i de <code>data.php</code>. El navegador rep HTML en tots dos casos: el codi PHP no surt mai del servidor.</p>
+  <h2>Provar-ho com un mòbil</h2>
+  <p>A Firefox, <strong>Ctrl+Maj+M</strong> obre la vista adaptable: tria un mòbil de 375 px i recorre totes les pàgines. Si apareix barra de desplaçament horitzontal, alguna cosa té una amplada fixa massa gran.</p>
 </div>
 
 <!-- ============ 7 · COMPROVACIÓ ============ -->
 <div class="cq-block" data-kind="comprovació">
   <h2>Com sabràs que ho has fet bé</h2>
   <ul>
-    <li><code>curl -I http://web.internal/no-existeix.html</code> respon <code>404</code>.</li>
-    <li><code>curl -s http://web.internal/data.php</code> dona una hora diferent a cada execució; <code>data.html</code>, sempre la mateixa.</li>
-    <li><code>curl -s "http://web.internal/hola.php?nom=%3Cb%3EAnna%3C/b%3E"</code> mostra les etiquetes com a text, no en negreta.</li>
-    <li>Una signatura nova apareix al mur i continua després de recarregar.</li>
+    <li>El <a href="https://validator.w3.org/">validador del W3C</a> no dona errors a cap pàgina.</li>
+    <li>Les tres pàgines comparteixen el mateix <code>styles.css</code>.</li>
+    <li>A 375 px no hi ha desplaçament horitzontal i el menú es pot fer servir.</li>
+    <li>El web es veu publicat a GitHub Pages.</li>
   </ul>
 </div>
 
@@ -651,15 +624,15 @@ echo '&lt;/ul&gt;';</pre>
 <div class="cq-block" data-kind="problemes">
   <h2>Si alguna cosa no va</h2>
   <dl class="cq-issues">
-    <dt><code>mur.php</code> surt en blanc</dt>
+    <dt>Les <em>media queries</em> no s'apliquen al mòbil</dt>
     <dd>
-      <p><span class="lbl">Causa</span> Hi ha un error de PHP i Apache no el mostra.</p>
-      <p><span class="lbl">Solució</span> Llegeix el registre d'errors del lloc, tal com diu <a class="cq-ref" href="../guies/g1-2-pila-lamp.html">G1.2</a>.</p>
+      <p><span class="lbl">Causa</span> Falta la metaetiqueta <code>viewport</code>.</p>
+      <p><span class="lbl">Solució</span> Afegeix-la al <code>head</code> de totes les pàgines.</p>
     </dd>
-    <dt><code>could not find driver</code></dt>
+    <dt>Els enllaços entre pàgines funcionen en local però no a GitHub Pages</dt>
     <dd>
-      <p><span class="lbl">Causa</span> Falta l'extensió de PHP per a MySQL.</p>
-      <p><span class="lbl">Solució</span> Instal·la <code>php-mysql</code> i reinicia Apache.</p>
+      <p><span class="lbl">Causa</span> Rutes absolutes que comencen per <code>/</code>.</p>
+      <p><span class="lbl">Solució</span> Fes servir rutes relatives: <code>contacte.html</code>.</p>
     </dd>
   </dl>
 </div>
@@ -667,28 +640,18 @@ echo '&lt;/ul&gt;';</pre>
 <!-- ============ 9 · LLIURAMENT ============ -->
 <div class="cq-block" data-kind="lliurament">
   <h2>Què has d'entregar</h2>
-  <p>Un repositori a GitHub amb un <code>README.md</code> que tingui captures de cada punt de l'enunciat i la sortida de les comprovacions.</p>
-  <p>Respon-hi també: <strong>què veuria un visitant si <code>hola.php</code> fes <code>echo $_GET['nom']</code> sense <code>htmlspecialchars</code> i algú hi enviés codi JavaScript? Per què és un problema del servidor i no del navegador?</strong></p>
-</div>
-
-
-<!-- ============ CURRÍCULUM ============ -->
-<div class="cq-block" data-kind="currículum">
-  <h2>Al currículum</h2>
-  <p><span class="lbl">Contingut 1.1</span> Instal·lació en sistemes operatius lliures i propietaris.</p>
-  <p><span class="lbl">Contingut 1.4</span> Funcionament dels gestors de continguts.</p>
-  <p><span class="lbl">CA 1.1</span> Identifica els requeriments necessaris per instal·lar gestors de continguts.</p>
-  <p><span class="lbl">CA 1.4</span> Realitza proves de funcionament.</p>
+  <p>L'enllaç al repositori amb GitHub Pages activat. El <code>README.md</code> ha de tenir: descripció i tema, esquema del layout, decisions d'estil i propietats CSS usades, efectes i animacions, com has fet el disseny adaptable i captures del resultat.</p>
+  <p>Respon-hi també: <strong>quina part del teu CSS canviaries per adaptar aquest disseny a un tema de WordPress amb el CSS addicional?</strong></p>
 </div>
 
 <!-- === PEU DE NAVEGACIÓ INICI === -->
 <nav class="cq-pager">
-  <a class="prev" href="../guies/g1-4-migrar-wordpress.html">
-    <span class="dir">Anterior · G1.4</span>
-    <span class="ttl">Guia: migrar WordPress a un allotjament</span></a>
-  <a class="next" href="a1-2-requeriments-i-instal-lacio.html">
-    <span class="dir">Següent · A1.2</span>
-    <span class="ttl">Requeriments i instal·lació</span></a>
+  <a class="prev" href="ax-3-zoo-interactiu.html">
+    <span class="dir">Anterior · AX.3</span>
+    <span class="ttl">Zoo interactiu</span></a>
+  <a class="next" href="../practiques/px-1-botigues-virtuals.html">
+    <span class="dir">Següent · PX.1</span>
+    <span class="ttl">Pràctica: botigues virtuals</span></a>
 </nav>
 <!-- === PEU DE NAVEGACIÓ FI === -->
 

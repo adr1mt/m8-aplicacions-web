@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>T1.3 · Capses i disposició — Aplicacions Web (0228)</title>
+<title>A1.2 · Requeriments i instal·lació — Aplicacions Web (0228)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500;700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -531,7 +531,7 @@
 <nav class="cq-nav">
   <div class="inner">
     <a href="../index.html">‹ RA1 · Instal·lació de gestors de continguts</a>
-    <span class="pos">T1.3 · 3/17</span>
+    <span class="pos">A1.2 · 11/16</span>
   </div>
 </nav>
 <!-- === NAVEGACIÓ FI === -->
@@ -539,244 +539,133 @@
 <main>
 
 <header class="cq-header">
-  <div class="eyebrow">0228 · Aplicacions Web · RA1 · T1.3</div>
-  <h1>Capses i disposició</h1>
-  <p class="lede">Cada element és una capsa: com es mesura, com es mou i com es reparteix l'espai.</p>
+  <div class="eyebrow">0228 · Aplicacions Web · RA1 · A1.2</div>
+  <h1>Requeriments i instal·lació</h1>
+  <p class="lede">Abans d'instal·lar, mirar què demana cada gestor i què té el servidor. Després, instal·lar-ne un i veure com funciona per dins.</p>
 </header>
 
 <!-- ============ 1 · OBJECTIUS ============ -->
 <div class="cq-block" data-kind="objectius">
-  <h2>Què sabràs fer en acabar</h2>
-  <ul>
-    <li>Explicar les quatre capes del model de capsa.</li>
-    <li>Calcular l'amplada real d'un element i fer servir <code>box-sizing</code>.</li>
-    <li>Triar el valor de <code>position</code> adequat per a cada cas.</li>
-    <li>Distribuir elements amb Flexbox i amb Grid.</li>
-    <li>Adaptar una pàgina al mòbil amb <em>media queries</em>.</li>
-  </ul>
+  <h2>Què has de saber abans de començar</h2>
+  <p>Teoria <a class="cq-ref" href="../teoria/t1-3-gestors-de-continguts.html">T1.3</a> (requeriments, sistemes lliures i propietaris, funcionament intern). Les guies <a class="cq-ref" href="../guies/g1-1-entorn-de-laboratori.html">G1.1</a>, <a class="cq-ref" href="../guies/g1-2-pila-lamp.html">G1.2</a> i <a class="cq-ref" href="../guies/g1-3-wordpress.html">G1.3</a> són els manuals que consultaràs.</p>
+  <p>Compararàs els requeriments de tres gestors, comprovaràs si el teu servidor els compleix, instal·laràs WordPress i seguiràs una pàgina des de la base de dades fins al navegador. L'escriptori que prepares aquí és l'<strong>escriptori de proves</strong> de les activitats <a class="cq-ref" href="a1-3-usuaris-grups-i-rols.html">A1.3</a> a <a class="cq-ref" href="a1-6-actualitzar-protegir-i-copiar.html">A1.6</a>.</p>
 </div>
 
-<!-- ============ 2 · TEORIA ============ -->
-<div class="cq-block" data-kind="teoria">
-  <h2>El model de capsa</h2>
-  <p>El navegador tracta cada element com una capsa rectangular amb quatre capes, de dins cap a fora:</p>
-  <figure>
-    <img src="../img/box-model.gif" alt="Model de capsa: contingut, padding, border i margin" loading="lazy">
-  </figure>
+<!-- ============ 2 · ESCENARI ============ -->
+<div class="cq-block" data-kind="escenari">
+  <h2>Amb què treballaràs</h2>
   <div class="cq-tablewrap">
     <table class="cq-table">
-      <thead><tr><th>Capa</th><th>Propietat</th><th>Com és</th></tr></thead>
+      <thead><tr><th>Màquina</th><th>Sistema</th><th>Nom del lloc</th><th>Base de dades</th></tr></thead>
       <tbody>
-        <tr><td>Contingut</td><td><code>width</code>, <code>height</code></td><td>On hi ha el text o la imatge</td></tr>
-        <tr><td>Farciment</td><td><code>padding</code></td><td>Espai interior; agafa el fons de l'element</td></tr>
-        <tr><td>Vora</td><td><code>border</code></td><td>La línia; gruix, estil i color</td></tr>
-        <tr><td>Marge</td><td><code>margin</code></td><td>Espai exterior, transparent; pot ser negatiu</td></tr>
+        <tr><td>Escriptori nou a IsardVDI, <code>proves-cognom</code></td><td>Ubuntu 26.04 LTS</td><td><code>proves.internal</code></td><td><code>provesdb</code> · <code>provesuser</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Un centre educatiu vol una web i dubta entre WordPress, Joomla i Drupal. També pregunta si la podria tenir al servidor Windows que ja fa servir la secretaria. Tu has de preparar la resposta tècnica.</p>
+</div>
+
+<!-- ============ 3 · ENUNCIAT ============ -->
+<div class="cq-block" data-kind="enunciat">
+  <h2>Què has de fer</h2>
+  <ol>
+    <li>Omple una <strong>taula de requeriments</strong> de WordPress, Joomla i Drupal amb la seva documentació oficial: PHP mínim i recomanat, base de dades, extensions de PHP, servidor web i reescriptura d'adreces. Posa l'enllaç d'on surt cada dada.</li>
+    <li>Prepara l'escriptori, instal·la la pila LAMP i fes l'<strong>inventari del servidor</strong>. Afegeix a la taula una columna «El meu servidor» i marca què compleix.</li>
+    <li>Explica en una segona taula què canviaria si l'escola ho instal·lés al seu <strong>Windows Server</strong>: servidor web, PHP, base de dades, enllaços amigables i cost.</li>
+    <li>Instal·la <strong>WordPress</strong> a <code>proves.internal</code> i activa els enllaços permanents.</li>
+    <li>Publica una entrada titulada «Hola des de la base de dades». Troba-la amb una consulta a MySQL i canvia-li el títol <strong>des de MySQL</strong>. Recarrega la pàgina i explica què ha passat.</li>
+    <li>Passa les <strong>proves de funcionament</strong> de l'apartat de comprovació i guarda'n la sortida.</li>
+  </ol>
+  <p>Consultes per al punt 5 (canvia el text pel teu):</p>
+<pre>SELECT ID, post_title, post_status FROM wp_posts
+  WHERE post_type = 'post';
+UPDATE wp_posts SET post_title = 'Títol canviat des de MySQL'
+  WHERE ID = 5;</pre>
+</div>
+
+<!-- ============ 4 · ENUNCIAT ============ -->
+<div class="cq-block" data-kind="enunciat">
+  <h2>D'on has de treure cada cosa</h2>
+  <div class="cq-tablewrap">
+    <table class="cq-table">
+      <thead><tr><th>Què has de fer</th><th>On ho tens</th></tr></thead>
+      <tbody>
+        <tr><td>Quins requeriments importen</td><td>Teoria <a class="cq-ref" href="../teoria/t1-3-gestors-de-continguts.html">T1.3</a>, «Què cal per instal·lar-lo»</td></tr>
+        <tr><td>Requeriments de cada gestor</td><td><a href="https://wordpress.org/about/requirements/">WordPress</a> · <a href="https://downloads.joomla.org/technical-requirements">Joomla</a> · <a href="https://www.drupal.org/docs/getting-started/system-requirements">Drupal</a></td></tr>
+        <tr><td>Linux o Windows Server</td><td>Teoria <a class="cq-ref" href="../teoria/t1-3-gestors-de-continguts.html">T1.3</a>, «Sistemes lliures i propietaris»</td></tr>
+        <tr><td>Escriptori, pila i inventari</td><td>Guies <a class="cq-ref" href="../guies/g1-1-entorn-de-laboratori.html">G1.1</a> i <a class="cq-ref" href="../guies/g1-2-pila-lamp.html">G1.2</a></td></tr>
+        <tr><td>Instal·lar WordPress</td><td>Guia <a class="cq-ref" href="../guies/g1-3-wordpress.html">G1.3</a>, primers apartats</td></tr>
+        <tr><td>Per què el canvi a MySQL surt a la web</td><td>Teoria <a class="cq-ref" href="../teoria/t1-3-gestors-de-continguts.html">T1.3</a>, «Com funciona per dins»</td></tr>
       </tbody>
     </table>
   </div>
 </div>
 
-<!-- ============ 3 · TEORIA ============ -->
-<div class="cq-block" data-kind="teoria">
-  <h2>Quant ocupa de debò</h2>
-  <p>Per defecte (<code>box-sizing: content-box</code>) l'amplada només compta el contingut, i el farciment i la vora s'hi sumen. Amb <code>border-box</code>, l'amplada que escrius ja ho inclou tot menys el marge.</p>
-  <div class="cq-tablewrap">
-    <table class="cq-table">
-      <thead><tr><th><code>width: 200px; padding: 20px; border: 5px</code></th><th>Amplada visible</th></tr></thead>
-      <tbody>
-        <tr><td><code>content-box</code></td><td>200 + 40 + 10 = <strong>250 px</strong></td></tr>
-        <tr><td><code>border-box</code></td><td><strong>200 px</strong></td></tr>
-      </tbody>
-    </table>
-  </div>
-  <figure>
-    <img src="../img/box-sizing-comparison.png" alt="Comparació entre content-box i border-box" loading="lazy">
-  </figure>
-  <p>Per això gairebé tots els projectes comencen amb aquesta regla:</p>
-<pre>*, *::before, *::after {
-  box-sizing: border-box;
-}</pre>
+<!-- ============ 5 · RECORDATORI ============ -->
+<div class="cq-block" data-kind="recordatori">
+  <h2>Dades de la font, no de memòria</h2>
+  <p>Els requeriments canvien a cada versió. Una taula sense enllaços o copiada d'un article antic no serveix: cada dada ha de sortir de la documentació oficial i ha de dir de quina versió del gestor parla.</p>
 </div>
 
-<!-- ============ 4 · TEORIA ============ -->
-<div class="cq-block" data-kind="teoria">
-  <h2>Posicionar amb position</h2>
-  <div class="cq-tablewrap">
-    <table class="cq-table">
-      <thead><tr><th>Valor</th><th>Referència</th><th>Surt del flux?</th></tr></thead>
-      <tbody>
-        <tr><td><code>static</code></td><td>Cap: ignora <code>top</code> i <code>left</code>; és el valor per defecte</td><td>No</td></tr>
-        <tr><td><code>relative</code></td><td>La seva posició normal</td><td>No: deixa el forat</td></tr>
-        <tr><td><code>absolute</code></td><td>L'avantpassat posicionat més proper, o la pàgina</td><td>Sí</td></tr>
-        <tr><td><code>fixed</code></td><td>La finestra; no es mou en fer scroll</td><td>Sí</td></tr>
-        <tr><td><code>sticky</code></td><td>Relatiu fins a un llindar; després, fix</td><td>No</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <figure>
-    <img src="../img/absolute-relative.png" alt="Un element absolute dins d'un pare relative" loading="lazy">
-  </figure>
-  <p>La parella habitual és un pare amb <code>relative</code> i un fill amb <code>absolute</code>: el fill es col·loca respecte del pare, per exemple un text sobre una imatge.</p>
-</div>
-
-<!-- ============ 5 · TEORIA ============ -->
-<div class="cq-block" data-kind="teoria">
-  <h2>Flexbox i Grid</h2>
-  <p>Per repartir espai entre elements no cal <code>position</code>: hi ha dos sistemes pensats per a això.</p>
-  <div class="cq-tablewrap">
-    <table class="cq-table">
-      <thead><tr><th></th><th>Flexbox</th><th>Grid</th></tr></thead>
-      <tbody>
-        <tr><td>Dimensions</td><td>Una: fila <em>o</em> columna</td><td>Dues: files <em>i</em> columnes</td></tr>
-        <tr><td>S'activa amb</td><td><code>display: flex</code></td><td><code>display: grid</code></td></tr>
-        <tr><td>Propietats clau</td><td><code>justify-content</code>, <code>align-items</code>, <code>flex-wrap</code>, <code>gap</code></td><td><code>grid-template-columns</code>, <code>grid-template-areas</code>, <code>gap</code></td></tr>
-        <tr><td>Ideal per</td><td>Menús, barres, targetes en fila</td><td>L'estructura de tota la pàgina</td></tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<!-- ============ 6 · EXEMPLE ============ -->
-<div class="cq-block" data-kind="exemple">
-  <h2>Centrar i fer una graella</h2>
-  <p>Centrar una capsa horitzontalment i verticalment dins de la pantalla:</p>
-<pre>.contenidor {
-  display: flex;
-  justify-content: center;  /* eix horitzontal */
-  align-items: center;      /* eix vertical */
-  min-height: 100vh;
-}</pre>
-  <p>Una graella de targetes que s'adapta sola a l'amplada:</p>
-<pre>.targetes {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-}</pre>
-</div>
-
-<!-- ============ 7 · CAS REAL ============ -->
-<div class="cq-block" data-kind="cas real">
-  <h2>Una pàgina que es veu bé al mòbil</h2>
-  <p>Més de la meitat de les visites arriben des del mòbil. Les <em>media queries</em> apliquen regles només a partir d'una amplada: es dissenya per a pantalla petita i s'amplia per a la gran (<em>mobile first</em>). Els temes dels gestors de continguts ja ho fan, i el CSS addicional ha de respectar-ho.</p>
-<pre>.pagina { display: block; }
-
-@media (min-width: 768px) {
-  .pagina {
-    display: grid;
-    grid-template-columns: 220px 1fr;
-  }
-}</pre>
-</div>
-
-<!-- ============ 8 · OBSERVACIÓ ============ -->
+<!-- ============ 6 · OBSERVACIÓ ============ -->
 <div class="cq-block" data-kind="observació">
-  <h2>Veure la capsa a l'inspector</h2>
-  <p>A l'inspector del navegador, la pestanya <strong>Disposició</strong> dibuixa el model de capsa de l'element seleccionat amb els valors de cada capa. Els contenidors <code>flex</code> i <code>grid</code> porten una etiqueta al costat: si hi fas clic, el navegador en pinta les línies sobre la pàgina.</p>
+  <h2>Mirar les taules del gestor</h2>
+  <p>Entra a MySQL amb l'usuari del lloc i executa <code>SHOW TABLES;</code>. Hi veuràs on guarda WordPress les entrades, els usuaris, les opcions i els comentaris. Tot el que fas al tauler acaba en una d'aquestes taules.</p>
 </div>
 
-<!-- ============ 9 · BONES PRÀCTIQUES ============ -->
-<div class="cq-block" data-kind="bones pràctiques">
-  <h2>Criteris professionals</h2>
+<!-- ============ 7 · COMPROVACIÓ ============ -->
+<div class="cq-block" data-kind="comprovació">
+  <h2>Com sabràs que ho has fet bé</h2>
   <ul>
-    <li>Posa <code>box-sizing: border-box</code> a tot el document.</li>
-    <li>Grid per a l'estructura, Flexbox per als components.</li>
-    <li>Deixa <code>position: absolute</code> per a detalls, no per maquetar la pàgina.</li>
-    <li>Prova sempre la pàgina a 375 px d'amplada.</li>
-    <li>Deixa prou farciment als botons perquè es puguin tocar amb el dit.</li>
+    <li><code>php -m</code> mostra totes les extensions que la taula marca com a necessàries.</li>
+    <li><code>curl -I http://proves.internal/</code> respon <code>200</code> i <code>curl -I http://proves.internal/wp-admin/</code> redirigeix a l'inici de sessió.</li>
+    <li><code>mysql -u provesuser -p provesdb -e "SHOW TABLES;"</code> llista les taules <code>wp_</code>.</li>
+    <li>El títol canviat des de MySQL surt a la web sense tocar el tauler.</li>
   </ul>
 </div>
 
-<!-- ============ 10 · PROBLEMES ============ -->
+<!-- ============ 8 · PROBLEMES ============ -->
 <div class="cq-block" data-kind="problemes">
-  <h2>Errors habituals</h2>
+  <h2>Si alguna cosa no va</h2>
   <dl class="cq-issues">
-    <dt>Dues columnes al 50 % no hi caben</dt>
+    <dt>L'instal·lador diu que falta una extensió de PHP</dt>
     <dd>
-      <p><span class="lbl">Causa</span> Amb <code>content-box</code>, el farciment i la vora se sumen al 50 %.</p>
-      <p><span class="lbl">Solució</span> Fes servir <code>border-box</code> o <code>gap</code> amb Grid.</p>
+      <p><span class="lbl">Causa</span> El servidor no complia un requeriment de la teva taula.</p>
+      <p><span class="lbl">Solució</span> Instal·la el paquet <code>php-…</code> que falta, reinicia Apache i anota-ho a la taula.</p>
     </dd>
-    <dt>L'element <code>absolute</code> se'n va a la cantonada de la pàgina</dt>
+    <dt>L'<code>UPDATE</code> diu «0 rows affected»</dt>
     <dd>
-      <p><span class="lbl">Causa</span> Cap avantpassat té <code>position</code> diferent de <code>static</code>.</p>
-      <p><span class="lbl">Solució</span> Posa <code>position: relative</code> al pare que ha de fer de referència.</p>
-    </dd>
-    <dt><code>justify-content</code> no fa res</dt>
-    <dd>
-      <p><span class="lbl">Causa</span> S'ha posat als fills, no al contenidor.</p>
-      <p><span class="lbl">Solució</span> Les propietats de Flexbox i Grid van al contenidor.</p>
+      <p><span class="lbl">Causa</span> L'<code>ID</code> no és el de la teva entrada.</p>
+      <p><span class="lbl">Solució</span> Fes primer el <code>SELECT</code> i copia l'<code>ID</code> que surt.</p>
     </dd>
   </dl>
 </div>
 
-<!-- ============ 11 · RESUM ============ -->
-<div class="cq-block" data-kind="resum">
-  <h2>Resum</h2>
-  <ul>
-    <li>Capsa: contingut, <code>padding</code>, <code>border</code> i <code>margin</code>.</li>
-    <li><code>border-box</code> fa que l'amplada escrita sigui l'amplada real.</li>
-    <li><code>relative</code> es mou des del seu lloc; <code>absolute</code>, respecte del pare posicionat; <code>fixed</code>, respecte de la finestra.</li>
-    <li>Flexbox reparteix en una dimensió; Grid, en dues.</li>
-    <li>Les <em>media queries</em> adapten la pàgina a cada pantalla.</li>
-  </ul>
-</div>
-
-<!-- ============ 12 · QUIZ ============ -->
-<div class="cq-block" data-kind="quiz">
-  <h2>Comprova el que has après</h2>
-  <div class="cq-question" data-id="t1-3-amplada" data-type="single">
-    <div class="statement">Amb <code>content-box</code>, <code>width: 300px</code>, <code>padding: 10px</code> i <code>border: 5px</code>, quant fa d'ample la capsa visible?</div>
-    <button type="button" aria-pressed="false" class="cq-option" data-correct="false">300 px</button>
-    <button type="button" aria-pressed="false" class="cq-option" data-correct="false">310 px</button>
-    <button type="button" aria-pressed="false" class="cq-option" data-correct="true">330 px</button>
-    <button type="button" aria-pressed="false" class="cq-option" data-correct="false">315 px</button>
-    <div><button type="button" class="cq-check-btn">Comprova la resposta</button></div>
-    <div class="cq-feedback" role="status" aria-live="polite"></div>
-  </div>
-  <div class="cq-question" data-id="t1-3-fixed" data-type="single">
-    <div class="statement">Quin valor manté un element al mateix lloc de la finestra quan fas scroll?</div>
-    <button type="button" aria-pressed="false" class="cq-option" data-correct="false"><code>relative</code></button>
-    <button type="button" aria-pressed="false" class="cq-option" data-correct="false"><code>absolute</code></button>
-    <button type="button" aria-pressed="false" class="cq-option" data-correct="true"><code>fixed</code></button>
-    <button type="button" aria-pressed="false" class="cq-option" data-correct="false"><code>static</code></button>
-    <div><button type="button" class="cq-check-btn">Comprova la resposta</button></div>
-    <div class="cq-feedback" role="status" aria-live="polite"></div>
-  </div>
-  <div class="cq-question" data-id="t1-3-grid" data-type="single">
-    <div class="statement">Vols l'estructura de tota una pàgina en files i columnes. Què tries?</div>
-    <button type="button" aria-pressed="false" class="cq-option" data-correct="false">Flexbox</button>
-    <button type="button" aria-pressed="false" class="cq-option" data-correct="true">Grid</button>
-    <button type="button" aria-pressed="false" class="cq-option" data-correct="false"><code>position: absolute</code></button>
-    <button type="button" aria-pressed="false" class="cq-option" data-correct="false"><code>display: inline-block</code></button>
-    <div><button type="button" class="cq-check-btn">Comprova la resposta</button></div>
-    <div class="cq-feedback" role="status" aria-live="polite"></div>
-  </div>
-  <div class="cq-question" data-id="t1-3-contenidor" data-type="single">
-    <div class="statement">On es posa <code>justify-content: center</code>?</div>
-    <button type="button" aria-pressed="false" class="cq-option" data-correct="true">Al contenidor que té <code>display: flex</code></button>
-    <button type="button" aria-pressed="false" class="cq-option" data-correct="false">A cada fill</button>
-    <button type="button" aria-pressed="false" class="cq-option" data-correct="false">Al <code>body</code> sempre</button>
-    <button type="button" aria-pressed="false" class="cq-option" data-correct="false">A l'etiqueta <code>html</code></button>
-    <div><button type="button" class="cq-check-btn">Comprova la resposta</button></div>
-    <div class="cq-feedback" role="status" aria-live="polite"></div>
-  </div>
+<!-- ============ 9 · LLIURAMENT ============ -->
+<div class="cq-block" data-kind="lliurament">
+  <h2>Què has d'entregar</h2>
+  <p>Un repositori a GitHub amb un <code>README.md</code> que tingui les dues taules, la sortida de l'inventari, captures de la instal·lació i del canvi de títol, i la sortida de les comprovacions.</p>
+  <p>Respon-hi també: <strong>quin dels tres gestors recomanaries a l'escola i on l'instal·laries, i per què?</strong></p>
 </div>
 
 
 <!-- ============ CURRÍCULUM ============ -->
 <div class="cq-block" data-kind="currículum">
   <h2>Al currículum</h2>
-  <p><span class="lbl">Contingut 1.3</span> Utilització de la interfície gràfica. Personalització de l'entorn. Funcionalitats proporcionades pel gestor de continguts. Sindicació.</p>
-  <p><span class="lbl">CA 1.3</span> Personalitza la interfície del gestor de continguts.</p>
+  <p><span class="lbl">Contingut 1.1</span> Instal·lació en sistemes operatius lliures i propietaris.</p>
+  <p><span class="lbl">Contingut 1.4</span> Funcionament dels gestors de continguts.</p>
+  <p><span class="lbl">CA 1.1</span> Identifica els requeriments necessaris per instal·lar gestors de continguts.</p>
+  <p><span class="lbl">CA 1.4</span> Realitza proves de funcionament.</p>
 </div>
 
 <!-- === PEU DE NAVEGACIÓ INICI === -->
 <nav class="cq-pager">
-  <a class="prev" href="t1-2-html-i-css.html">
-    <span class="dir">Anterior · T1.2</span>
-    <span class="ttl">HTML i CSS</span></a>
-  <a class="next" href="t1-4-gestors-de-continguts.html">
-    <span class="dir">Següent · T1.4</span>
-    <span class="ttl">Gestors de continguts</span></a>
+  <a class="prev" href="a1-1-estatic-i-dinamic.html">
+    <span class="dir">Anterior · A1.1</span>
+    <span class="ttl">Estàtic i dinàmic</span></a>
+  <a class="next" href="a1-3-usuaris-grups-i-rols.html">
+    <span class="dir">Següent · A1.3</span>
+    <span class="ttl">Usuaris, grups i rols</span></a>
 </nav>
 <!-- === PEU DE NAVEGACIÓ FI === -->
 

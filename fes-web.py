@@ -6,7 +6,7 @@ sola, navegable.
     python3 fes-web.py RA2      # només un RA
 
 Serveix per revisar el material abans de pujar-lo a Moodle. Els fitxers de
-teoria/, guies/ i activitats/ són la font: aquest script no els modifica mai.
+teoria/, guies/, activitats/ i practiques/ són la font: aquest script no els modifica mai.
 Tampoc modifica RAn/index.html: n'hi llegeix el bloc d'índex (referència,
 títol i subtítol de cada pàgina) perquè la llista no es pugui desincronitzar
 d'allò que ja es veu al portal del RA.
@@ -20,7 +20,7 @@ import html, pathlib, re, sys
 ROOT = pathlib.Path(__file__).resolve().parent
 MARC = ROOT / '_identitat' / 'web-marc.html'
 
-GROUPS = ('teoria', 'guies', 'activitats')
+GROUPS = ('teoria', 'guies', 'activitats', 'practiques')
 
 BLOCK_RE = re.compile(
     r'<div class="cq-block" data-kind="(' + '|'.join(GROUPS) + r')">(.*?)\n</div>', re.S)
@@ -106,6 +106,7 @@ def generate(ra):
                           ('<!--NAV_TEORIA-->', '\n'.join(nav['teoria'])),
                           ('<!--NAV_GUIES-->', '\n'.join(nav['guies'])),
                           ('<!--NAV_ACTIVITATS-->', '\n'.join(nav['activitats'])),
+                          ('<!--NAV_PRACTIQUES-->', '\n'.join(nav['practiques'])),
                           ('<!--SECCIONS-->', '\n\n'.join(sections)),
                           ('<!--QUIZ-->', quiz_js)]:
         assert marker in page, f'falta el marcador {marker} a web-marc.html'

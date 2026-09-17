@@ -17,8 +17,13 @@ mismas herramientas que el módulo 0227. Parte del material original de
 `rusben/smx-m08`, guardado tal cual en `_aportacio/`.
 
 Cada RA tiene la misma forma: **teoría → guías (manuales) → actividades →
-prácticas finales de instalación y configuración**. Las prácticas son lo que
-más pesa en la nota del RA.
+práctica principal de instalación y configuración** (carpeta `practiques/`,
+referencia `P<ra>.<n>`). La práctica es lo que más pesa en la nota del RA.
+
+El contenido de HTML y CSS no está en el currículum oficial y vive en un RA
+complementario, `RAX/` (referencias `TX.n`, `AX.n`, `PX.n`). Sus páginas no
+llevan bloque `currículum` y no entran en `MAP`. En el RA1 solo queda T1.2
+como presentación de HTML y CSS.
 
 ---
 
@@ -36,10 +41,11 @@ smx-m08/
 ├── _identitat/         sinapsi.css, quiz.js y web-marc.html
 ├── _aportacio/         material original en Markdown, no se publica
 ├── _pendent/           RA en borrador que las herramientas no ven (RA2)
-└── RA1/
-    ├── index.html      índice del RA: fuente de la navegación
-    ├── teoria/ · guies/ · activitats/ · img/
-    └── _identitat/ra1-web.html   GENERADO
+├── RA1/
+│   ├── index.html      índice del RA: fuente de la navegación
+│   ├── teoria/ · guies/ · activitats/ · practiques/ · img/
+│   └── _identitat/ra1-web.html   GENERADO
+└── RAX/                RA complementario de HTML y CSS (fuera del currículum)
 ```
 
 Las herramientas solo descubren carpetas `RA*` en la raíz. Un RA que aún no se
@@ -231,15 +237,16 @@ editor sigue funcionando con normalidad.
 
 - Nivel: **primero** de CFGM SMX. Una idea y como máximo tres párrafos cortos
   por bloque; lo enumerable, en lista o tabla.
-- Se respeta el material original: mismas actividades y prácticas (targeta
-  Pokémon, landing page, zoo, portal WordPress, botigues…), actualizadas y
-  atadas a los criterios de evaluación.
+- El RA1 se ciñe a los resultados de aprendizaje y contenidos oficiales. El
+  material original de HTML y CSS (targeta Pokémon, landing page, zoo, web
+  HTML5) y la práctica de botigues están en `RAX/`.
 - La teoría explica la idea sin pasos. La guía documenta un producto. La
   actividad plantea un encargo con requisitos y comprobaciones. La
-  **práctica final** es una actividad grande de instalación y configuración,
-  con demostración en directo y `README.md` en GitHub.
-- Pesos del RA1 (a validar con el departamento): actividades 30 %, práctica
-  A1.6 50 %, práctica A1.7 20 %.
+  **práctica principal** (una por RA, en `practiques/`) es una actividad grande
+  de instalación y configuración, con demostración en directo y `README.md` en
+  GitHub.
+- Pesos del RA1 (a validar con el departamento): actividades A1.1–A1.6 40 %,
+  práctica P1.1 60 %.
 
 ### Atadura curricular
 
@@ -252,22 +259,27 @@ Todo sale de `Programación_didactica/curriculum.py`; nada se escribe a mano:
 | `RA`, `CA`, `CONT` | Bloque «Al currículum» de `RA1/index.html` (entre los marcadores `CURRÍCULUM DEL RA`) |
 
 `rubriques.py` genera la rúbrica de evaluación continuada de las actividades
-(30 %): tres dimensiones que recogen los diez criterios del RA1, cada uno una
+(40 %): tres dimensiones que recogen los diez criterios del RA1, cada uno una
 sola vez, con su trazabilidad. `--check` falla si queda un criterio fuera.
-- Entorno: máquina nueva de isardVDI con Ubuntu 26.04 LTS, pila LAMP con
-  MariaDB y PHP, nombres `.internal` resueltos con `/etc/hosts`. LXD y
-  Vagrant quedan como alternativa en la G1.1.
+- Entorno: escritorios de IsardVDI con Ubuntu 26.04 LTS, pila LAMP con
+  MySQL y PHP, nombres `.internal` resueltos con `/etc/hosts`. No se usan
+  LXD, LXC ni Vagrant. En el RA1, A1.1 y P1.1 parten de un escritorio nuevo;
+  A1.2–A1.6 comparten el «escritorio de pruebas» creado en A1.2.
 - Nada de XAMPP/WAMP, 000webhost (cerrado) ni `mysql_*` de PHP: PDO y
   consultas preparadas.
-- Las referencias son `T<ra>.<n>`, `G<ra>.<n>` y `A<ra>.<n>`.
+- Las referencias son `T<ra>.<n>`, `G<ra>.<n>`, `A<ra>.<n>` y `P<ra>.<n>`
+  (`X` en lugar del número para el RA complementario).
 
 ---
 
 ## 7. Estado
 
-- **RA1** revisado: 6 teorías, 4 guías, 5 actividades y 2 prácticas.
+- **RA1** revisado: 5 teorías, 4 guías, 6 actividades y 1 práctica.
   Los pasos de las guías están contrastados con documentación, **no probados
-  en VM**.
+  en VM** (en particular MySQL 8.4 en 26.04 y los menús de User Role Editor,
+  Groups y bbPress).
+- **RAX** (HTML y CSS, complementario): 1 teoría, 4 actividades y 1 práctica.
+  Las actividades citan una guía G4.3 de GitHub Pages que aún no existe.
 - **RA2** (Moodle) en `_pendent/`, sin revisar.
 - **RA3–RA5** (gestión de archivos, ofimática web, correo y calendario web)
   sin material: el original de rusben no los cubre salvo `pt-uf2` y `uf1`.

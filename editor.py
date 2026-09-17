@@ -41,14 +41,14 @@ def ra_folders():
 
 def pages():
     """Totes les pàgines editables, en l'ordre de navegació: portal, i per
-    a cada RA, la seva portada, teoria, guies i activitats."""
+    a cada RA, la seva portada, teoria, guies, activitats i pràctiques."""
     found = []
     if (ROOT / 'index.html').exists():
         found.append('index.html')
     for ra in ra_folders():
         if (ra / 'index.html').exists():
             found.append(str((ra / 'index.html').relative_to(ROOT)))
-        for folder in ('teoria', 'guies', 'activitats'):
+        for folder in ('teoria', 'guies', 'activitats', 'practiques'):
             found += sorted(str(p.relative_to(ROOT)) for p in (ra / folder).glob('*.html'))
     return found
 
@@ -134,7 +134,8 @@ def page_summary(rel):
     return page_ref(rel, src), page_title(rel, src), len(found), over
 
 
-SECTIONS = {'teoria': 'Teoria', 'guies': 'Guies', 'activitats': 'Activitats'}
+SECTIONS = {'teoria': 'Teoria', 'guies': 'Guies', 'activitats': 'Activitats',
+            'practiques': 'Pràctiques'}
 
 
 def section_of(rel):

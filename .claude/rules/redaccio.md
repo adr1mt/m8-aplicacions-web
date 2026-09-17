@@ -39,7 +39,7 @@ No se toca a mano.
 - Los procedimientos de **diagnóstico** (`dig MX`, `dig +trace`, la sesión FTP,
   el `tcpdump` del DORA) van en la teoría como `observació`. Así `pas a pas`
   significa siempre «guía».
-- `currículum` cierra las teorías y las actividades, **después** de la
+- `currículum` cierra las teorías, las actividades y las prácticas (salvo en `RAX/`), **después** de la
   navegación de contenido y antes del pie. No se escribe a mano: lo genera
   `curriculum.py`, y una edición manual se pierde en la siguiente pasada.
 - Inventar una etiqueta nueva es válido: sale en neutro y no rompe nada.
@@ -60,6 +60,10 @@ habituales → resumen → test → `currículum`.
 habituales → `resum` en forma de ficha rápida. **Sin test.** El `comprovació` es
 la comprobación de conjunto, y desde el cliente siempre que se pueda: no repite
 lo que ya verifica el último paso de cada `pas a pas`.
+
+**Práctica** (`practiques/p<ra>-<n>-<nom>.html`, etiqueta `P<ra>.<n>`): misma
+forma que una actividad, con el enunciado dividido en fases; `curriculum.py`
+añade el bloque `rúbrica` antes del `currículum`.
 
 **Actividad**: objetivos → escenario → enunciado → de dónde sacar cada cosa
 (apunta a la **guía**) → recordatorio → observación técnica → comprobación →

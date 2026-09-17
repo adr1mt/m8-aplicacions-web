@@ -22,7 +22,7 @@ DOCS = ROOT / 'docs'
 CSS = ROOT / '_identitat' / 'sinapsi.css'
 QUIZ = ROOT / '_identitat' / 'quiz.js'
 FONTS = ROOT / '_identitat' / 'fonts'
-FOLDERS = ('teoria', 'guies', 'activitats')
+FOLDERS = ('teoria', 'guies', 'activitats', 'practiques')
 
 def ra_folders():
     return sorted(p for p in ROOT.glob('RA*') if p.is_dir())

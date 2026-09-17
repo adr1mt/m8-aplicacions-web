@@ -531,7 +531,7 @@
 <nav class="cq-nav">
   <div class="inner">
     <a href="../index.html">‹ RA1 · Instal·lació de gestors de continguts</a>
-    <span class="pos">G1.2 · 8/17</span>
+    <span class="pos">G1.2 · 7/16</span>
   </div>
 </nav>
 <!-- === NAVEGACIÓ FI === -->
@@ -541,16 +541,16 @@
 <header class="cq-header">
   <div class="eyebrow">0228 · Aplicacions Web · RA1 · G1.2</div>
   <h1>Guia: pila LAMP i host virtual</h1>
-  <p class="lede">Apache, MariaDB i PHP a Ubuntu 26.04, i un host virtual per a cada aplicació.</p>
+  <p class="lede">Apache, MySQL i PHP a Ubuntu 26.04, i un host virtual per a cada aplicació.</p>
 </header>
 
 <!-- ============ 1 · OBJECTIUS ============ -->
 <div class="cq-block" data-kind="objectius">
   <h2>Què hi ha en aquesta guia</h2>
-  <p>Documentació oficial: <a href="https://httpd.apache.org/docs/2.4/">Apache</a> · <a href="https://mariadb.com/docs/">MariaDB</a> · <a href="https://www.php.net/docs.php">PHP</a></p>
+  <p>Documentació oficial: <a href="https://httpd.apache.org/docs/2.4/">Apache</a> · <a href="https://dev.mysql.com/doc/">MySQL</a> · <a href="https://www.php.net/docs.php">PHP</a></p>
   <ul>
-    <li>Punt de partida: Ubuntu 26.04 LTS acabat d'instal·lar (<a class="cq-ref" href="g1-1-entorn-de-laboratori.html">G1.1</a>).</li>
-    <li>Resultat: Apache 2.4, MariaDB 11.8 i PHP 8.5, una base de dades i un host virtual per nom, <code>app.internal</code>, llest per rebre qualsevol aplicació.</li>
+    <li>Punt de partida: un escriptori d'IsardVDI amb Ubuntu 26.04 LTS a punt (<a class="cq-ref" href="g1-1-entorn-de-laboratori.html">G1.1</a>).</li>
+    <li>Resultat: Apache 2.4, MySQL 8.4 i PHP 8.5, una base de dades i un host virtual per nom, <code>app.internal</code>, llest per rebre qualsevol aplicació.</li>
     <li>És la base de WordPress (<a class="cq-ref" href="g1-3-wordpress.html">G1.3</a>), Nextcloud i Moodle.</li>
   </ul>
 </div>
@@ -563,25 +563,27 @@
 
 <!-- ============ 3 · PAS A PAS ============ -->
 <div class="cq-block" data-kind="pas a pas">
-  <h2>Instal·lar Apache, MariaDB i PHP</h2>
+  <h2>Instal·lar Apache, MySQL i PHP</h2>
   <ol class="cq-steps">
     <li>
       <p><strong>Instal·la els paquets:</strong></p>
 <pre>sudo apt update
-sudo apt install -y apache2 mariadb-server \
+sudo apt install -y apache2 mysql-server \
   libapache2-mod-php php-mysql php-curl php-gd \
   php-mbstring php-xml php-zip php-intl unzip</pre>
     </li>
     <li>
       <p><strong>Comprova que els serveis estan actius:</strong></p>
-<pre>systemctl is-active apache2 mariadb
+<pre>systemctl is-active apache2 mysql
 <span class="o">active</span>
 <span class="o">active</span></pre>
     </li>
     <li>
       <p><strong>Comprova la versió de PHP:</strong></p>
 <pre>php -v
-<span class="o">PHP 8.5.x (cli) ...</span></pre>
+<span class="o">PHP 8.5.x (cli) ...</span>
+mysql --version
+<span class="o">mysql  Ver 8.4.x for Linux on x86_64 ...</span></pre>
     </li>
     <li>
       <p><strong>Obre <code>http://localhost</code></strong> al navegador: ha de sortir «Apache2 Default Page».</p>
@@ -594,13 +596,17 @@ sudo apt install -y apache2 mariadb-server \
   <h2>Crear la base de dades i el seu usuari</h2>
   <ol class="cq-steps">
     <li>
-      <p><strong>Entra a MariaDB</strong> com a administrador; a Ubuntu, <code>root</code> entra sense contrasenya des de <code>sudo</code>:</p>
-<pre>sudo mariadb</pre>
+      <p><strong>Reforça la instal·lació</strong> de MySQL. L'assistent pregunta si vols validar la força de les contrasenyes; respon <strong>sí</strong> a esborrar els usuaris anònims, a prohibir l'accés remot de <code>root</code> i a esborrar la base <code>test</code>:</p>
+<pre>sudo mysql_secure_installation</pre>
+    </li>
+    <li>
+      <p><strong>Entra a MySQL</strong> com a administrador; a Ubuntu, <code>root</code> s'autentica pel sistema i entra sense contrasenya des de <code>sudo</code>:</p>
+<pre>sudo mysql</pre>
     </li>
     <li>
       <p><strong>Crea la base de dades i un usuari</strong> que només hi pugui accedir des del mateix servidor. Canvia els noms i la contrasenya per als teus:</p>
 <pre>CREATE DATABASE appdb
-  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+  CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
 CREATE USER 'appuser'@'localhost'
   IDENTIFIED BY 'Canvia-la-2026';
 GRANT ALL PRIVILEGES ON appdb.* TO 'appuser'@'localhost';
@@ -609,7 +615,7 @@ EXIT;</pre>
     </li>
     <li>
       <p><strong>Prova que l'usuari entra</strong> i veu la seva base de dades:</p>
-<pre>mariadb -u appuser -p -e "SHOW DATABASES;"
+<pre>mysql -u appuser -p -e "SHOW DATABASES;"
 <span class="o">appdb</span>
 <span class="o">information_schema</span></pre>
     </li>
@@ -725,12 +731,40 @@ memory_limit = 256M</pre>
   </ol>
 </div>
 
+<!-- ============ PAS A PAS ============ -->
+<div class="cq-block" data-kind="pas a pas">
+  <h2>Fer l'inventari del servidor</h2>
+  <p>Abans d'instal·lar una aplicació, es compara el que té el servidor amb els requeriments de la seva documentació.</p>
+  <ol class="cq-steps">
+    <li>
+      <p><strong>Versions de cada peça:</strong></p>
+<pre>apache2 -v | head -1
+php -v | head -1
+mysql --version</pre>
+    </li>
+    <li>
+      <p><strong>Extensions de PHP carregades</strong>; busca les que demana l'aplicació:</p>
+<pre>php -m | grep -Ei 'mysqli|pdo_mysql|curl|gd|mbstring|xml|zip|intl'</pre>
+    </li>
+    <li>
+      <p><strong>Mòduls d'Apache</strong>, com <code>rewrite</code> per als enllaços amigables:</p>
+<pre>apache2ctl -M | grep -E 'rewrite|php'</pre>
+    </li>
+    <li>
+      <p><strong>Recursos disponibles:</strong></p>
+<pre>free -h
+df -h /var/www</pre>
+    </li>
+  </ol>
+</div>
+
 <!-- ============ 9 · COMPROVACIÓ ============ -->
 <div class="cq-block" data-kind="comprovació">
   <h2>Comprovació de conjunt</h2>
   <ul>
     <li><code>curl -I http://app.internal</code> respon <code>200</code>.</li>
-    <li><code>mariadb -u appuser -p appdb -e "SELECT 1;"</code> entra sense error.</li>
+    <li><code>mysql -u appuser -p appdb -e "SELECT 1;"</code> entra sense error.</li>
+    <li><code>ss -tlnp | grep 3306</code> mostra MySQL escoltant només a <code>127.0.0.1</code>.</li>
     <li><code>apache2ctl -S</code> mostra <code>app.internal</code> a la llista d'hosts virtuals.</li>
     <li>No queda cap <code>info.php</code> al servidor.</li>
   </ul>
@@ -770,7 +804,7 @@ memory_limit = 256M</pre>
     <dt><code>Access denied for user</code></dt>
     <dd>
       <p><span class="lbl">Causa</span> Usuari, contrasenya o <code>@'localhost'</code> no coincideixen.</p>
-      <p><span class="lbl">Solució</span> Torna a crear l'usuari amb <code>sudo mariadb</code> i prova'l des de la línia d'ordres.</p>
+      <p><span class="lbl">Solució</span> Torna a crear l'usuari amb <code>sudo mysql</code> i prova'l des de la línia d'ordres.</p>
     </dd>
   </dl>
 </div>
@@ -782,8 +816,9 @@ memory_limit = 256M</pre>
     <table class="cq-table">
       <thead><tr><th>Vull</th><th>Ordre</th></tr></thead>
       <tbody>
-        <tr><td>Instal·lar la pila</td><td><code>apt install apache2 mariadb-server libapache2-mod-php php-mysql …</code></td></tr>
-        <tr><td>Consola de base de dades</td><td><code>sudo mariadb</code></td></tr>
+        <tr><td>Instal·lar la pila</td><td><code>apt install apache2 mysql-server libapache2-mod-php php-mysql …</code></td></tr>
+        <tr><td>Consola de base de dades</td><td><code>sudo mysql</code></td></tr>
+        <tr><td>Inventari del servidor</td><td><code>php -m</code> · <code>apache2ctl -M</code> · <code>mysql --version</code></td></tr>
         <tr><td>Activar un lloc</td><td><code>a2ensite nom.conf</code></td></tr>
         <tr><td>Activar un mòdul</td><td><code>a2enmod rewrite</code></td></tr>
         <tr><td>Provar la sintaxi</td><td><code>apache2ctl configtest</code></td></tr>

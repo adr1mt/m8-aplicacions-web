@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Rúbriques d'avaluació continuada del mòdul (30 % de la nota del RA: les activitats).
+"""Rúbriques d'avaluació continuada del mòdul (40 % de la nota del RA: les activitats).
 
     python3 Programación_didactica/rubriques.py            # regenera la pàgina
     python3 Programación_didactica/rubriques.py --check    # comprova la cobertura
@@ -63,9 +63,9 @@ RUBRIQUES = {
    'ca': ['1.1', '1.4'],
    'reforc': [],
    'cont': ['1.1', '1.4'],
-   'observa': "Com compara estàtic i dinàmic a A1.1, com respon la pregunta "
-              "final de cada lliurament i quins requeriments comprova abans "
-              "d'instal·lar.",
+   'observa': "Com compara estàtic i dinàmic a A1.1, la taula de requeriments "
+              "i l'inventari de l'A1.2, i com respon la pregunta final de "
+              "cada lliurament.",
   },
   {
    'nom': "Instal·la i personalitza",
@@ -78,8 +78,9 @@ RUBRIQUES = {
    'ca': ['1.2', '1.3', '1.6', '1.8'],
    'reforc': [],
    'cont': ['1.2', '1.3'],
-   'observa': "El CSS de A1.2–A1.5 sense tocar l'HTML, i com organitza "
-              "menús, extensions, rols i fòrums a les pràctiques.",
+   'observa': "Els rols, el rol personalitzat i el grup de l'A1.3, la "
+              "interfície, els menús i els fils de l'A1.4 i les regles "
+              "d'accés del fòrum de l'A1.5.",
   },
   {
    'nom': "Manté, protegeix i verifica",
@@ -92,8 +93,9 @@ RUBRIQUES = {
    'ca': ['1.5', '1.7', '1.9', '1.10'],
    'reforc': [],
    'cont': ['1.5'],
-   'observa': "La Salut del lloc abans i després d'actualitzar, la còpia que "
-              "sap restaurar i el bloc de comprovació de cada activitat.",
+   'observa': "A l'A1.6, la taula d'actualitzacions, els mecanismes de "
+              "seguretat, la còpia que sap restaurar i les tres passades de "
+              "la llista de proves.",
   },
  ],
 }
@@ -196,7 +198,7 @@ def moodle():
     """El text exacte de la rúbrica, per enganxar-lo al formulari de Moodle."""
     for ra in sorted(RUBRIQUES):
         print(f'\n=== RA{ra} · {CUR.RA_NOM[str(ra)]} '
-              f'— rúbrica d\'avaluació continuada (30 %) ===')
+              f'— rúbrica d\'avaluació continuada (40 %) ===')
         for d in RUBRIQUES[ra]:
             print(f'\n{d["nom"]}')
             for punts, nom in NIVELLS:
@@ -283,9 +285,9 @@ def pagina():
            '  <div class="eyebrow">CFGM SMX · Mòdul 0228 · ús intern</div>',
            '  <h1>Rúbriques d\'avaluació continuada</h1>',
            '  <p class="lede">Una rúbrica per resultat d\'aprenentatge i alumne. '
-           'Val el 30 % de la nota del RA i s\'aplica a les activitats. Les '
-           'pràctiques finals (70 %) es qualifiquen amb la seva pròpia rúbrica, '
-           'que és a la pàgina de cada pràctica.</p>',
+           'Val el 40 % de la nota del RA i s\'aplica a les activitats. La '
+           'pràctica principal (60 %) es qualifica amb la seva pròpia rúbrica, '
+           'que és a la pàgina de la pràctica.</p>',
            '</header>',
            '\n<div class="rub-avis"><strong>Document de programació.</strong> '
            'La rúbrica es qualifica a Moodle, no en aquesta pàgina: aquí hi ha '

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>A1.2 · Targeta Pokémon — Aplicacions Web (0228)</title>
+<title>A1.3 · Usuaris, grups i rols — Aplicacions Web (0228)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500;700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -531,7 +531,7 @@
 <nav class="cq-nav">
   <div class="inner">
     <a href="../index.html">‹ RA1 · Instal·lació de gestors de continguts</a>
-    <span class="pos">A1.2 · 12/17</span>
+    <span class="pos">A1.3 · 12/16</span>
   </div>
 </nav>
 <!-- === NAVEGACIÓ FI === -->
@@ -539,169 +539,130 @@
 <main>
 
 <header class="cq-header">
-  <div class="eyebrow">0228 · Aplicacions Web · RA1 · A1.2</div>
-  <h1>Targeta Pokémon</h1>
-  <p class="lede">Donar estil a un HTML que no es pot tocar: només amb CSS.</p>
+  <div class="eyebrow">0228 · Aplicacions Web · RA1 · A1.3</div>
+  <h1>Usuaris, grups i rols</h1>
+  <p class="lede">La redacció d'una revista digital: cada persona amb el seu compte, el seu rol i el seu grup.</p>
 </header>
 
 <!-- ============ 1 · OBJECTIUS ============ -->
 <div class="cq-block" data-kind="objectius">
   <h2>Què has de saber abans de començar</h2>
-  <p>Teories <a class="cq-ref" href="../teoria/t1-2-html-i-css.html">T1.2</a> (selectors i propietats) i <a class="cq-ref" href="../teoria/t1-3-capses-i-disposicio.html">T1.3</a> (model de capsa i Flexbox). Per al repositori, G4.3.</p>
-  <p>Faràs una targeta visualment atractiva a partir d'una estructura HTML fixa, escrivint només el fitxer <code>styles.css</code> amb selectors de classe.</p>
+  <p>Teoria <a class="cq-ref" href="../teoria/t1-4-usuaris-i-rols.html">T1.4</a>. La guia <a class="cq-ref" href="../guies/g1-3-wordpress.html">G1.3</a>, apartats d'usuaris, rols personalitzats i grups, és el manual que consultaràs.</p>
+  <p>Crearàs els comptes d'una redacció, triaràs el rol de cadascun, en faràs un de personalitzat, agruparàs usuaris i demostraràs amb proves que cadascú pot fer el que li toca i res més.</p>
 </div>
 
 <!-- ============ 2 · ESCENARI ============ -->
 <div class="cq-block" data-kind="escenari">
   <h2>Amb què treballaràs</h2>
-  <ul>
-    <li>Visual Studio Code i un navegador.</li>
-    <li>Un repositori nou a GitHub anomenat <code>pokemon</code>, amb <code>README.md</code> i llicència GPL v3, clonat per SSH.</li>
-    <li>La imatge <a href="../img/bulbasaur.png">bulbasaur.png</a>, desada a la carpeta <code>images</code>.</li>
-  </ul>
-</div>
-
-<!-- ============ 3 · ENUNCIAT ============ -->
-<div class="cq-block" data-kind="enunciat">
-  <h2>L'HTML, que no es pot modificar</h2>
-<pre>&lt;!DOCTYPE html&gt;
-&lt;html lang="ca"&gt;
-&lt;head&gt;
-  &lt;meta charset="UTF-8"&gt;
-  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-  &lt;title&gt;Targeta de Pokémon&lt;/title&gt;
-  &lt;link rel="stylesheet" href="styles.css"&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;div class="pokemon-card"&gt;
-    &lt;img class="pokemon-image" src="images/bulbasaur.png"
-         alt="Imatge del Pokémon"&gt;
-    &lt;div class="pokemon-info"&gt;
-      &lt;h2 class="pokemon-name"&gt;Bulbasaur&lt;/h2&gt;
-      &lt;p class="pokemon-type plant"&gt;Planta&lt;/p&gt;
-      &lt;p class="pokemon-type poison"&gt;Verí&lt;/p&gt;
-      &lt;p class="pokemon-description"&gt;
-        Bulbasaur és un Pokémon de tipus Planta i Verí. És fàcil
-        distingir-lo per la llavor que té a l'esquena, que creix a
-        mesura que ell ho fa.
-      &lt;/p&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;</pre>
-</div>
-
-<!-- ============ 4 · ENUNCIAT ============ -->
-<div class="cq-block" data-kind="enunciat">
-  <h2>Què has de fer</h2>
+  <p>L'escriptori de proves de l'<a class="cq-ref" href="a1-2-requeriments-i-instal-lacio.html">A1.2</a>, amb WordPress a <code>proves.internal</code>.</p>
   <div class="cq-tablewrap">
     <table class="cq-table">
-      <thead><tr><th>Classe</th><th>Estil que ha de tenir</th></tr></thead>
+      <thead><tr><th>Persona</th><th>Què ha de fer</th></tr></thead>
       <tbody>
-        <tr><td><code>.pokemon-card</code></td><td>Fons gris clar, cantonades arrodonides, ombra, farciment, centrada horitzontalment i verticalment a la pantalla</td></tr>
-        <tr><td><code>.pokemon-image</code></td><td>Amplada màxima, cantonades arrodonides i marge inferior</td></tr>
-        <tr><td><code>.pokemon-info</code></td><td>Fons verd clar, cantonades arrodonides i farciment</td></tr>
-        <tr><td><code>.pokemon-name</code></td><td>Tipus de lletra distintiu i color que contrasti</td></tr>
-        <tr><td><code>.pokemon-type</code></td><td>Un color per tipus (<code>.plant</code>, <code>.poison</code>) i marge inferior</td></tr>
-        <tr><td><code>.pokemon-description</code></td><td>Lletra més petita que el nom i color gris</td></tr>
+        <tr><td>Marta, cap de redacció</td><td>Revisar i publicar els articles de tothom</td></tr>
+        <tr><td>Pau, professor</td><td>Publicar la seva secció sense revisió</td></tr>
+        <tr><td>Aina i Joel, alumnes</td><td>Escriure articles que algú ha d'aprovar</td></tr>
+        <tr><td>Nil, corrector</td><td>Corregir articles d'altres, sense publicar ni esborrar</td></tr>
+        <tr><td>Famílies</td><td>Registrar-se per comentar</td></tr>
       </tbody>
     </table>
   </div>
 </div>
 
-<!-- ============ 5 · ENUNCIAT ============ -->
+<!-- ============ 3 · ENUNCIAT ============ -->
+<div class="cq-block" data-kind="enunciat">
+  <h2>Què has de fer</h2>
+  <ol>
+    <li>Fes una <strong>taula de disseny</strong>: per a cada persona, el rol que li dones i per què, aplicant el mínim privilegi.</li>
+    <li>Crea els comptes de Marta, Pau, Aina i Joel amb el rol de la taula.</li>
+    <li>Crea el rol personalitzat <strong>Corrector</strong> amb només les capacitats que necessita en Nil, i assigna-l'hi.</li>
+    <li>Activa el registre obert amb el rol per defecte que correspongui a les famílies i registra't com una família des d'una finestra privada.</li>
+    <li>Crea el grup <strong>Redacció</strong> amb Marta, Pau, Aina, Joel i Nil, i una pàgina «Calendari de la redacció» que només pugui llegir aquest grup.</li>
+    <li>Fes una <strong>matriu de proves</strong>: per a cada usuari, prova una acció permesa i una de prohibida, i anota el resultat.</li>
+    <li>Tanca el registre obert i esborra el compte de família de prova.</li>
+  </ol>
+</div>
+
+<!-- ============ 4 · ENUNCIAT ============ -->
 <div class="cq-block" data-kind="enunciat">
   <h2>D'on has de treure cada cosa</h2>
   <div class="cq-tablewrap">
     <table class="cq-table">
       <thead><tr><th>Què has de fer</th><th>On ho tens</th></tr></thead>
       <tbody>
-        <tr><td>Crear i clonar el repositori per SSH</td><td>Guia G4.3</td></tr>
-        <tr><td>Selectors de classe i propietats de color i lletra</td><td>Teoria <a class="cq-ref" href="../teoria/t1-2-html-i-css.html">T1.2</a></td></tr>
-        <tr><td>Farciment, vores i marges</td><td>Teoria <a class="cq-ref" href="../teoria/t1-3-capses-i-disposicio.html">T1.3</a>, model de capsa</td></tr>
-        <tr><td>Centrar la targeta a la pantalla</td><td>Teoria <a class="cq-ref" href="../teoria/t1-3-capses-i-disposicio.html">T1.3</a>, exemple de Flexbox</td></tr>
-        <tr><td>Publicar-la a GitHub Pages</td><td>Pas a pas del lliurament</td></tr>
+        <tr><td>Quin rol toca a cadascú</td><td>Teoria <a class="cq-ref" href="../teoria/t1-4-usuaris-i-rols.html">T1.4</a>, taules de rols i exemple</td></tr>
+        <tr><td>Crear usuaris i obrir el registre</td><td>Guia <a class="cq-ref" href="../guies/g1-3-wordpress.html">G1.3</a>, «Usuaris i rols»</td></tr>
+        <tr><td>Rol personalitzat i grup</td><td>Guia <a class="cq-ref" href="../guies/g1-3-wordpress.html">G1.3</a>, «Rols personalitzats i grups»</td></tr>
+        <tr><td>Rol o grup?</td><td>Teoria <a class="cq-ref" href="../teoria/t1-4-usuaris-i-rols.html">T1.4</a>, «Rols i grups»</td></tr>
       </tbody>
     </table>
   </div>
 </div>
 
-<!-- ============ 6 · RECORDATORI ============ -->
+<!-- ============ 5 · RECORDATORI ============ -->
 <div class="cq-block" data-kind="recordatori">
-  <h2>Dues classes al mateix element</h2>
-  <p><code>class="pokemon-type plant"</code> vol dir que l'element té dues classes. <code>.pokemon-type</code> dona l'estil comú a tots els tipus i <code>.plant</code> només el color propi. Així no es repeteix el mateix CSS.</p>
+  <h2>Un compte per persona</h2>
+  <p>No facis un usuari «alumnes» compartit per Aina i Joel. Amb comptes individuals el gestor registra qui ha fet cada canvi i es pot donar de baixa una persona sense afectar les altres.</p>
 </div>
 
-<!-- ============ 7 · OBSERVACIÓ ============ -->
+<!-- ============ 6 · OBSERVACIÓ ============ -->
 <div class="cq-block" data-kind="observació">
-  <h2>Provar abans d'escriure</h2>
-  <p>A l'inspector del navegador pots escriure propietats sobre <code>.pokemon-card</code> i veure'n l'efecte a l'instant. Quan t'agradi, copia-les a <code>styles.css</code>.</p>
+  <h2>Veure les capacitats d'un usuari</h2>
+  <p>Amb WP-CLI pots comprovar què té cada compte sense entrar-hi: <code>wp user list</code> mostra els rols i <code>wp user list-caps nom</code> llista totes les capacitats d'un usuari. Compara la d'en Nil amb la d'un editor.</p>
 </div>
 
-<!-- ============ 8 · COMPROVACIÓ ============ -->
+<!-- ============ 7 · COMPROVACIÓ ============ -->
 <div class="cq-block" data-kind="comprovació">
   <h2>Com sabràs que ho has fet bé</h2>
   <ul>
-    <li><code>index.html</code> és idèntic a l'original.</li>
-    <li>La targeta queda centrada tant en pantalla gran com a 375 px d'amplada.</li>
-    <li>Tots els estils fan servir selectors de classe.</li>
-    <li>La pàgina publicada a GitHub Pages es veu igual que en local.</li>
+    <li><code>sudo -u www-data wp user list --fields=user_login,roles</code> mostra un sol administrador i el rol de la taula per a cada persona.</li>
+    <li>Aina envia un article a revisió però no el pot publicar.</li>
+    <li>Nil edita un article d'en Pau però no el pot publicar ni esborrar.</li>
+    <li>Sense sessió, o amb el compte de família, «Calendari de la redacció» no es veu.</li>
+    <li>Amb el registre tancat, <code>/wp-login.php?action=register</code> no deixa crear comptes.</li>
   </ul>
 </div>
 
-<!-- ============ 9 · PROBLEMES ============ -->
+<!-- ============ 8 · PROBLEMES ============ -->
 <div class="cq-block" data-kind="problemes">
   <h2>Si alguna cosa no va</h2>
   <dl class="cq-issues">
-    <dt>No surt la imatge a GitHub Pages però sí en local</dt>
+    <dt>En Nil no veu el menú d'entrades</dt>
     <dd>
-      <p><span class="lbl">Causa</span> El nom de la carpeta o del fitxer no coincideix en majúscules i minúscules.</p>
-      <p><span class="lbl">Solució</span> GitHub Pages distingeix <code>Images</code> d'<code>images</code>: fes-los coincidir.</p>
+      <p><span class="lbl">Causa</span> Al rol li falta la capacitat de llegir o editar entrades.</p>
+      <p><span class="lbl">Solució</span> Revisa les capacitats del rol amb User Role Editor i compara-les amb les d'un editor.</p>
     </dd>
-    <dt>La targeta no es centra verticalment</dt>
+    <dt>La pàgina del grup es veu sense sessió</dt>
     <dd>
-      <p><span class="lbl">Causa</span> El contenidor flex no té alçada.</p>
-      <p><span class="lbl">Solució</span> Dona <code>min-height: 100vh</code> al <code>body</code>.</p>
+      <p><span class="lbl">Causa</span> No s'ha desat la restricció o s'ha posat a una altra pàgina.</p>
+      <p><span class="lbl">Solució</span> Obre la pàgina a l'editor, revisa el quadre de grups i torna a desar.</p>
     </dd>
   </dl>
 </div>
 
-<!-- ============ 10 · LLIURAMENT ============ -->
+<!-- ============ 9 · LLIURAMENT ============ -->
 <div class="cq-block" data-kind="lliurament">
   <h2>Què has d'entregar</h2>
-  <ol class="cq-steps">
-    <li>
-      <p><strong>Publica els canvis</strong> des de la carpeta del repositori:</p>
-<pre>git add .
-git commit -m "Descripció dels canvis"
-git push</pre>
-    </li>
-    <li>
-      <p><strong>Activa GitHub Pages:</strong> <strong>Settings → Pages → Branch: main</strong> i desa.</p>
-    </li>
-    <li>
-      <p><strong>Copia l'adreça publicada</strong> al camp <strong>Website</strong> de la secció <strong>About</strong> del repositori.</p>
-    </li>
-  </ol>
-  <p>Entrega l'enllaç al repositori. Respon al <code>README.md</code>: <strong>quina propietat has fet servir per centrar la targeta i per què funciona?</strong></p>
+  <p>Un repositori a GitHub amb un <code>README.md</code> que tingui la taula de disseny, les capacitats del rol Corrector, la matriu de proves amb una captura de cada intent prohibit i la sortida de les comprovacions.</p>
+  <p>Respon-hi també: <strong>per què no n'hi ha prou amb un rol per protegir el calendari de la redacció, i quan faries servir un grup en lloc d'un rol nou?</strong></p>
 </div>
 
 
 <!-- ============ CURRÍCULUM ============ -->
 <div class="cq-block" data-kind="currículum">
   <h2>Al currículum</h2>
-  <p><span class="lbl">Contingut 1.3</span> Utilització de la interfície gràfica. Personalització de l'entorn. Funcionalitats proporcionades pel gestor de continguts. Sindicació.</p>
-  <p><span class="lbl">CA 1.3</span> Personalitza la interfície del gestor de continguts.</p>
+  <p><span class="lbl">Contingut 1.2</span> Creació d'usuaris i grups d'usuaris.</p>
+  <p><span class="lbl">CA 1.2</span> Gestiona usuaris amb rols diferents.</p>
 </div>
 
 <!-- === PEU DE NAVEGACIÓ INICI === -->
 <nav class="cq-pager">
-  <a class="prev" href="a1-1-estatic-i-dinamic.html">
-    <span class="dir">Anterior · A1.1</span>
-    <span class="ttl">Estàtic i dinàmic</span></a>
-  <a class="next" href="a1-3-landing-page.html">
-    <span class="dir">Següent · A1.3</span>
-    <span class="ttl">Landing page</span></a>
+  <a class="prev" href="a1-2-requeriments-i-instal-lacio.html">
+    <span class="dir">Anterior · A1.2</span>
+    <span class="ttl">Requeriments i instal·lació</span></a>
+  <a class="next" href="a1-4-interficie-menus-i-sindicacio.html">
+    <span class="dir">Següent · A1.4</span>
+    <span class="ttl">Interfície, menús i sindicació</span></a>
 </nav>
 <!-- === PEU DE NAVEGACIÓ FI === -->
 

@@ -12,7 +12,7 @@ dues vegades seguides deixa els fitxers igual.
   2. La navegació. La barra de dalt i el pas a la pàgina següent surten del
      RAn/index.html, que ja diu en quin ordre van les pàgines. Van entre els
      marcadors NAVEGACIÓ i no es toquen a mà.
-  3. Els enllaços creuats. Cada «T2.4», «G4.1» o «A3.2» que apareix dins d'un
+  3. Els enllaços creuats. Cada «T2.4», «G4.1», «A3.2» o «P1.1» que apareix dins d'un
      bloc es converteix en un enllaç a la pàgina que toca.
 
 Res d'això entra dins dels blocs de contingut, així que l'editor no s'hi
@@ -38,7 +38,7 @@ NAV_FI = '<!-- === NAVEGACIÓ FI === -->'
 PAG_INICI = '<!-- === PEU DE NAVEGACIÓ INICI === -->'
 PAG_FI = '<!-- === PEU DE NAVEGACIÓ FI === -->'
 
-REF = r'[TGA]\d+\.\d+|RA\d+'
+REF = r'[TGAP](?:\d+|X)\.\d+|RA(?:\d+|X)'
 REF_RE = re.compile(r'\b(' + REF + r')\b')
 # Trossos on no s'hi toca: codi, enllaços que ja existeixen i el motor del test.
 PROTEGIT_RE = re.compile(r'<pre\b.*?</pre>|<a\b.*?</a>|<code\b.*?</code>', re.S)

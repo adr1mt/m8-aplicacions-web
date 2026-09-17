@@ -16,7 +16,8 @@ Comprova el que s'ha de complir sempre:
   · cap guia amb test i cap teoria ni activitat amb «pas a pas»
   · cap teoria amb fuga de producte (wp-config.php, php.ini, sudo…)
   · cap URL solta fora d'un <a> i cap títol de bloc que no sigui <h2>
-  · totes les teories i activitats tenen el bloc de currículum
+  · totes les teories, activitats i pràctiques tenen el bloc de currículum
+    (menys les del RA extra, que no és al currículum oficial)
   · avisa dels blocs d'explicació de més de 135 mots (regla de densitat)
 
 Surt amb codi 1 si hi ha errors, perquè es pugui encadenar amb publica.py.
@@ -37,6 +38,9 @@ DENSE = {'teoria', 'referència', 'exemple', 'cas real', 'escenari',
 # producte concret (fitxers de configuració i ordres d'instal·lació).
 PRODUCTE = ('wp-config.php', 'config.inc.php', 'php.ini', 'sites-available',
             'a2ensite', 'apt install', 'sudo ', 'mysql -u', 'occ ')
+
+# RA complementaris, fora del currículum oficial.
+EXTRA = {'RAX'}
 
 # Excepcions revisades una a una, no per comoditat.
 PRODUCTE_PERMES = set()
@@ -122,7 +126,7 @@ def pages(only=None):
             continue
         if (ra / 'index.html').exists():
             found.append(ra / 'index.html')
-        for folder in ('teoria', 'guies', 'activitats'):
+        for folder in ('teoria', 'guies', 'activitats', 'practiques'):
             found += sorted((ra / folder).glob('*.html'))
     if not only and (ROOT / 'index.html').exists():
         found.append(ROOT / 'index.html')
@@ -188,10 +192,11 @@ def estructura(path, src):
     if tipus == 'guies':
         if te_test:
             errors.append('una guia no porta test')
-    elif tipus in ('teoria', 'activitats'):
+    elif tipus in ('teoria', 'activitats', 'practiques'):
         if te_passos:
             errors.append(f'un «pas a pas» fora d\'una guia ({tipus})')
-        if not te_curriculum:
+        # El RA extra no és al currículum oficial: no porta aquest bloc.
+        if not te_curriculum and path.parent.parent.name not in EXTRA:
             errors.append('falta el bloc de currículum: dona-la d\'alta a '
                           'MAP de Programación_didactica/curriculum.py')
 

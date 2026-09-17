@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>A1.1 · Estàtic i dinàmic — Aplicacions Web (0228)</title>
+<title>A1.6 · Actualitzar, protegir i copiar — Aplicacions Web (0228)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500;700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -531,7 +531,7 @@
 <nav class="cq-nav">
   <div class="inner">
     <a href="../index.html">‹ RA1 · Instal·lació de gestors de continguts</a>
-    <span class="pos">A1.1 · 10/16</span>
+    <span class="pos">A1.6 · 15/16</span>
   </div>
 </nav>
 <!-- === NAVEGACIÓ FI === -->
@@ -539,71 +539,40 @@
 <main>
 
 <header class="cq-header">
-  <div class="eyebrow">0228 · Aplicacions Web · RA1 · A1.1</div>
-  <h1>Estàtic i dinàmic</h1>
-  <p class="lede">Un servidor, tres pàgines i un mur de signatures: veure com respon cada una.</p>
+  <div class="eyebrow">0228 · Aplicacions Web · RA1 · A1.6</div>
+  <h1>Actualitzar, protegir i copiar</h1>
+  <p class="lede">El manteniment d'un gestor: posar-lo al dia, tancar-ne les portes, copiar-lo i demostrar que la còpia serveix.</p>
 </header>
 
 <!-- ============ 1 · OBJECTIUS ============ -->
 <div class="cq-block" data-kind="objectius">
   <h2>Què has de saber abans de començar</h2>
-  <p>Teoria <a class="cq-ref" href="../teoria/t1-1-com-funciona-una-aplicacio-web.html">T1.1</a> (URL, HTTP, estàtic i dinàmic). La guia <a class="cq-ref" href="../guies/g1-2-pila-lamp.html">G1.2</a> és el manual que consultaràs mentre treballes.</p>
-  <p>Muntaràs la pila LAMP, publicaràs un lloc <code>web.internal</code> i hi compararàs un fitxer que no canvia amb dos programes PHP: un que llegeix la URL i un altre que llegeix la base de dades.</p>
+  <p>Teoria <a class="cq-ref" href="../teoria/t1-5-mantenir-un-gestor.html">T1.5</a>. La guia <a class="cq-ref" href="../guies/g1-3-wordpress.html">G1.3</a>, apartats de WP-CLI, seguretat i manteniment i restauració, és el manual que consultaràs.</p>
+  <p>Deixaràs el lloc de proves desactualitzat a propòsit, l'actualitzaràs de manera ordenada, activaràs els mecanismes de seguretat del gestor, en faràs una còpia completa i la restauraràs després d'una «avaria». Abans i després de cada pas passaràs una llista de proves.</p>
 </div>
 
 <!-- ============ 2 · ESCENARI ============ -->
 <div class="cq-block" data-kind="escenari">
   <h2>Amb què treballaràs</h2>
-  <div class="cq-tablewrap">
-    <table class="cq-table">
-      <thead><tr><th>Màquina</th><th>Sistema</th><th>Nom del lloc</th></tr></thead>
-      <tbody>
-        <tr><td>Escriptori nou a IsardVDI</td><td>Ubuntu 26.04 LTS</td><td><code>web.internal</code></td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p>El navegador és a la mateixa màquina, i el nom es resol amb <code>/etc/hosts</code>.</p>
+  <p>L'escriptori de proves de l'<a class="cq-ref" href="a1-2-requeriments-i-instal-lacio.html">A1.2</a>, amb WordPress a <code>proves.internal</code> i tot el que hi has fet a les activitats anteriors. Un client et demana que te'n facis càrrec: fa mesos que ningú no l'actualitza i no hi ha cap còpia.</p>
 </div>
 
 <!-- ============ 3 · ENUNCIAT ============ -->
 <div class="cq-block" data-kind="enunciat">
   <h2>Què has de fer</h2>
   <ol>
-    <li>Instal·la la pila LAMP i crea el host virtual <code>web.internal</code>.</li>
-    <li>Publica <code>index.html</code>, <code>xxx.html</code> i <code>aaa/bbb/mmm.html</code>. Demana una pàgina que no existeix i una carpeta sense <code>index.html</code>: anota què respon el servidor.</li>
-    <li>Crea <code>data.html</code> amb una data escrita a mà i <code>data.php</code> amb el codi de sota. Recarrega totes dues.</li>
-    <li>Crea <code>hola.php</code>, que saluda el nom que arriba a la consulta: <code>hola.php?nom=Anna</code>.</li>
-    <li>Crea la base de dades <code>muraldb</code> amb l'SQL de sota, el seu usuari, i el programa <code>mur.php</code>, que mostra les signatures i en deixa afegir.</li>
+    <li>Escriu una <strong>llista de proves</strong> d'almenys vuit files per al teu lloc i passa-la.</li>
+    <li>Instal·la amb WP-CLI una <strong>versió antiga</strong> d'una extensió del directori oficial, perquè el tauler en demani l'actualització.</li>
+    <li>Fes una <strong>còpia completa</strong>: bolcat de la base de dades i fitxers, i treu-la de l'escriptori.</li>
+    <li>Fes l'inventari del que cal actualitzar i aplica les actualitzacions d'una en una, en l'ordre que decideixis després de llegir què canvia a cadascuna. Registra cada element amb la versió d'abans i la de després, i torna a passar la llista de proves.</li>
+    <li>Activa els <strong>mecanismes de seguretat</strong> del gestor: actualitzacions automàtiques, cap tema ni extensió sobrant, comentaris moderats, registre tancat, editor de fitxers desactivat, <code>wp-config.php</code> protegit i contrasenyes d'aplicació revisades. Resol els avisos crítics de <strong>Salut del lloc</strong>.</li>
+    <li>Fes una segona còpia. Simula una <strong>avaria</strong>: esborra una pàgina, una entrada i una extensió.</li>
+    <li><strong>Restaura</strong> la segona còpia i passa la llista de proves per tercera vegada.</li>
   </ol>
-  <p><code>data.php</code> i <code>hola.php</code>:</p>
-<pre>&lt;?php // data.php
-echo "&lt;p&gt;La data del servidor és: " . date('d/m/Y H:i:s') . "&lt;/p&gt;";</pre>
-<pre>&lt;?php // hola.php
-$nom = htmlspecialchars($_GET['nom'] ?? 'desconegut');
-echo "&lt;h1&gt;Hola, $nom&lt;/h1&gt;";</pre>
-  <p>Base de dades del mur:</p>
-<pre>CREATE TABLE signatures (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  text VARCHAR(200) NOT NULL,
-  creada TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-INSERT INTO signatures (text) VALUES ('Hola, món'), ('Passava per aquí');</pre>
-  <p><code>mur.php</code> (canvia la contrasenya per la teva):</p>
-<pre>&lt;?php
-$db = new PDO('mysql:host=localhost;dbname=muraldb;charset=utf8mb4',
-              'muraluser', 'Canvia-la-2026');
-if (!empty($_POST['text'])) {
-    $alta = $db-&gt;prepare('INSERT INTO signatures (text) VALUES (?)');
-    $alta-&gt;execute([$_POST['text']]);
-}
-echo '&lt;form method="post"&gt;&lt;input name="text" maxlength="200"&gt;';
-echo '&lt;button&gt;Signa&lt;/button&gt;&lt;/form&gt;&lt;ul&gt;';
-foreach ($db-&gt;query('SELECT text, creada FROM signatures
-                     ORDER BY creada DESC') as $fila) {
-    echo '&lt;li&gt;' . htmlspecialchars($fila['text']) . ' · '
-       . $fila['creada'] . '&lt;/li&gt;';
-}
-echo '&lt;/ul&gt;';</pre>
+  <p>Exemple per al punt 2 (tria l'extensió i la versió a la pestanya «Advanced View» del directori):</p>
+<pre>cd /var/www/proves.internal
+sudo -u www-data wp plugin install hello-dolly \
+  --version=1.6 --activate</pre>
 </div>
 
 <!-- ============ 4 · ENUNCIAT ============ -->
@@ -613,12 +582,12 @@ echo '&lt;/ul&gt;';</pre>
     <table class="cq-table">
       <thead><tr><th>Què has de fer</th><th>On ho tens</th></tr></thead>
       <tbody>
-        <tr><td>Preparar l'escriptori</td><td>Guia <a class="cq-ref" href="../guies/g1-1-entorn-de-laboratori.html">G1.1</a></td></tr>
-        <tr><td>Instal·lar Apache, MySQL i PHP</td><td>Guia <a class="cq-ref" href="../guies/g1-2-pila-lamp.html">G1.2</a>, primer pas a pas</td></tr>
-        <tr><td>Crear el host virtual i el nom</td><td>Guia <a class="cq-ref" href="../guies/g1-2-pila-lamp.html">G1.2</a>, host virtual</td></tr>
-        <tr><td>Crear la base de dades i l'usuari</td><td>Guia <a class="cq-ref" href="../guies/g1-2-pila-lamp.html">G1.2</a>, base de dades</td></tr>
-        <tr><td>Què vol dir cada codi d'estat</td><td>Teoria <a class="cq-ref" href="../teoria/t1-1-com-funciona-una-aplicacio-web.html">T1.1</a></td></tr>
-        <tr><td>Per què una pàgina canvia i l'altra no</td><td>Teoria <a class="cq-ref" href="../teoria/t1-1-com-funciona-una-aplicacio-web.html">T1.1</a>, estàtic i dinàmic</td></tr>
+        <tr><td>Quines actualitzacions són urgents</td><td>Teoria <a class="cq-ref" href="../teoria/t1-5-mantenir-un-gestor.html">T1.5</a>, «Actualitzar»</td></tr>
+        <tr><td>WP-CLI i actualitzacions</td><td>Guia <a class="cq-ref" href="../guies/g1-3-wordpress.html">G1.3</a>, «Administrar-lo amb WP-CLI»</td></tr>
+        <tr><td>Mecanismes de seguretat del gestor</td><td>Teoria <a class="cq-ref" href="../teoria/t1-5-mantenir-un-gestor.html">T1.5</a>, «Protegir», i guia <a class="cq-ref" href="../guies/g1-3-wordpress.html">G1.3</a>, «Seguretat i manteniment»</td></tr>
+        <tr><td>Fer la còpia i treure-la del servidor</td><td>Guia <a class="cq-ref" href="../guies/g1-3-wordpress.html">G1.3</a>, «Seguretat i manteniment»</td></tr>
+        <tr><td>Restaurar-la</td><td>Guia <a class="cq-ref" href="../guies/g1-3-wordpress.html">G1.3</a>, «Restaurar una còpia»</td></tr>
+        <tr><td>Què posar a la llista de proves</td><td>Teoria <a class="cq-ref" href="../teoria/t1-5-mantenir-un-gestor.html">T1.5</a>, «Proves després de cada canvi»</td></tr>
       </tbody>
     </table>
   </div>
@@ -626,24 +595,26 @@ echo '&lt;/ul&gt;';</pre>
 
 <!-- ============ 5 · RECORDATORI ============ -->
 <div class="cq-block" data-kind="recordatori">
-  <h2>Mai confiïs en el que arriba per la URL</h2>
-  <p>Tot el que ve de la consulta o d'un formulari ho escriu el visitant, i pot ser codi. Per això <code>hola.php</code> passa el nom per <code>htmlspecialchars</code> i el mur fa servir una consulta preparada. Un programa que executi o guardi tal qual el que rep deixa el servidor a mans de qualsevol.</p>
+  <h2>Primer la còpia</h2>
+  <p>Mai actualitzis sense una còpia recent i provada. Si una actualització trenca el lloc, la còpia és l'única manera de tornar enrere en minuts. Una còpia que es queda al mateix escriptori es perd amb l'escriptori.</p>
 </div>
 
 <!-- ============ 6 · OBSERVACIÓ ============ -->
 <div class="cq-block" data-kind="observació">
-  <h2>La mateixa petició vista de dues maneres</h2>
-  <p>Obre les eines de desenvolupador del navegador (F12, pestanya Xarxa) i compara la resposta de <code>data.html</code> i de <code>data.php</code>. El navegador rep HTML en tots dos casos: el codi PHP no surt mai del servidor.</p>
+  <h2>Què hi ha dins del bolcat</h2>
+  <p>Obre el fitxer <code>.sql</code> amb <code>less</code>. Són ordres SQL: <code>CREATE TABLE</code> per a cada taula i <code>INSERT</code> amb les files. Busca-hi el títol d'una de les teves entrades: restaurar és tornar a executar aquestes ordres.</p>
 </div>
 
 <!-- ============ 7 · COMPROVACIÓ ============ -->
 <div class="cq-block" data-kind="comprovació">
   <h2>Com sabràs que ho has fet bé</h2>
   <ul>
-    <li><code>curl -I http://web.internal/no-existeix.html</code> respon <code>404</code>.</li>
-    <li><code>curl -s http://web.internal/data.php</code> dona una hora diferent a cada execució; <code>data.html</code>, sempre la mateixa.</li>
-    <li><code>curl -s "http://web.internal/hola.php?nom=%3Cb%3EAnna%3C/b%3E"</code> mostra les etiquetes com a text, no en negreta.</li>
-    <li>Una signatura nova apareix al mur i continua després de recarregar.</li>
+    <li><code>sudo -u www-data wp plugin list --update=available</code> i <code>wp core check-update</code> no mostren res pendent.</li>
+    <li><code>sudo -u www-data wp core verify-checksums</code> passa sense errors.</li>
+    <li><code>sudo -u www-data wp theme list</code> només mostra el tema actiu i, com a molt, un de reserva.</li>
+    <li>Al tauler no surt <strong>Aparença → Editor de fitxers de temes</strong>.</li>
+    <li><code>ls -l wp-config.php</code> mostra permisos <code>640</code>.</li>
+    <li>Després de restaurar, la pàgina, l'entrada i l'extensió esborrades hi tornen a ser, i la llista de proves passa sencera.</li>
   </ul>
 </div>
 
@@ -651,15 +622,20 @@ echo '&lt;/ul&gt;';</pre>
 <div class="cq-block" data-kind="problemes">
   <h2>Si alguna cosa no va</h2>
   <dl class="cq-issues">
-    <dt><code>mur.php</code> surt en blanc</dt>
+    <dt>WP-CLI diu «Error: This does not seem to be a WordPress installation»</dt>
     <dd>
-      <p><span class="lbl">Causa</span> Hi ha un error de PHP i Apache no el mostra.</p>
-      <p><span class="lbl">Solució</span> Llegeix el registre d'errors del lloc, tal com diu <a class="cq-ref" href="../guies/g1-2-pila-lamp.html">G1.2</a>.</p>
+      <p><span class="lbl">Causa</span> No ets a la carpeta del lloc.</p>
+      <p><span class="lbl">Solució</span> Fes <code>cd</code> a la carpeta o afegeix <code>--path=/var/www/proves.internal</code>.</p>
     </dd>
-    <dt><code>could not find driver</code></dt>
+    <dt>Després de restaurar, les imatges no surten</dt>
     <dd>
-      <p><span class="lbl">Causa</span> Falta l'extensió de PHP per a MySQL.</p>
-      <p><span class="lbl">Solució</span> Instal·la <code>php-mysql</code> i reinicia Apache.</p>
+      <p><span class="lbl">Causa</span> La còpia de fitxers no incloïa <code>wp-content/uploads</code> o els permisos no són de <code>www-data</code>.</p>
+      <p><span class="lbl">Solució</span> Revisa el contingut del <code>.tar.gz</code> i torna a fer el <code>chown</code>.</p>
+    </dd>
+    <dt>«Error establint la connexió amb la base de dades» després de restaurar</dt>
+    <dd>
+      <p><span class="lbl">Causa</span> El bolcat no s'ha carregat a la base de dades correcta.</p>
+      <p><span class="lbl">Solució</span> Comprova el nom de la base a <code>wp-config.php</code> i torna a carregar el bolcat.</p>
     </dd>
   </dl>
 </div>
@@ -667,28 +643,29 @@ echo '&lt;/ul&gt;';</pre>
 <!-- ============ 9 · LLIURAMENT ============ -->
 <div class="cq-block" data-kind="lliurament">
   <h2>Què has d'entregar</h2>
-  <p>Un repositori a GitHub amb un <code>README.md</code> que tingui captures de cada punt de l'enunciat i la sortida de les comprovacions.</p>
-  <p>Respon-hi també: <strong>què veuria un visitant si <code>hola.php</code> fes <code>echo $_GET['nom']</code> sense <code>htmlspecialchars</code> i algú hi enviés codi JavaScript? Per què és un problema del servidor i no del navegador?</strong></p>
+  <p>Un repositori a GitHub amb un <code>README.md</code> que tingui la llista de proves amb les tres passades, la taula d'actualitzacions, cada mecanisme de seguretat amb una captura, les ordres de còpia i restauració i la sortida de les comprovacions.</p>
+  <p>Respon-hi també: <strong>en quin ordre has aplicat les actualitzacions i per què, i què hauries fet si una d'elles hagués trencat el lloc?</strong></p>
 </div>
 
 
 <!-- ============ CURRÍCULUM ============ -->
 <div class="cq-block" data-kind="currículum">
   <h2>Al currículum</h2>
-  <p><span class="lbl">Contingut 1.1</span> Instal·lació en sistemes operatius lliures i propietaris.</p>
-  <p><span class="lbl">Contingut 1.4</span> Funcionament dels gestors de continguts.</p>
-  <p><span class="lbl">CA 1.1</span> Identifica els requeriments necessaris per instal·lar gestors de continguts.</p>
-  <p><span class="lbl">CA 1.4</span> Realitza proves de funcionament.</p>
+  <p><span class="lbl">Contingut 1.5</span> Actualitzacions del gestor de continguts. Configuració de mòduls i menús.</p>
+  <p><span class="lbl">CA 1.5</span> Realitza tasques d'actualització del gestor de continguts, especialment les de seguretat.</p>
+  <p><span class="lbl">CA 1.7</span> Activa i configura els mecanismes de seguretat proporcionats pel propi gestor de continguts.</p>
+  <p><span class="lbl">CA 1.9</span> Realitza proves de funcionament.</p>
+  <p><span class="lbl">CA 1.10</span> Realitza còpies de seguretat dels continguts del gestor.</p>
 </div>
 
 <!-- === PEU DE NAVEGACIÓ INICI === -->
 <nav class="cq-pager">
-  <a class="prev" href="../guies/g1-4-migrar-wordpress.html">
-    <span class="dir">Anterior · G1.4</span>
-    <span class="ttl">Guia: migrar WordPress a un allotjament</span></a>
-  <a class="next" href="a1-2-requeriments-i-instal-lacio.html">
-    <span class="dir">Següent · A1.2</span>
-    <span class="ttl">Requeriments i instal·lació</span></a>
+  <a class="prev" href="a1-5-forum-amb-regles-d-acces.html">
+    <span class="dir">Anterior · A1.5</span>
+    <span class="ttl">Fòrum amb regles d'accés</span></a>
+  <a class="next" href="../practiques/p1-1-portal-wordpress.html">
+    <span class="dir">Següent · P1.1</span>
+    <span class="ttl">Pràctica: portal amb WordPress</span></a>
 </nav>
 <!-- === PEU DE NAVEGACIÓ FI === -->
 

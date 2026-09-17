@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>A1.5 · Web HTML5 — Aplicacions Web (0228)</title>
+<title>AX.2 · Landing page — Aplicacions Web (0228)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500;700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -530,8 +530,8 @@
 <!-- === NAVEGACIÓ INICI === -->
 <nav class="cq-nav">
   <div class="inner">
-    <a href="../index.html">‹ RA1 · Instal·lació de gestors de continguts</a>
-    <span class="pos">A1.5 · 15/17</span>
+    <a href="../index.html">‹ RAX · HTML i CSS</a>
+    <span class="pos">AX.2 · 3/6</span>
   </div>
 </nav>
 <!-- === NAVEGACIÓ FI === -->
@@ -539,128 +539,190 @@
 <main>
 
 <header class="cq-header">
-  <div class="eyebrow">0228 · Aplicacions Web · RA1 · A1.5</div>
-  <h1>Web HTML5</h1>
-  <p class="lede">Un web propi de tres pàgines, semàntic, animat i adaptat al mòbil.</p>
+  <div class="eyebrow">0228 · Aplicacions Web · RAX · AX.2</div>
+  <h1>Landing page</h1>
+  <p class="lede">Una pàgina de producte amb menú, imatge destacada, botó d'acció i peu.</p>
 </header>
 
 <!-- ============ 1 · OBJECTIUS ============ -->
 <div class="cq-block" data-kind="objectius">
   <h2>Què has de saber abans de començar</h2>
-  <p>Teories <a class="cq-ref" href="../teoria/t1-2-html-i-css.html">T1.2</a> i <a class="cq-ref" href="../teoria/t1-3-capses-i-disposicio.html">T1.3</a> senceres i les activitats <a class="cq-ref" href="a1-2-targeta-pokemon.html">A1.2</a> a <a class="cq-ref" href="a1-4-zoo-interactiu.html">A1.4</a>.</p>
-  <p>Faràs un projecte complet només amb HTML5 i CSS, sobre un tema que triïs, i en documentaràs les decisions de disseny.</p>
+  <p>Teories <a class="cq-ref" href="../../RA1/teoria/t1-2-html-i-css.html">T1.2</a> i <a class="cq-ref" href="../teoria/tx-1-capses-i-disposicio.html">TX.1</a>, sobretot <code>position</code> i Flexbox. Per al repositori, G4.3.</p>
+  <p>Donaràs estil a una <em>landing page</em> amb una estructura HTML fixa, escrivint només <code>styles.css</code>.</p>
 </div>
 
 <!-- ============ 2 · ESCENARI ============ -->
 <div class="cq-block" data-kind="escenari">
   <h2>Amb què treballaràs</h2>
   <ul>
-    <li>Un repositori nou a GitHub amb GitHub Pages activat.</li>
-    <li>Carpetes separades per a CSS i imatges.</li>
-    <li>Tema lliure: bloc personal, web d'empresa, catàleg de productes…</li>
+    <li>Un repositori nou a GitHub anomenat <code>landing-page</code>, amb <code>README.md</code> i llicència GPL v3.</li>
+    <li>La imatge <a href="../img/product.png">product.png</a>, desada a la carpeta <code>images</code>.</li>
   </ul>
 </div>
 
 <!-- ============ 3 · ENUNCIAT ============ -->
 <div class="cq-block" data-kind="enunciat">
-  <h2>Què has de fer</h2>
-  <div class="cq-tablewrap">
-    <table class="cq-table">
-      <thead><tr><th>Apartat</th><th>Requisits</th><th>Punts</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Layout</strong></td><td>Esquema dibuixat al README. Etiquetes semàntiques (<code>header</code>, <code>nav</code>, <code>main</code>, <code>section</code>, <code>article</code>, <code>footer</code>). Sense <code>&lt;br&gt;</code> ni marcs.</td><td>2,5</td></tr>
-        <tr><td><strong>Navegació</strong></td><td>Dins de <code>&lt;nav&gt;</code>, fixa o enganxosa, amb efecte a <code>:hover</code> i adaptació al mòbil.</td><td>1,5</td></tr>
-        <tr><td><strong>Continguts i estil</strong></td><td>Tres pàgines com a mínim, amb un sol <code>styles.css</code> extern i estils per a lletra, colors, marges, imatges i enllaços.</td><td>2</td></tr>
-        <tr><td><strong>Visualització i animació</strong></td><td>Un efecte (carrusel, paral·laxi o transicions) i animacions amb <code>@keyframes</code>, <code>transition</code> o <code>transform</code>.</td><td>1,5</td></tr>
-        <tr><td><strong>Disseny adaptable</strong></td><td><em>Media queries</em> per a pantalla petita, mitjana i gran.</td><td>1</td></tr>
-        <tr><td><strong>Codi net</strong></td><td>Indentació, comentaris on calgui i fitxers ordenats. HTML sense errors al validador del W3C.</td><td>1,5</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p>Extres valorats: tipus de lletra propis, icones SVG, formulari de contacte i multimèdia.</p>
+  <h2>L'HTML, que no es pot modificar</h2>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="ca"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Landing Page&lt;/title&gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header class="main-header"&gt;
+    &lt;nav class="navbar"&gt;
+      &lt;ul class="nav-list"&gt;
+        &lt;li class="nav-item"&gt;&lt;a href="#home" class="nav-link"&gt;Inici&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="nav-item"&gt;
+          &lt;a href="#features" class="nav-link"&gt;Característiques&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="nav-item"&gt;
+          &lt;a href="#contact" class="nav-link"&gt;Contacte&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+
+  &lt;div class="landing-container"&gt;
+    &lt;header class="header"&gt;
+      &lt;h1 class="product-title"&gt;Producte Innovador&lt;/h1&gt;
+      &lt;p class="product-subtitle"&gt;La millor solució per a tu&lt;/p&gt;
+    &lt;/header&gt;
+    &lt;section class="hero-section"&gt;
+      &lt;img class="hero-image" src="images/product.png"
+           alt="Imatge del producte"&gt;
+      &lt;p class="hero-text"&gt;Descobreix els beneficis d'aquest producte!&lt;/p&gt;
+    &lt;/section&gt;
+    &lt;section class="description-section"&gt;
+      &lt;p class="product-description"&gt;
+        Descobreix el nostre producte innovador, dissenyat per millorar
+        la teva vida diària. Amb tecnologia avançada i materials de
+        primera qualitat, aquest producte és perfecte per a tothom.
+      &lt;/p&gt;
+    &lt;/section&gt;
+    &lt;footer class="footer"&gt;
+      &lt;a href="#" class="cta-button"&gt;Compra ara&lt;/a&gt;
+    &lt;/footer&gt;
+  &lt;/div&gt;
+
+  &lt;footer class="main-footer"&gt;
+    &lt;p class="footer-text"&gt;© 2026 Producte Innovador.&lt;/p&gt;
+    &lt;ul class="footer-links"&gt;
+      &lt;li&gt;&lt;a href="#privacy" class="footer-link"&gt;Privacitat&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#terms" class="footer-link"&gt;Termes&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#contact" class="footer-link"&gt;Contacte&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
 </div>
 
 <!-- ============ 4 · ENUNCIAT ============ -->
+<div class="cq-block" data-kind="enunciat">
+  <h2>Què has de fer</h2>
+  <div class="cq-tablewrap">
+    <table class="cq-table">
+      <thead><tr><th>Classe</th><th>Estil que ha de tenir</th></tr></thead>
+      <tbody>
+        <tr><td><code>.navbar</code></td><td>Fons fosc, farciment, enllaços en una sola línia, en blanc, amb canvi de color en passar-hi el ratolí</td></tr>
+        <tr><td><code>.landing-container</code></td><td>Fons suau, contingut centrat i farciment general</td></tr>
+        <tr><td><code>.header</code> i <code>.product-subtitle</code></td><td>Títol amb lletra distintiva; subtítol més petit i gris</td></tr>
+        <tr><td><code>.hero-image</code></td><td>Amplada màxima, cantonades arrodonides i marge inferior</td></tr>
+        <tr><td><code>.hero-text</code></td><td><strong>Posat damunt de la imatge</strong>, amb fons negre semitransparent, text blanc i farciment</td></tr>
+        <tr><td><code>.product-description</code></td><td>Lletra més petita, gris i marge inferior</td></tr>
+        <tr><td><code>.cta-button</code></td><td>Fons de color viu, text blanc, cantonades arrodonides i canvi de color amb el ratolí</td></tr>
+        <tr><td><code>.main-footer</code></td><td>Fons fosc, farciment, text i enllaços centrats en blanc, amb canvi de color amb el ratolí</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ============ 5 · ENUNCIAT ============ -->
 <div class="cq-block" data-kind="enunciat">
   <h2>D'on has de treure cada cosa</h2>
   <div class="cq-tablewrap">
     <table class="cq-table">
       <thead><tr><th>Què has de fer</th><th>On ho tens</th></tr></thead>
       <tbody>
-        <tr><td>Etiquetes semàntiques</td><td>Teoria <a class="cq-ref" href="../teoria/t1-2-html-i-css.html">T1.2</a>, taula d'etiquetes</td></tr>
-        <tr><td>Estructura de la pàgina</td><td>Teoria <a class="cq-ref" href="../teoria/t1-3-capses-i-disposicio.html">T1.3</a>, Grid</td></tr>
-        <tr><td>Menú enganxós</td><td>Teoria <a class="cq-ref" href="../teoria/t1-3-capses-i-disposicio.html">T1.3</a>, <code>position: sticky</code></td></tr>
-        <tr><td>Adaptació al mòbil</td><td>Teoria <a class="cq-ref" href="../teoria/t1-3-capses-i-disposicio.html">T1.3</a>, <em>media queries</em></td></tr>
-        <tr><td>Publicació</td><td>Guia G4.3 i lliurament d'<a class="cq-ref" href="a1-2-targeta-pokemon.html">A1.2</a></td></tr>
+        <tr><td>Menú en una línia</td><td>Teoria <a class="cq-ref" href="../../RA1/teoria/t1-2-html-i-css.html">T1.2</a>, bloc i en línia; o Flexbox a <a class="cq-ref" href="../teoria/tx-1-capses-i-disposicio.html">TX.1</a></td></tr>
+        <tr><td>Canvi de color amb el ratolí</td><td>Teoria <a class="cq-ref" href="../../RA1/teoria/t1-2-html-i-css.html">T1.2</a>, exemple del menú (<code>:hover</code>)</td></tr>
+        <tr><td>Text damunt de la imatge</td><td>Teoria <a class="cq-ref" href="../teoria/tx-1-capses-i-disposicio.html">TX.1</a>, parella <code>relative</code> i <code>absolute</code></td></tr>
+        <tr><td>Fons semitransparent</td><td>Color amb canal alfa: <code>rgba(0, 0, 0, 0.6)</code></td></tr>
+        <tr><td>Repositori i GitHub Pages</td><td>Guia G4.3</td></tr>
       </tbody>
     </table>
   </div>
 </div>
 
-<!-- ============ 5 · RECORDATORI ============ -->
+<!-- ============ 6 · RECORDATORI ============ -->
 <div class="cq-block" data-kind="recordatori">
-  <h2>Primer el dibuix</h2>
-  <p>Dibuixa el layout en paper abans d'escriure codi: quines zones hi ha, com es col·loquen en pantalla gran i com s'apilen al mòbil. Amb el dibuix fet, les <code>grid-template-areas</code> gairebé s'escriuen soles.</p>
+  <h2>Qui fa de referència</h2>
+  <p>Un element amb <code>position: absolute</code> es col·loca respecte de l'avantpassat posicionat més proper. Si no n'hi ha cap, ho fa respecte de la pàgina. Pensa quin element de l'HTML ha de fer de pare del text damunt de la imatge.</p>
 </div>
 
-<!-- ============ 6 · OBSERVACIÓ ============ -->
+<!-- ============ 7 · OBSERVACIÓ ============ -->
 <div class="cq-block" data-kind="observació">
-  <h2>Provar-ho com un mòbil</h2>
-  <p>A Firefox, <strong>Ctrl+Maj+M</strong> obre la vista adaptable: tria un mòbil de 375 px i recorre totes les pàgines. Si apareix barra de desplaçament horitzontal, alguna cosa té una amplada fixa massa gran.</p>
+  <h2>Llistes sense punts</h2>
+  <p>Les <code>ul</code> porten pics i marge a l'esquerra de sèrie. A l'inspector veuràs que venen de l'estil del navegador: <code>list-style</code>, <code>padding</code> i <code>margin</code> les treuen.</p>
 </div>
 
-<!-- ============ 7 · COMPROVACIÓ ============ -->
+<!-- ============ 8 · COMPROVACIÓ ============ -->
 <div class="cq-block" data-kind="comprovació">
   <h2>Com sabràs que ho has fet bé</h2>
   <ul>
-    <li>El <a href="https://validator.w3.org/">validador del W3C</a> no dona errors a cap pàgina.</li>
-    <li>Les tres pàgines comparteixen el mateix <code>styles.css</code>.</li>
-    <li>A 375 px no hi ha desplaçament horitzontal i el menú es pot fer servir.</li>
-    <li>El web es veu publicat a GitHub Pages.</li>
+    <li><code>index.html</code> és idèntic a l'original.</li>
+    <li>El text de la imatge queda damunt de la imatge també a 375 px d'amplada.</li>
+    <li>El menú, el botó i els enllaços del peu canvien de color amb el ratolí.</li>
+    <li>La pàgina es veu publicada a GitHub Pages.</li>
   </ul>
 </div>
 
-<!-- ============ 8 · PROBLEMES ============ -->
+<!-- ============ 9 · PROBLEMES ============ -->
 <div class="cq-block" data-kind="problemes">
   <h2>Si alguna cosa no va</h2>
   <dl class="cq-issues">
-    <dt>Les <em>media queries</em> no s'apliquen al mòbil</dt>
+    <dt>El text de la imatge se'n va a dalt de tot de la pàgina</dt>
     <dd>
-      <p><span class="lbl">Causa</span> Falta la metaetiqueta <code>viewport</code>.</p>
-      <p><span class="lbl">Solució</span> Afegeix-la al <code>head</code> de totes les pàgines.</p>
+      <p><span class="lbl">Causa</span> Cap element pare té <code>position</code>.</p>
+      <p><span class="lbl">Solució</span> Posa <code>position: relative</code> a <code>.hero-section</code>.</p>
     </dd>
-    <dt>Els enllaços entre pàgines funcionen en local però no a GitHub Pages</dt>
+    <dt>Els enllaços del menú surten un sota l'altre</dt>
     <dd>
-      <p><span class="lbl">Causa</span> Rutes absolutes que comencen per <code>/</code>.</p>
-      <p><span class="lbl">Solució</span> Fes servir rutes relatives: <code>contacte.html</code>.</p>
+      <p><span class="lbl">Causa</span> Els <code>li</code> són elements de bloc.</p>
+      <p><span class="lbl">Solució</span> Posa <code>display: flex</code> a <code>.nav-list</code>.</p>
     </dd>
   </dl>
 </div>
 
-<!-- ============ 9 · LLIURAMENT ============ -->
+<!-- ============ 10 · LLIURAMENT ============ -->
 <div class="cq-block" data-kind="lliurament">
   <h2>Què has d'entregar</h2>
-  <p>L'enllaç al repositori amb GitHub Pages activat. El <code>README.md</code> ha de tenir: descripció i tema, esquema del layout, decisions d'estil i propietats CSS usades, efectes i animacions, com has fet el disseny adaptable i captures del resultat.</p>
-  <p>Respon-hi també: <strong>quina part del teu CSS canviaries per adaptar aquest disseny a un tema de WordPress amb el CSS addicional?</strong></p>
-</div>
-
-
-<!-- ============ CURRÍCULUM ============ -->
-<div class="cq-block" data-kind="currículum">
-  <h2>Al currículum</h2>
-  <p><span class="lbl">Contingut 1.3</span> Utilització de la interfície gràfica. Personalització de l'entorn. Funcionalitats proporcionades pel gestor de continguts. Sindicació.</p>
-  <p><span class="lbl">CA 1.3</span> Personalitza la interfície del gestor de continguts.</p>
-  <p><span class="lbl">CA 1.4</span> Realitza proves de funcionament.</p>
+  <ol class="cq-steps">
+    <li>
+      <p><strong>Publica els canvis</strong> des de la carpeta del repositori:</p>
+<pre>git add .
+git commit -m "Descripció dels canvis"
+git push</pre>
+    </li>
+    <li>
+      <p><strong>Activa GitHub Pages:</strong> <strong>Settings → Pages → Branch: main</strong> i desa.</p>
+    </li>
+    <li>
+      <p><strong>Copia l'adreça publicada</strong> al camp <strong>Website</strong> de la secció <strong>About</strong> del repositori.</p>
+    </li>
+  </ol>
+  <p>Entrega l'enllaç al repositori. Respon al <code>README.md</code>: <strong>quin element fa de referència del text damunt de la imatge i què passaria si li treguessis el <code>position</code>?</strong></p>
 </div>
 
 <!-- === PEU DE NAVEGACIÓ INICI === -->
 <nav class="cq-pager">
-  <a class="prev" href="a1-4-zoo-interactiu.html">
-    <span class="dir">Anterior · A1.4</span>
+  <a class="prev" href="ax-1-targeta-pokemon.html">
+    <span class="dir">Anterior · AX.1</span>
+    <span class="ttl">Targeta Pokémon</span></a>
+  <a class="next" href="ax-3-zoo-interactiu.html">
+    <span class="dir">Següent · AX.3</span>
     <span class="ttl">Zoo interactiu</span></a>
-  <a class="next" href="a1-6-portal-wordpress.html">
-    <span class="dir">Següent · A1.6</span>
-    <span class="ttl">Pràctica: portal amb WordPress</span></a>
 </nav>
 <!-- === PEU DE NAVEGACIÓ FI === -->
 

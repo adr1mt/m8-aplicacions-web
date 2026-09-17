@@ -75,50 +75,40 @@ RA = {
 # matriu i al quadre del RA, però no porten bloc a la pàgina. Els criteris de
 # les pràctiques no s'escriuen aquí: surten de la seva rúbrica (PRACTIQUES).
 MAP = {
- 'RA1/teoria/t1-1-com-funciona-una-aplicacio-web': (['1.4'], ['1.1']),
+ 'RA1/teoria/t1-1-com-funciona-una-aplicacio-web': (['1.1', '1.4'], ['1.1']),
  'RA1/teoria/t1-2-html-i-css':                     (['1.3'], ['1.3']),
- 'RA1/teoria/t1-3-capses-i-disposicio':            (['1.3'], ['1.3']),
- 'RA1/teoria/t1-4-gestors-de-continguts':          (['1.1', '1.3', '1.4'], ['1.1', '1.6']),
- 'RA1/teoria/t1-5-usuaris-i-rols':                 (['1.2'], ['1.2']),
- 'RA1/teoria/t1-6-mantenir-un-gestor':             (['1.5'], ['1.4', '1.5', '1.7', '1.9', '1.10']),
+ 'RA1/teoria/t1-3-gestors-de-continguts':          (['1.1', '1.3', '1.4', '1.5'], ['1.1', '1.3', '1.6']),
+ 'RA1/teoria/t1-4-usuaris-i-rols':                 (['1.2'], ['1.2', '1.8']),
+ 'RA1/teoria/t1-5-mantenir-un-gestor':             (['1.5'], ['1.4', '1.5', '1.7', '1.9', '1.10']),
  'RA1/guies/g1-1-entorn-de-laboratori':            (['1.1'], ['1.1']),
  'RA1/guies/g1-2-pila-lamp':                       (['1.1'], ['1.1', '1.4']),
  'RA1/guies/g1-3-wordpress':                       (['1.1', '1.2', '1.3', '1.5'], ['1.2', '1.3', '1.5', '1.6', '1.7', '1.8', '1.9', '1.10']),
  'RA1/guies/g1-4-migrar-wordpress':                (['1.1'], ['1.4', '1.9', '1.10']),
  'RA1/activitats/a1-1-estatic-i-dinamic':          (['1.1', '1.4'], ['1.1', '1.4']),
- 'RA1/activitats/a1-2-targeta-pokemon':            (['1.3'], ['1.3']),
- 'RA1/activitats/a1-3-landing-page':               (['1.3'], ['1.3']),
- 'RA1/activitats/a1-4-zoo-interactiu':             (['1.3'], ['1.3']),
- 'RA1/activitats/a1-5-web-html5':                  (['1.3'], ['1.3', '1.4']),
- 'RA1/activitats/a1-6-portal-wordpress':           (['1.1', '1.2', '1.3', '1.4', '1.5'], []),
- 'RA1/activitats/a1-7-botigues-virtuals':          (['1.1', '1.2', '1.3', '1.4'], []),
+ 'RA1/activitats/a1-2-requeriments-i-instal-lacio': (['1.1', '1.4'], ['1.1', '1.4']),
+ 'RA1/activitats/a1-3-usuaris-grups-i-rols':       (['1.2'], ['1.2']),
+ 'RA1/activitats/a1-4-interficie-menus-i-sindicacio': (['1.3', '1.5'], ['1.3', '1.6']),
+ 'RA1/activitats/a1-5-forum-amb-regles-d-acces':   (['1.2', '1.3'], ['1.2', '1.8']),
+ 'RA1/activitats/a1-6-actualitzar-protegir-i-copiar': (['1.5'], ['1.5', '1.7', '1.9', '1.10']),
+ 'RA1/practiques/p1-1-portal-wordpress':           (['1.1', '1.2', '1.3', '1.4', '1.5'], []),
 }
 
-# Rúbrica de cada pràctica final: (nom, pes al RA, [(apartat, criteris, punts)]).
+# Rúbrica de cada pràctica principal: (nom, pes al RA, [(apartat, criteris, punts)]).
 # D'aquí surten el bloc «rúbrica» de la pàgina, els criteris del seu bloc de
 # currículum i els criteris que exercita cada prova.
 PRACTIQUES = {
- 'RA1/activitats/a1-6-portal-wordpress': ('Pràctica A1.6', 50, [
-   ("Instal·lació: requeriments comprovats, host virtual, base de dades i enllaços permanents", ['1.1'], 1),
-   ("Blog: entrades, categories, publicació programada, comentaris i funció extra", ['1.3'], 1.5),
-   ("Portal: menú, portada, pàgines pròpies, contacte i mapa", ['1.6'], 1.5),
-   ("Aparença: tema diferent personalitzat amb CSS addicional", ['1.3'], 1),
-   ("Idiomes, ginys i una extensió nova configurada", ['1.6'], 1),
-   ("Usuaris amb tres rols, provats amb intents fallits", ['1.2'], 1),
-   ("Fòrum amb zona pública i zona per a registrats", ['1.8'], 0.5),
-   ("Actualitzacions aplicades i Salut del lloc sense avisos crítics", ['1.5'], 0.5),
-   ("Mecanismes de seguretat del gestor activats", ['1.7'], 0.5),
-   ("Còpia de seguretat completa i restauració documentada", ['1.10'], 0.5),
-   ("Publicació a l'allotjament i llista de proves de funcionament passada", ['1.4', '1.9'], 1),
- ]),
- 'RA1/activitats/a1-7-botigues-virtuals': ('Pràctica A1.7', 20, [
-   ("Dues plataformes instal·lades amb els requeriments comprovats", ['1.1'], 2),
-   ("Aparença personalitzada a cada botiga", ['1.3'], 1.5),
-   ("Catàleg: categories, productes i divisa", ['1.6'], 2),
-   ("Botiga en dos idiomes amb productes traduïts", ['1.6'], 1),
-   ("Registre de clients i subscripció al butlletí", ['1.2'], 1),
-   ("Proves de funcionament i regla dels tres clics", ['1.4', '1.9'], 1),
-   ("Comparació raonada de requeriments, ús i manteniment", ['1.1'], 1.5),
+ 'RA1/practiques/p1-1-portal-wordpress': ('Pràctica P1.1', 60, [
+   ("Requeriments comprovats i documentats abans d'instal·lar", ['1.1'], 0.5),
+   ("Instal·lació: host virtual, base de dades MySQL, WordPress i enllaços permanents", ['1.1'], 1),
+   ("Contingut: entrades, categories, pàgines, publicació programada i comentaris", ['1.3'], 1),
+   ("Aparença: tema diferent, identitat del lloc i CSS addicional", ['1.3'], 1),
+   ("Menús, ginys, sindicació i extensions configurades", ['1.6'], 1.5),
+   ("Usuaris i grups amb rols diferents, provats amb intents fallits", ['1.2'], 1),
+   ("Fòrum amb zona pública i zona restringida, amb regles d'accés", ['1.8'], 1),
+   ("Actualitzacions aplicades i registrades", ['1.5'], 0.5),
+   ("Mecanismes de seguretat del gestor activats i justificats", ['1.7'], 1),
+   ("Còpia de seguretat completa i restauració provada", ['1.10'], 1),
+   ("Llista de proves de funcionament passada abans i després dels canvis", ['1.4', '1.9'], 0.5),
  ]),
 }
 
@@ -141,7 +131,7 @@ def pagines_de(codi, contingut=False):
     for key, parell in MAP.items():
         if codi not in parell[0 if contingut else 1]:
             continue
-        m = re.match(r'([tga])(\d+)-(\d+)', key.rsplit('/', 1)[1])
+        m = re.match(r'([tgap])(\d+)-(\d+)', key.rsplit('/', 1)[1])
         out.append(f'{m.group(1).upper()}{m.group(2)}.{m.group(3)}')
     return out
 
@@ -190,7 +180,7 @@ RA_NOM = {
 def etiqueta(key):
     """RA5/activitats/a5-2-dos-llocs → A5.2, i el títol curt del fitxer."""
     nom = key.rsplit('/', 1)[1]
-    num = re.match(r'([TGA])(\d+)-(\d+)', nom.upper())
+    num = re.match(r'([TGAP])(\d+)-(\d+)', nom.upper())
     codi = f'{num.group(1)}{num.group(2)}.{num.group(3)}' if num else nom
     titol = re.search(r'<header class="cq-header">.*?<h1>(.*?)</h1>',
                       (ARREL / (key + '.html')).read_text(), re.S)
@@ -266,9 +256,9 @@ def matriu():
 
     out += ['\n<div class="cq-block" data-kind="proves">',
             '  <h2>Què exercita cada pràctica</h2>',
-            '  <p>Les pràctiques finals són el 70 % de la nota del RA1 '
-            '(A1.6 el 50 % i A1.7 el 20 %). Es corregeixen amb demostració en '
-            'directe i README. Aquesta taula documenta què s\'hi posa a prova.</p>',
+            '  <p>Cada RA té una pràctica principal, que és la part que més '
+            'pesa a la seva nota. Es corregeix amb demostració en directe i '
+            'README. Aquesta taula documenta què s\'hi posa a prova.</p>',
             '  <div class="cq-tablewrap"><table class="cq-table">',
             '    <thead><tr><th>Pràctica</th><th>Criteris que exercita</th>'
             '</tr></thead><tbody>']
@@ -325,7 +315,7 @@ def rubrica(key):
     return ('\n<!-- ============ RÚBRICA ============ -->\n'
             '<div class="cq-block" data-kind="rúbrica">\n'
             '  <h2>Com es qualifica</h2>\n'
-            f'  <p>Aquesta pràctica és el {pes} % de la nota del RA1. Cada apartat '
+            f'  <p>Aquesta pràctica és el {pes} % de la nota del {key.split("/")[0]}. Cada apartat '
             'es puntua a la demostració i amb les evidències del README: la '
             'puntuació sencera si funciona, la meitat si funciona amb mancances '
             'i zero si no es pot demostrar.</p>\n'
