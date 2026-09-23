@@ -300,6 +300,7 @@ sola vez, con su trazabilidad. `--check` falla si queda un criterio fuera.
 - Todos los criterios de los cinco RA están cubiertos por una práctica; la
   matriz `cobertura.html` no deja ninguno sin material. Nada de esto se ha
   probado en una VM: las guías están contrastadas con documentación.
-- **RAX** (HTML y CSS, complementario): 1 teoría, 4 actividades y 1 práctica.
-  Las actividades citan una guía G4.3 de GitHub Pages que aún no existe.
+- **RAX** (HTML y CSS, complementario): 1 teoría, 1 guía (GX.1, repositori i
+  GitHub Pages), 3 actividades y 2 prácticas (PX.1 web HTML5, antigua AX.4;
+  PX.2 botigues virtuals). Pesos de las dos prácticas: 30 % cada una.
 

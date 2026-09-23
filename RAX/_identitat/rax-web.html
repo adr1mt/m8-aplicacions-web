@@ -710,7 +710,7 @@
     <div class="sx-group">
       <h2>Guies</h2>
       <ul>
-
+        <li><button class="sx-nav-item" data-target="p-gx-1"><span class="sx-ref">GX.1</span><span class="sx-nav-txt"><span class="sx-nav-ttl">Guia: repositori i GitHub Pages</span><span class="sx-nav-sub">Clonar per SSH i publicar-hi un web estàtic</span></span></button></li>
       </ul>
     </div>
 
@@ -720,14 +720,14 @@
         <li><button class="sx-nav-item" data-target="p-ax-1"><span class="sx-ref">AX.1</span><span class="sx-nav-txt"><span class="sx-nav-ttl">Targeta Pokémon</span><span class="sx-nav-sub">Donar estil només amb CSS</span></span></button></li>
         <li><button class="sx-nav-item" data-target="p-ax-2"><span class="sx-ref">AX.2</span><span class="sx-nav-txt"><span class="sx-nav-ttl">Landing page</span><span class="sx-nav-sub">Menú, imatge destacada, botó i peu</span></span></button></li>
         <li><button class="sx-nav-item" data-target="p-ax-3"><span class="sx-ref">AX.3</span><span class="sx-nav-txt"><span class="sx-nav-ttl">Zoo interactiu</span><span class="sx-nav-sub">Grid i Flexbox cara a cara</span></span></button></li>
-        <li><button class="sx-nav-item" data-target="p-ax-4"><span class="sx-ref">AX.4</span><span class="sx-nav-txt"><span class="sx-nav-ttl">Web HTML5</span><span class="sx-nav-sub">Tres pàgines semàntiques i adaptades al mòbil</span></span></button></li>
       </ul>
     </div>
 
     <div class="sx-group">
       <h2>Pràctica</h2>
       <ul>
-        <li><button class="sx-nav-item" data-target="p-px-1"><span class="sx-ref">PX.1</span><span class="sx-nav-txt"><span class="sx-nav-ttl">Pràctica: botigues virtuals</span><span class="sx-nav-sub">Dues plataformes de comerç electrònic comparades</span></span></button></li>
+        <li><button class="sx-nav-item" data-target="p-px-1"><span class="sx-ref">PX.1</span><span class="sx-nav-txt"><span class="sx-nav-ttl">Pràctica: web HTML5</span><span class="sx-nav-sub">Tres pàgines semàntiques i adaptades al mòbil</span></span></button></li>
+        <li><button class="sx-nav-item" data-target="p-px-2"><span class="sx-ref">PX.2</span><span class="sx-nav-txt"><span class="sx-nav-ttl">Pràctica: botigues virtuals</span><span class="sx-nav-sub">Dues plataformes de comerç electrònic comparades</span></span></button></li>
       </ul>
     </div>
 
@@ -965,6 +965,134 @@
       </div>
     </section>
 
+    <section class="sx-page" id="p-gx-1" hidden>
+      <div class="sx-paper">
+<header class="cq-header">
+  <div class="eyebrow">0228 · Aplicacions Web · RAX · GX.1</div>
+  <h1>Guia: repositori i GitHub Pages</h1>
+  <p class="lede">Crear un repositori, clonar-lo per SSH i publicar-hi un web estàtic.</p>
+</header>
+
+<!-- ============ 1 · OBJECTIUS ============ -->
+<div class="cq-block" data-kind="objectius">
+  <h2>Què hi ha en aquesta guia</h2>
+  <p>Documentació oficial: <a href="https://docs.github.com/repositories">Repositoris a GitHub</a> · <a href="https://docs.github.com/authentication/connecting-to-github-with-ssh">Connectar-se per SSH</a> · <a href="https://docs.github.com/pages">GitHub Pages</a></p>
+  <ul>
+    <li>Punt de partida: un compte de GitHub i una clau SSH pròpia (una VM d'IsardVDI o l'equip personal).</li>
+    <li>Resultat: un repositori públic amb el web pujat i publicat a una adreça <code>https://usuari.github.io/repositori/</code>.</li>
+    <li>Necessària per a totes les activitats i la pràctica d'aquest RA: <a class="cq-ref" href="../activitats/ax-1-targeta-pokemon.html">AX.1</a> a <a class="cq-ref" href="../practiques/px-2-botigues-virtuals.html">PX.2</a>.</li>
+  </ul>
+</div>
+
+<!-- ============ 2 · PAS A PAS ============ -->
+<div class="cq-block" data-kind="pas a pas">
+  <h2>Crear el repositori i connectar-hi una clau SSH</h2>
+  <ol class="cq-steps">
+    <li>
+      <p><strong>Genera una clau SSH</strong> si encara no en tens cap a la màquina on treballes:</p>
+<pre>ssh-keygen -t ed25519 -C "el-teu-correu@exemple.cat"
+<span class="c"># Prem Retorn tres vegades per deixar el camí i la frase de pas per defecte</span></pre>
+    </li>
+    <li>
+      <p><strong>Copia la clau pública</strong> i enganxa-la a GitHub, a <strong>Settings → SSH and GPG keys → New SSH key</strong>:</p>
+<pre>cat ~/.ssh/id_ed25519.pub</pre>
+    </li>
+    <li>
+      <p><strong>Comprova la connexió:</strong></p>
+<pre>ssh -T git@github.com
+<span class="o">Hi username! You've successfully authenticated...</span></pre>
+    </li>
+    <li>
+      <p><strong>Crea el repositori</strong> des de github.com, amb <strong>New repository</strong>: nom curt, públic, sense plantilla de <code>.gitignore</code> ni llicència de moment.</p>
+    </li>
+    <li>
+      <p><strong>Clona'l per SSH</strong> a la carpeta on treballaràs:</p>
+<pre>git clone git@github.com:usuari/repositori.git
+cd repositori</pre>
+    </li>
+  </ol>
+</div>
+
+<!-- ============ 3 · PAS A PAS ============ -->
+<div class="cq-block" data-kind="pas a pas">
+  <h2>Pujar el web i publicar-lo amb GitHub Pages</h2>
+  <ol class="cq-steps">
+    <li>
+      <p><strong>Afegeix els fitxers</strong> del web (com a mínim <code>index.html</code>) dins de la carpeta clonada, amb les subcarpetes de CSS i imatges que calguin.</p>
+    </li>
+    <li>
+      <p><strong>Puja'ls al repositori:</strong></p>
+<pre>git add .
+git commit -m "Primera versió del web"
+git push</pre>
+    </li>
+    <li>
+      <p><strong>Activa GitHub Pages:</strong> a la pàgina del repositori, <strong>Settings → Pages → Branch: main</strong> i desa. GitHub triga un o dos minuts a publicar-la.</p>
+    </li>
+    <li>
+      <p><strong>Obre l'adreça publicada</strong>, que apareix a la mateixa pantalla un cop llesta: <code>https://usuari.github.io/repositori/</code>.</p>
+    </li>
+  </ol>
+</div>
+
+<!-- ============ 4 · COMPROVACIÓ ============ -->
+<div class="cq-block" data-kind="comprovació">
+  <h2>Com saps que ha quedat bé</h2>
+  <ul>
+    <li>L'adreça <code>https://usuari.github.io/repositori/</code> mostra el mateix web que en local.</li>
+    <li>Els enllaços entre pàgines i les imatges funcionen publicats, no només en local.</li>
+    <li><code>git status</code> no mostra cap canvi pendent de pujar.</li>
+  </ul>
+</div>
+
+<!-- ============ 5 · BONES PRÀCTIQUES ============ -->
+<div class="cq-block" data-kind="bones pràctiques">
+  <h2>Rutes relatives i noms en minúscula</h2>
+  <p>Enllaça sempre amb rutes relatives (<code>contacte.html</code>, <code>css/estils.css</code>), mai absolutes (<code>/contacte.html</code>): en local i a GitHub Pages la pàgina no viu a la mateixa arrel.</p>
+  <p>Fes servir noms de fitxer i de carpeta sempre en minúscula. El sistema de fitxers en local sol ignorar majúscules i minúscules, però els servidors de GitHub Pages no: un enllaç a <code>Images/foto.jpg</code> quan la carpeta es diu <code>images</code> falla només un cop publicat.</p>
+</div>
+
+<!-- ============ 6 · PROBLEMES ============ -->
+<div class="cq-block" data-kind="problemes">
+  <h2>Si alguna cosa no va</h2>
+  <dl class="cq-issues">
+    <dt>La pàgina publicada dona un error 404</dt>
+    <dd>
+      <p><span class="lbl">Causa</span> Encara no has activat GitHub Pages, o el fitxer principal no es diu <code>index.html</code>.</p>
+      <p><span class="lbl">Solució</span> Revisa <strong>Settings → Pages</strong> i el nom del fitxer a l'arrel del repositori.</p>
+    </dd>
+    <dt>No surt una imatge a GitHub Pages però sí en local</dt>
+    <dd>
+      <p><span class="lbl">Causa</span> El nom de la carpeta o del fitxer no coincideix exactament en majúscules i minúscules amb l'enllaç de l'HTML.</p>
+      <p><span class="lbl">Solució</span> Fes-los coincidir: per exemple, <code>images</code> i no <code>Images</code>.</p>
+    </dd>
+    <dt><code>git push</code> demana usuari i contrasenya, o el rebutja</dt>
+    <dd>
+      <p><span class="lbl">Causa</span> El repositori s'ha clonat per HTTPS en lloc de per SSH, o la clau SSH no s'ha afegit a GitHub.</p>
+      <p><span class="lbl">Solució</span> Comprova l'adreça remota amb <code>git remote -v</code>: ha de començar per <code>git@github.com:</code>. Si no, torna a clonar per SSH.</p>
+    </dd>
+  </dl>
+</div>
+
+<!-- ============ 7 · RESUM ============ -->
+<div class="cq-block" data-kind="resum">
+  <h2>Ficha ràpida</h2>
+  <div class="cq-tablewrap">
+    <table class="cq-table">
+      <thead><tr><th>Pas</th><th>Ordre o lloc</th></tr></thead>
+      <tbody>
+        <tr><td>Generar i afegir la clau SSH</td><td><code>ssh-keygen</code> i Settings → SSH and GPG keys</td></tr>
+        <tr><td>Clonar el repositori</td><td><code>git clone git@github.com:usuari/repositori.git</code></td></tr>
+        <tr><td>Pujar els canvis</td><td><code>git add . && git commit -m "…" && git push</code></td></tr>
+        <tr><td>Activar la publicació</td><td>Settings → Pages → Branch: main</td></tr>
+        <tr><td>Adreça publicada</td><td><code>https://usuari.github.io/repositori/</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+      </div>
+    </section>
+
     <section class="sx-page" id="p-ax-1" hidden>
       <div class="sx-paper">
 <header class="cq-header">
@@ -976,7 +1104,7 @@
 <!-- ============ 1 · OBJECTIUS ============ -->
 <div class="cq-block" data-kind="objectius">
   <h2>Què has de saber abans de començar</h2>
-  <p>Teories <a class="cq-ref" href="../../RA1/teoria/t1-2-html-i-css.html">T1.2</a> (selectors i propietats) i <a class="cq-ref" href="../teoria/tx-1-capses-i-disposicio.html">TX.1</a> (model de capsa i Flexbox). Per al repositori, G4.3.</p>
+  <p>Teories <a class="cq-ref" href="../../RA1/teoria/t1-2-html-i-css.html">T1.2</a> (selectors i propietats) i <a class="cq-ref" href="../teoria/tx-1-capses-i-disposicio.html">TX.1</a> (model de capsa i Flexbox). Per al repositori, <a class="cq-ref" href="../guies/gx-1-github-pages.html">GX.1</a>.</p>
   <p>Faràs una targeta visualment atractiva a partir d'una estructura HTML fixa, escrivint només el fitxer <code>styles.css</code> amb selectors de classe.</p>
 </div>
 
@@ -1045,7 +1173,7 @@
     <table class="cq-table">
       <thead><tr><th>Què has de fer</th><th>On ho tens</th></tr></thead>
       <tbody>
-        <tr><td>Crear i clonar el repositori per SSH</td><td>Guia G4.3</td></tr>
+        <tr><td>Crear i clonar el repositori per SSH</td><td>Guia <a class="cq-ref" href="../guies/gx-1-github-pages.html">GX.1</a></td></tr>
         <tr><td>Selectors de classe i propietats de color i lletra</td><td>Teoria <a class="cq-ref" href="../../RA1/teoria/t1-2-html-i-css.html">T1.2</a></td></tr>
         <tr><td>Farciment, vores i marges</td><td>Teoria <a class="cq-ref" href="../teoria/tx-1-capses-i-disposicio.html">TX.1</a>, model de capsa</td></tr>
         <tr><td>Centrar la targeta a la pantalla</td><td>Teoria <a class="cq-ref" href="../teoria/tx-1-capses-i-disposicio.html">TX.1</a>, exemple de Flexbox</td></tr>
@@ -1128,7 +1256,7 @@ git push</pre>
 <!-- ============ 1 · OBJECTIUS ============ -->
 <div class="cq-block" data-kind="objectius">
   <h2>Què has de saber abans de començar</h2>
-  <p>Teories <a class="cq-ref" href="../../RA1/teoria/t1-2-html-i-css.html">T1.2</a> i <a class="cq-ref" href="../teoria/tx-1-capses-i-disposicio.html">TX.1</a>, sobretot <code>position</code> i Flexbox. Per al repositori, G4.3.</p>
+  <p>Teories <a class="cq-ref" href="../../RA1/teoria/t1-2-html-i-css.html">T1.2</a> i <a class="cq-ref" href="../teoria/tx-1-capses-i-disposicio.html">TX.1</a>, sobretot <code>position</code> i Flexbox. Per al repositori, <a class="cq-ref" href="../guies/gx-1-github-pages.html">GX.1</a>.</p>
   <p>Donaràs estil a una <em>landing page</em> amb una estructura HTML fixa, escrivint només <code>styles.css</code>.</p>
 </div>
 
@@ -1230,7 +1358,7 @@ git push</pre>
         <tr><td>Canvi de color amb el ratolí</td><td>Teoria <a class="cq-ref" href="../../RA1/teoria/t1-2-html-i-css.html">T1.2</a>, exemple del menú (<code>:hover</code>)</td></tr>
         <tr><td>Text damunt de la imatge</td><td>Teoria <a class="cq-ref" href="../teoria/tx-1-capses-i-disposicio.html">TX.1</a>, parella <code>relative</code> i <code>absolute</code></td></tr>
         <tr><td>Fons semitransparent</td><td>Color amb canal alfa: <code>rgba(0, 0, 0, 0.6)</code></td></tr>
-        <tr><td>Repositori i GitHub Pages</td><td>Guia G4.3</td></tr>
+        <tr><td>Repositori i GitHub Pages</td><td>Guia <a class="cq-ref" href="../guies/gx-1-github-pages.html">GX.1</a></td></tr>
       </tbody>
     </table>
   </div>
@@ -1309,7 +1437,7 @@ git push</pre>
 <!-- ============ 1 · OBJECTIUS ============ -->
 <div class="cq-block" data-kind="objectius">
   <h2>Què has de saber abans de començar</h2>
-  <p>Teoria <a class="cq-ref" href="../teoria/tx-1-capses-i-disposicio.html">TX.1</a>, Flexbox i Grid. Per al repositori, G4.3.</p>
+  <p>Teoria <a class="cq-ref" href="../teoria/tx-1-capses-i-disposicio.html">TX.1</a>, Flexbox i Grid. Per al repositori, <a class="cq-ref" href="../guies/gx-1-github-pages.html">GX.1</a>.</p>
   <p>Faràs un zoo virtual on els animals es distribueixen amb Grid, i un botó els passa a Flexbox per comparar com reparteix l'espai cada sistema.</p>
 </div>
 
@@ -1378,7 +1506,7 @@ boto.addEventListener('click', () =&gt; {
         <tr><td>Graella que s'adapta sola</td><td>Teoria <a class="cq-ref" href="../teoria/tx-1-capses-i-disposicio.html">TX.1</a>, exemple <code>repeat(auto-fit, …)</code></td></tr>
         <tr><td>Fila que salta de línia</td><td>Teoria <a class="cq-ref" href="../teoria/tx-1-capses-i-disposicio.html">TX.1</a>, taula Flexbox i Grid</td></tr>
         <tr><td>Selector amb dues classes</td><td>Teoria <a class="cq-ref" href="../../RA1/teoria/t1-2-html-i-css.html">T1.2</a>, selectors</td></tr>
-        <tr><td>Repositori i GitHub Pages</td><td>Guia G4.3</td></tr>
+        <tr><td>Repositori i GitHub Pages</td><td>Guia <a class="cq-ref" href="../guies/gx-1-github-pages.html">GX.1</a></td></tr>
       </tbody>
     </table>
   </div>
@@ -1446,18 +1574,18 @@ git push</pre>
       </div>
     </section>
 
-    <section class="sx-page" id="p-ax-4" hidden>
+    <section class="sx-page" id="p-px-1" hidden>
       <div class="sx-paper">
 <header class="cq-header">
-  <div class="eyebrow">0228 · Aplicacions Web · RAX · AX.4</div>
-  <h1>Web HTML5</h1>
+  <div class="eyebrow">0228 · Aplicacions Web · RAX · PX.1</div>
+  <h1>Pràctica: web HTML5</h1>
   <p class="lede">Un web propi de tres pàgines, semàntic, animat i adaptat al mòbil.</p>
 </header>
 
 <!-- ============ 1 · OBJECTIUS ============ -->
 <div class="cq-block" data-kind="objectius">
   <h2>Què has de saber abans de començar</h2>
-  <p>Teories <a class="cq-ref" href="../../RA1/teoria/t1-2-html-i-css.html">T1.2</a> i <a class="cq-ref" href="../teoria/tx-1-capses-i-disposicio.html">TX.1</a> senceres i les activitats <a class="cq-ref" href="ax-1-targeta-pokemon.html">AX.1</a> a <a class="cq-ref" href="ax-3-zoo-interactiu.html">AX.3</a>.</p>
+  <p>Teories <a class="cq-ref" href="../../RA1/teoria/t1-2-html-i-css.html">T1.2</a> i <a class="cq-ref" href="../teoria/tx-1-capses-i-disposicio.html">TX.1</a> senceres i les activitats <a class="cq-ref" href="../activitats/ax-1-targeta-pokemon.html">AX.1</a> a <a class="cq-ref" href="../activitats/ax-3-zoo-interactiu.html">AX.3</a>.</p>
   <p>Faràs un projecte complet només amb HTML5 i CSS, sobre un tema que triïs, i en documentaràs les decisions de disseny.</p>
 </div>
 
@@ -1501,7 +1629,7 @@ git push</pre>
         <tr><td>Estructura de la pàgina</td><td>Teoria <a class="cq-ref" href="../teoria/tx-1-capses-i-disposicio.html">TX.1</a>, Grid</td></tr>
         <tr><td>Menú enganxós</td><td>Teoria <a class="cq-ref" href="../teoria/tx-1-capses-i-disposicio.html">TX.1</a>, <code>position: sticky</code></td></tr>
         <tr><td>Adaptació al mòbil</td><td>Teoria <a class="cq-ref" href="../teoria/tx-1-capses-i-disposicio.html">TX.1</a>, <em>media queries</em></td></tr>
-        <tr><td>Publicació</td><td>Guia G4.3 i lliurament d'<a class="cq-ref" href="ax-1-targeta-pokemon.html">AX.1</a></td></tr>
+        <tr><td>Publicació</td><td>Guia <a class="cq-ref" href="../guies/gx-1-github-pages.html">GX.1</a> i lliurament d'<a class="cq-ref" href="../activitats/ax-1-targeta-pokemon.html">AX.1</a></td></tr>
       </tbody>
     </table>
   </div>
@@ -1553,13 +1681,19 @@ git push</pre>
   <p>L'enllaç al repositori amb GitHub Pages activat. El <code>README.md</code> ha de tenir: descripció i tema, esquema del layout, decisions d'estil i propietats CSS usades, efectes i animacions, com has fet el disseny adaptable i captures del resultat.</p>
   <p>Respon-hi també: <strong>quina part del teu CSS canviaries per adaptar aquest disseny a un tema de WordPress amb el CSS addicional?</strong></p>
 </div>
+
+<!-- ============ QUALIFICACIÓ ============ -->
+<div class="cq-block" data-kind="qualificació">
+  <h2>Com es qualifica</h2>
+  <p>Aquesta pràctica és una de les dues principals del <a class="cq-ref" href="../index.html">RAX</a> i és el 30 % de la seva nota. Cada apartat es puntua amb les evidències del README i el resultat publicat: la puntuació sencera si funciona, la meitat si funciona amb mancances i zero si no es pot demostrar.</p>
+</div>
       </div>
     </section>
 
-    <section class="sx-page" id="p-px-1" hidden>
+    <section class="sx-page" id="p-px-2" hidden>
       <div class="sx-paper">
 <header class="cq-header">
-  <div class="eyebrow">0228 · Aplicacions Web · RAX · PX.1</div>
+  <div class="eyebrow">0228 · Aplicacions Web · RAX · PX.2</div>
   <h1>Pràctica: botigues virtuals</h1>
   <p class="lede">Dues plataformes de comerç electrònic, la mateixa botiga i una comparació honesta.</p>
 </header>
@@ -1667,7 +1801,7 @@ git push</pre>
 <!-- ============ QUALIFICACIÓ ============ -->
 <div class="cq-block" data-kind="qualificació">
   <h2>Com es qualifica</h2>
-  <p>Aquesta pràctica és la principal del <a class="cq-ref" href="../index.html">RAX</a> i és el 60 % de la seva nota. Cada apartat es puntua a la demostració i amb les evidències del README: la puntuació sencera si funciona, la meitat si funciona amb mancances i zero si no es pot demostrar.</p>
+  <p>Aquesta pràctica és una de les dues principals del <a class="cq-ref" href="../index.html">RAX</a> i és el 30 % de la seva nota. Cada apartat es puntua a la demostració i amb les evidències del README: la puntuació sencera si funciona, la meitat si funciona amb mancances i zero si no es pot demostrar.</p>
   <div class="cq-tablewrap">
     <table class="cq-table">
       <thead><tr><th>Apartat</th><th>Punts</th></tr></thead>
