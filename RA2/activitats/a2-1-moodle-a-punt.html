@@ -528,6 +528,12 @@
 <body>
 
 <!-- === NAVEGACIÓ INICI === -->
+<nav class="cq-nav">
+  <div class="inner">
+    <a href="../index.html">‹ RA2 · Instal·lació de sistemes de gestió d'aprenentatge</a>
+    <span class="pos">A2.1 · 6/9</span>
+  </div>
+</nav>
 <!-- === NAVEGACIÓ FI === -->
 
 <main>
@@ -541,8 +547,8 @@
 <!-- ============ 1 · OBJECTIUS ============ -->
 <div class="cq-block" data-kind="objectius">
   <h2>Què has de saber abans de començar</h2>
-  <p>Teories <strong>T2.1</strong> i <strong>T2.2</strong>. Les guies <strong>G2.1</strong> i <strong>G2.2</strong> són els manuals que consultaràs.</p>
-  <p>Instal·laràs un Moodle de temàtica lliure i el deixaràs configurat i amb aspecte propi, llest per crear-hi cursos a <strong>A2.2</strong>.</p>
+  <p>Teories <a class="cq-ref" href="../teoria/t2-1-plataformes-d-aprenentatge.html">T2.1</a> i <a class="cq-ref" href="../teoria/t2-2-un-moodle-per-dins.html">T2.2</a>. Les guies <a class="cq-ref" href="../guies/g2-1-instal-lar-moodle.html">G2.1</a> i <a class="cq-ref" href="../guies/g2-2-administrar-moodle.html">G2.2</a> són els manuals que consultaràs.</p>
+  <p>Instal·laràs un Moodle de temàtica lliure i el deixaràs configurat i amb aspecte propi, llest per crear-hi cursos a <a class="cq-ref" href="a2-2-cursos-usuaris-i-activitats.html">A2.2</a>.</p>
 </div>
 
 <!-- ============ 2 · ESCENARI ============ -->
@@ -552,7 +558,7 @@
     <table class="cq-table">
       <thead><tr><th>Màquina</th><th>Sistema</th><th>Nom del lloc</th></tr></thead>
       <tbody>
-        <tr><td>Nova a isardVDI</td><td><strong>Ubuntu 24.04 LTS</strong></td><td><code>moodle.internal</code></td></tr>
+        <tr><td>Escriptori nou a IsardVDI</td><td>Ubuntu 26.04 LTS</td><td><code>moodle.internal</code></td></tr>
       </tbody>
     </table>
   </div>
@@ -579,10 +585,10 @@
     <table class="cq-table">
       <thead><tr><th>Què has de fer</th><th>On ho tens</th></tr></thead>
       <tbody>
-        <tr><td>Instal·lació, <code>public</code>, dades i cron</td><td>Guia <strong>G2.1</strong></td></tr>
-        <tr><td>Configuració del lloc</td><td>Guia <strong>G2.2</strong>, configuració inicial</td></tr>
-        <tr><td>Tema, logotip, capçalera i peu</td><td>Guia <strong>G2.2</strong>, aspecte</td></tr>
-        <tr><td>Per què <code>moodledata</code> va fora del web</td><td>Teoria <strong>T2.2</strong></td></tr>
+        <tr><td>Instal·lació, <code>public</code>, dades i cron</td><td>Guia <a class="cq-ref" href="../guies/g2-1-instal-lar-moodle.html">G2.1</a></td></tr>
+        <tr><td>Configuració del lloc</td><td>Guia <a class="cq-ref" href="../guies/g2-2-administrar-moodle.html">G2.2</a>, configuració inicial</td></tr>
+        <tr><td>Tema, logotip, capçalera i peu</td><td>Guia <a class="cq-ref" href="../guies/g2-2-administrar-moodle.html">G2.2</a>, aspecte</td></tr>
+        <tr><td>Per què <code>moodledata</code> va fora del web</td><td>Teoria <a class="cq-ref" href="../teoria/t2-2-un-moodle-per-dins.html">T2.2</a></td></tr>
       </tbody>
     </table>
   </div>
@@ -590,8 +596,8 @@
 
 <!-- ============ 5 · RECORDATORI ============ -->
 <div class="cq-block" data-kind="recordatori">
-  <h2>Ubuntu 24.04, no 26.04</h2>
-  <p>Moodle 5.2 encara no suporta el PHP 8.5 d'Ubuntu 26.04. Si crees la màquina amb 26.04, l'instal·lador s'aturarà a la comprovació de l'entorn.</p>
+  <h2>La versió de PHP mana</h2>
+  <p>Moodle no s'instal·la si la versió de PHP de l'escriptori no és a la seva llista de compatibles. Comprova-ho abans de res amb <code>php -v</code> i la pàgina de requeriments de la versió que baixis. Si no encaixa, refés l'escriptori amb Ubuntu 24.04 LTS, que porta PHP 8.3.</p>
 </div>
 
 <!-- ============ 6 · OBSERVACIÓ ============ -->
@@ -618,7 +624,7 @@
     <dt>L'entorn marca PHP en vermell</dt>
     <dd>
       <p><span class="lbl">Causa</span> Màquina amb Ubuntu 26.04.</p>
-      <p><span class="lbl">Solució</span> Refés la màquina amb Ubuntu 24.04 LTS.</p>
+      <p><span class="lbl">Solució</span> Refés l'escriptori amb la versió d'Ubuntu que porti el PHP que Moodle admet.</p>
     </dd>
     <dt>El tema nou no apareix al selector</dt>
     <dd>
@@ -635,7 +641,24 @@
   <p>Respon-hi també: <strong>descriu l'estructura de directoris que ha generat la instal·lació. Què hi ha a cada lloc i per què <code>config.php</code> no és dins de <code>public</code>?</strong></p>
 </div>
 
+
+<!-- ============ CURRÍCULUM ============ -->
+<div class="cq-block" data-kind="currículum">
+  <h2>Al currículum</h2>
+  <p><span class="lbl">Contingut 2.2</span> Instal·lació en sistemes operatius lliures i propietaris. Modes de registre. Interfície gràfica associada. Personalització de l'entorn. Navegació i edició.</p>
+  <p><span class="lbl">CA 2.1</span> Reconeix l'estructura del lloc i la jerarquia de directoris generada.</p>
+  <p><span class="lbl">CA 2.2</span> Realitza modificacions en l'estètica o aspecte del lloc.</p>
+</div>
+
 <!-- === PEU DE NAVEGACIÓ INICI === -->
+<nav class="cq-pager">
+  <a class="prev" href="../guies/g2-2-administrar-moodle.html">
+    <span class="dir">Anterior · G2.2</span>
+    <span class="ttl">Guia: administrar Moodle</span></a>
+  <a class="next" href="a2-2-cursos-usuaris-i-activitats.html">
+    <span class="dir">Següent · A2.2</span>
+    <span class="ttl">Cursos, usuaris i activitats</span></a>
+</nav>
 <!-- === PEU DE NAVEGACIÓ FI === -->
 
 </main>

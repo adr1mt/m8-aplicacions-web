@@ -98,6 +98,51 @@ RUBRIQUES = {
               "la llista de proves.",
   },
  ],
+ 2: [
+  {
+   'nom': "Comprèn i justifica",
+   'nivells': {
+    '10': "Explica l'estructura del campus i la jerarquia de directoris generada i justifica les decisions d'administració amb autonomia.",
+    '7,5': "Explica l'estructura del lloc i justifica les decisions principals amb suport puntual.",
+    '5': "Reconeix les parts del campus, però li costa dir on va cada cosa sense ajuda.",
+    '0': "No distingeix el codi, les dades i la base de dades ni amb el suport habitual.",
+   },
+   'ca': ['2.1'],
+   'reforc': [],
+   'cont': ['2.1'],
+   'observa': "Com explica a l'A2.1 on acaba un fitxer pujat, i com respon "
+              "la pregunta final de cada lliurament.",
+  },
+  {
+   'nom': "Administra el campus",
+   'nivells': {
+    '10': "Configura el lloc, els usuaris, els cursos i les activitats de comunicació amb autonomia i resol els errors que apareixen.",
+    '7,5': "Configura els elements essencials del campus amb suport puntual.",
+    '5': "Aconsegueix un campus funcional bàsic amb suport freqüent.",
+    '0': "No aconsegueix un campus utilitzable ni amb el suport habitual.",
+   },
+   'ca': ['2.2', '2.3', '2.4'],
+   'reforc': [],
+   'cont': ['2.2', '2.3'],
+   'observa': "L'aspecte i les normatives de l'A2.1, i els cursos, la càrrega "
+              "d'usuaris, els grups i el fòrum de l'A2.2.",
+  },
+  {
+   'nom': "Manté, protegeix i verifica",
+   'nivells': {
+    '10': "Copia, restaura, mou cursos, llegeix els informes i tanca el lloc pel seu compte i corregeix les incidències.",
+    '7,5': "Fa les còpies, les restauracions i les comprovacions amb suport puntual.",
+    '5': "Fa les tasques de manteniment quan se li recorden i amb suport freqüent.",
+    '0': "No sap copiar, restaurar ni comprovar el campus ni amb el suport habitual.",
+   },
+   'ca': ['2.5', '2.6', '2.7', '2.8'],
+   'reforc': [],
+   'cont': [],
+   'observa': "A l'A2.3, el curs que mou amb un .mbz, la còpia que sap "
+              "restaurar, els informes que interpreta i com justifica el "
+              "bloqueig d'IP.",
+  },
+ ],
 }
 
 PENDENT = ("Si no hi ha hagut prou ocasió d'observar una dimensió, no s'hi posa "

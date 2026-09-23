@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>T2.1 · Plataformes d'aprenentatge — Aplicacions Web (0228)</title>
+<title>A2.2 · Cursos, usuaris i activitats — Aplicacions Web (0228)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500;700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -528,190 +528,133 @@
 <body>
 
 <!-- === NAVEGACIÓ INICI === -->
+<nav class="cq-nav">
+  <div class="inner">
+    <a href="../index.html">‹ RA2 · Instal·lació de sistemes de gestió d'aprenentatge</a>
+    <span class="pos">A2.2 · 7/9</span>
+  </div>
+</nav>
 <!-- === NAVEGACIÓ FI === -->
 
 <main>
 
 <header class="cq-header">
-  <div class="eyebrow">0228 · Aplicacions Web · RA2 · T2.1</div>
-  <h1>Plataformes d'aprenentatge</h1>
-  <p class="lede">Un aula a Internet: comunicació, materials i activitats, cadascú amb el seu rol.</p>
+  <div class="eyebrow">0228 · Aplicacions Web · RA2 · A2.2</div>
+  <h1>Cursos, usuaris i activitats</h1>
+  <p class="lede">Dos cursos, un de públic i un de tancat, amb professor, alumnes, tasques, notes i qüestionari.</p>
 </header>
 
 <!-- ============ 1 · OBJECTIUS ============ -->
 <div class="cq-block" data-kind="objectius">
-  <h2>Què sabràs fer en acabar</h2>
-  <ul>
-    <li>Explicar què és un sistema de gestió de l'aprenentatge (LMS).</li>
-    <li>Classificar-ne les eines en comunicació, materials i activitats.</li>
-    <li>Comparar Moodle amb altres plataformes.</li>
-    <li>Distingir els modes de registre i els mètodes d'inscripció.</li>
-    <li>Descriure els rols habituals i on s'apliquen.</li>
-  </ul>
+  <h2>Què has de saber abans de començar</h2>
+  <p>Teoria <a class="cq-ref" href="../teoria/t2-1-plataformes-d-aprenentatge.html">T2.1</a>. La guia <a class="cq-ref" href="../guies/g2-2-administrar-moodle.html">G2.2</a> és el manual. Parteixes del Moodle d'<a class="cq-ref" href="a2-1-moodle-a-punt.html">A2.1</a>.</p>
+  <p>Crearàs cursos, usuaris i matrícules seguint unes especificacions i comprovaràs que les eines de comunicació i d'avaluació funcionen amb usuaris reals.</p>
 </div>
 
-<!-- ============ 2 · TEORIA ============ -->
-<div class="cq-block" data-kind="teoria">
-  <h2>Què és un LMS</h2>
-  <p>Un <strong>LMS</strong> (<em>Learning Management System</em>) és una aplicació web per fer formació a distància o semipresencial. Organitza l'aprenentatge en <strong>cursos</strong>, hi matricula persones amb un rol i guarda el que fan: què han llegit, què han entregat i quina nota han tret.</p>
-  <p>A diferència d'un gestor de continguts, el centre no és publicar per a tothom sinó fer un seguiment de cada estudiant dins d'un grup tancat.</p>
+<!-- ============ 2 · ESCENARI ============ -->
+<div class="cq-block" data-kind="escenari">
+  <h2>Amb què treballaràs</h2>
+  <p>El Moodle d'<a class="cq-ref" href="a2-1-moodle-a-punt.html">A2.1</a>. Fes servir una finestra privada del navegador per entrar amb els usuaris de prova.</p>
 </div>
 
-<!-- ============ 3 · TEORIA ============ -->
-<div class="cq-block" data-kind="teoria">
-  <h2>Els tres elements lògics</h2>
+<!-- ============ 3 · ENUNCIAT ============ -->
+<div class="cq-block" data-kind="enunciat">
+  <h2>Què has de fer</h2>
+  <ol>
+    <li>Crea el curs <strong>A</strong> amb 3 temes i el curs <strong>B</strong> amb 5. Afegeix un PDF a algun tema i canvia-li el títol.</li>
+    <li>Crea a mà l'usuari <strong>Bob</strong> amb autenticació manual.</li>
+    <li>Crea <strong>10 alumnes</strong> amb un CSV i n'esborra 2 amb les accions en bloc.</li>
+    <li><strong>Curs A</strong>: accessible sense iniciar sessió. <strong>Curs B</strong>: inscripció manual, amb Bob com a professor i la resta d'alumnes com a estudiants.</li>
+    <li>Al curs A, afegeix diversos recursos i activitats, un <strong>fòrum</strong> i una <strong>consulta</strong>, i una tasca oberta que demani un PDF.</li>
+    <li>Importa el contingut del curs A al curs B.</li>
+    <li>Completa les tasques amb un alumne. Configura el qualificador perquè calculi la nota automàticament.</li>
+    <li>Crea una <strong>insígnia</strong> i atorga-la a un alumne.</li>
+    <li>Crea un <strong>qüestionari</strong> amb preguntes del banc organitzades en dues categories. Respon-lo com a alumne i revisa la nota com a Bob.</li>
+  </ol>
+</div>
+
+<!-- ============ 4 · ENUNCIAT ============ -->
+<div class="cq-block" data-kind="enunciat">
+  <h2>D'on has de treure cada cosa</h2>
   <div class="cq-tablewrap">
     <table class="cq-table">
-      <thead><tr><th>Element</th><th>Per a què</th><th>A Moodle</th></tr></thead>
+      <thead><tr><th>Què has de fer</th><th>On ho tens</th></tr></thead>
       <tbody>
-        <tr><td><strong>Comunicació</strong></td><td>Parlar amb el grup o amb una persona</td><td>Fòrum, missatges, xat, avisos, consulta</td></tr>
-        <tr><td><strong>Materials</strong></td><td>Donar informació que es llegeix o es mira</td><td>Fitxer, pàgina, URL, carpeta, llibre</td></tr>
-        <tr><td><strong>Activitats</strong></td><td>Fer alguna cosa que es pot avaluar</td><td>Tasca, qüestionari, taller, glossari, H5P</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p>Moodle anomena <strong>recursos</strong> els materials, i <strong>activitats</strong> tota la resta, fins i tot els fòrums.</p>
-</div>
-
-<!-- ============ 4 · REFERÈNCIA ============ -->
-<div class="cq-block" data-kind="referència">
-  <h2>Plataformes</h2>
-  <div class="cq-tablewrap">
-    <table class="cq-table">
-      <thead><tr><th>Plataforma</th><th>Model</th><th>On es veu</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Moodle</strong></td><td>Lliure, en PHP; s'instal·la al servidor propi</td><td>Instituts, universitats, l'IOC</td></tr>
-        <tr><td><strong>Canvas</strong></td><td>Codi obert, però sobretot com a servei al núvol</td><td>Universitats</td></tr>
-        <tr><td><strong>Blackboard</strong></td><td>Propietari, al núvol</td><td>Universitats i empreses</td></tr>
-        <tr><td><strong>Google Classroom</strong></td><td>Servei gratuït lligat a Google Workspace</td><td>Escoles i instituts</td></tr>
+        <tr><td>Categories, cursos i inscripcions</td><td>Guia <a class="cq-ref" href="../guies/g2-2-administrar-moodle.html">G2.2</a>, cursos</td></tr>
+        <tr><td>CSV i accions en bloc</td><td>Guia <a class="cq-ref" href="../guies/g2-2-administrar-moodle.html">G2.2</a>, usuaris</td></tr>
+        <tr><td>Qualificador, insígnies i qüestionaris</td><td>Guia <a class="cq-ref" href="../guies/g2-2-administrar-moodle.html">G2.2</a>, qualificacions</td></tr>
+        <tr><td>Comunicació, materials i activitats</td><td>Teoria <a class="cq-ref" href="../teoria/t2-1-plataformes-d-aprenentatge.html">T2.1</a></td></tr>
+        <tr><td>Diferència entre registre i inscripció</td><td>Teoria <a class="cq-ref" href="../teoria/t2-1-plataformes-d-aprenentatge.html">T2.1</a></td></tr>
       </tbody>
     </table>
   </div>
 </div>
 
-<!-- ============ 5 · TEORIA ============ -->
-<div class="cq-block" data-kind="teoria">
-  <h2>Entrar al lloc i entrar al curs</h2>
-  <p>Són dues portes diferents. El <strong>mode de registre</strong> decideix com es crea el compte al lloc; el <strong>mètode d'inscripció</strong>, com s'entra a cada curs.</p>
-  <div class="cq-tablewrap">
-    <table class="cq-table">
-      <thead><tr><th></th><th>Opcions habituals</th></tr></thead>
-      <tbody>
-        <tr><td>Registre al lloc</td><td>Comptes manuals creats per l'administració · càrrega en bloc des d'un CSV · autoregistre per correu · un servei extern (Google, LDAP)</td></tr>
-        <tr><td>Inscripció al curs</td><td>Manual, la fa el professorat · autoinscripció, amb clau o sense · accés de convidats, sense compte · cohorts, grups de persones del lloc</td></tr>
-      </tbody>
-    </table>
-  </div>
+<!-- ============ 5 · RECORDATORI ============ -->
+<div class="cq-block" data-kind="recordatori">
+  <h2>Cada usuari, la seva finestra</h2>
+  <p>Si proves amb l'alumne a la mateixa finestra que l'administrador, tancaràs la sessió de l'altre. Fes servir una finestra privada per a cada usuari de prova, o l'opció <strong>Canvia el rol a…</strong> per a una ullada ràpida.</p>
 </div>
 
-<!-- ============ 6 · TEORIA ============ -->
-<div class="cq-block" data-kind="teoria">
-  <h2>Rols i contextos</h2>
-  <div class="cq-tablewrap">
-    <table class="cq-table">
-      <thead><tr><th>Rol</th><th>Pot</th></tr></thead>
-      <tbody>
-        <tr><td>Gestor</td><td>Administrar cursos i categories sense ser administrador del lloc</td></tr>
-        <tr><td>Professor</td><td>Editar el curs, avaluar i gestionar participants</td></tr>
-        <tr><td>Professor sense permís d'edició</td><td>Avaluar i veure, però no canviar el curs</td></tr>
-        <tr><td>Estudiant</td><td>Participar en les activitats i veure les seves notes</td></tr>
-        <tr><td>Convidat</td><td>Només mirar, sense participar</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p>Un rol s'assigna en un <strong>context</strong>: tot el lloc, una categoria, un curs o una sola activitat. La mateixa persona pot ser professora d'un curs i estudiant d'un altre.</p>
-</div>
-
-<!-- ============ 7 · EXEMPLE ============ -->
-<div class="cq-block" data-kind="exemple">
-  <h2>Un curs de benvinguda</h2>
-  <p>Un institut vol un curs «Benvinguda» que qualsevol pugui mirar sense compte, i un curs «Aplicacions Web» només per al grup. El primer té l'<strong>accés de convidats</strong> activat; el segon, <strong>inscripció manual</strong>, i el professorat hi matricula l'alumnat amb el rol d'estudiant.</p>
-</div>
-
-<!-- ============ 8 · CAS REAL ============ -->
-<div class="cq-block" data-kind="cas real">
-  <h2>Perfils personalitzats</h2>
-  <p>El perfil d'usuari de Moodle es pot ampliar amb <strong>camps propis</strong>: grup-classe, data d'incorporació, empresa de pràctiques. Són útils per filtrar llistes i per crear cohorts automàtiques. També es poden crear rols propis a partir d'un existent, per exemple un «Tutor d'empresa» que només pot veure les notes.</p>
-</div>
-
-<!-- ============ 9 · OBSERVACIÓ ============ -->
+<!-- ============ 6 · OBSERVACIÓ ============ -->
 <div class="cq-block" data-kind="observació">
-  <h2>Canviar de rol dins d'un curs</h2>
-  <p>Dins d'un curs, el menú d'usuari té l'opció <strong>Canvia el rol a…</strong>: el professorat pot veure el curs com el veuria un estudiant sense crear cap compte de prova. En sortir, torna al seu rol.</p>
+  <h2>La comunicació, en marxa</h2>
+  <p>Publica un missatge al fòrum com a Bob i respon-lo com a alumne. Mira quan arriba la notificació: si només arriba després d'un minut, és el cron qui l'ha enviat.</p>
 </div>
 
-<!-- ============ 10 · BONES PRÀCTIQUES ============ -->
-<div class="cq-block" data-kind="bones pràctiques">
-  <h2>Criteris professionals</h2>
+<!-- ============ 7 · COMPROVACIÓ ============ -->
+<div class="cq-block" data-kind="comprovació">
+  <h2>Com sabràs que ho has fet bé</h2>
   <ul>
-    <li>Rol mínim en el context més petit possible.</li>
-    <li>Accés de convidats només als cursos que realment han de ser públics.</li>
-    <li>Comptes creats en bloc des d'un CSV, no un per un.</li>
-    <li>Cursos organitzats en categories, com els estudis del centre.</li>
+    <li>El curs A s'obre en una finestra privada sense iniciar sessió; el curs B no.</li>
+    <li>A <strong>Participants</strong> del curs B, Bob surt com a professor i hi ha 8 estudiants.</li>
+    <li>El qualificador mostra la nota calculada de l'alumne.</li>
+    <li>L'alumne veu la insígnia al seu perfil.</li>
   </ul>
 </div>
 
-<!-- ============ 11 · PROBLEMES ============ -->
+<!-- ============ 8 · PROBLEMES ============ -->
 <div class="cq-block" data-kind="problemes">
-  <h2>Errors habituals</h2>
+  <h2>Si alguna cosa no va</h2>
   <dl class="cq-issues">
-    <dt>Algú té compte però no veu el curs</dt>
+    <dt>Un convidat veu el curs però no pot fer el qüestionari</dt>
     <dd>
-      <p><span class="lbl">Causa</span> Registrar-se al lloc no inscriu a cap curs.</p>
-      <p><span class="lbl">Solució</span> Inscriu-lo al curs o activa-hi un mètode d'autoinscripció.</p>
+      <p><span class="lbl">Causa</span> Els convidats no poden participar en activitats.</p>
+      <p><span class="lbl">Solució</span> És el comportament previst: l'activitat avaluable es prova amb un estudiant inscrit.</p>
     </dd>
-    <dt>Un estudiant pot editar un curs</dt>
+    <dt>La insígnia no s'atorga sola</dt>
     <dd>
-      <p><span class="lbl">Causa</span> Se li ha donat el rol de professor, o un rol al context de tot el lloc.</p>
-      <p><span class="lbl">Solució</span> Revisa els rols assignats al curs i a la categoria.</p>
+      <p><span class="lbl">Causa</span> No està activada o el criteri no s'ha complert.</p>
+      <p><span class="lbl">Solució</span> Activa-la i revisa el criteri, o atorga-la manualment.</p>
     </dd>
   </dl>
 </div>
 
-<!-- ============ 12 · RESUM ============ -->
-<div class="cq-block" data-kind="resum">
-  <h2>Resum</h2>
-  <ul>
-    <li>Un LMS organitza la formació en cursos amb seguiment de cada persona.</li>
-    <li>Tres elements lògics: comunicació, materials i activitats.</li>
-    <li>Registre: com es crea el compte. Inscripció: com s'entra al curs.</li>
-    <li>Els rols s'apliquen en un context: lloc, categoria, curs o activitat.</li>
-  </ul>
+<!-- ============ 9 · LLIURAMENT ============ -->
+<div class="cq-block" data-kind="lliurament">
+  <h2>Què has d'entregar</h2>
+  <p>Continua el <code>README.md</code> d'<a class="cq-ref" href="a2-1-moodle-a-punt.html">A2.1</a> amb una captura i una explicació per a cada punt.</p>
+  <p>Respon-hi també: <strong>per què un usuari que té compte al lloc pot no veure el curs B? Quina diferència hi ha entre el mètode d'inscripció del curs A i el del B?</strong></p>
 </div>
 
-<!-- ============ 13 · QUIZ ============ -->
-<div class="cq-block" data-kind="quiz">
-  <h2>Comprova el que has après</h2>
-  <div class="cq-question" data-id="t2-1-element" data-type="single">
-    <div class="statement">A quin element lògic pertany un fòrum?</div>
-    <button type="button" aria-pressed="false" class="cq-option" data-correct="true">Comunicació</button>
-    <button type="button" aria-pressed="false" class="cq-option" data-correct="false">Materials</button>
-    <button type="button" aria-pressed="false" class="cq-option" data-correct="false">Activitats avaluables</button>
-    <button type="button" aria-pressed="false" class="cq-option" data-correct="false">Configuració</button>
-    <div><button type="button" class="cq-check-btn">Comprova la resposta</button></div>
-    <div class="cq-feedback" role="status" aria-live="polite"></div>
-  </div>
-  <div class="cq-question" data-id="t2-1-convidat" data-type="single">
-    <div class="statement">Vols que un curs es pugui mirar sense iniciar sessió. Què actives?</div>
-    <button type="button" aria-pressed="false" class="cq-option" data-correct="false">Autoregistre per correu</button>
-    <button type="button" aria-pressed="false" class="cq-option" data-correct="true">Accés de convidats</button>
-    <button type="button" aria-pressed="false" class="cq-option" data-correct="false">Inscripció manual</button>
-    <button type="button" aria-pressed="false" class="cq-option" data-correct="false">Cohorts</button>
-    <div><button type="button" class="cq-check-btn">Comprova la resposta</button></div>
-    <div class="cq-feedback" role="status" aria-live="polite"></div>
-  </div>
-  <div class="cq-question" data-id="t2-1-context" data-type="single">
-    <div class="statement">La Marta és professora del curs A i estudiant del curs B. És possible?</div>
-    <button type="button" aria-pressed="false" class="cq-option" data-correct="true">Sí, perquè els rols s'assignen en cada context</button>
-    <button type="button" aria-pressed="false" class="cq-option" data-correct="false">No, cada usuari té un sol rol</button>
-    <button type="button" aria-pressed="false" class="cq-option" data-correct="false">Només si és administradora</button>
-    <button type="button" aria-pressed="false" class="cq-option" data-correct="false">Només amb dos comptes</button>
-    <div><button type="button" class="cq-check-btn">Comprova la resposta</button></div>
-    <div class="cq-feedback" role="status" aria-live="polite"></div>
-  </div>
+
+<!-- ============ CURRÍCULUM ============ -->
+<div class="cq-block" data-kind="currículum">
+  <h2>Al currículum</h2>
+  <p><span class="lbl">Contingut 2.3</span> Creació de cursos seguint especificacions. Gestió d'usuaris i grups. Activació de funcionalitats.</p>
+  <p><span class="lbl">CA 2.3</span> Manipula i genera perfils personalitzats.</p>
+  <p><span class="lbl">CA 2.4</span> Comprova la funcionalitat de les comunicacions mitjançant fòrums, consultes, entre d'altres.</p>
 </div>
 
 <!-- === PEU DE NAVEGACIÓ INICI === -->
+<nav class="cq-pager">
+  <a class="prev" href="a2-1-moodle-a-punt.html">
+    <span class="dir">Anterior · A2.1</span>
+    <span class="ttl">Moodle a punt</span></a>
+  <a class="next" href="a2-3-copies-informes-i-seguretat.html">
+    <span class="dir">Següent · A2.3</span>
+    <span class="ttl">Còpies, informes i seguretat</span></a>
+</nav>
 <!-- === PEU DE NAVEGACIÓ FI === -->
 
 </main>

@@ -61,6 +61,17 @@ CONT = {
  '1.3': "Utilització de la interfície gràfica. Personalització de l'entorn. Funcionalitats proporcionades pel gestor de continguts. Sindicació.",
  '1.4': "Funcionament dels gestors de continguts.",
  '1.5': "Actualitzacions del gestor de continguts. Configuració de mòduls i menús.",
+ '2.1': "Elements lògics: comunicació, materials i activitats.",
+ '2.2': "Instal·lació en sistemes operatius lliures i propietaris. Modes de registre. Interfície gràfica associada. Personalització de l'entorn. Navegació i edició.",
+ '2.3': "Creació de cursos seguint especificacions. Gestió d'usuaris i grups. Activació de funcionalitats.",
+ '3.1': "Instal·lació. Navegació i operacions bàsiques. Administració del gestor.",
+ '3.2': "Usuaris i permisos. Tipus d'usuari.",
+ '3.3': "Creació de recursos compartits.",
+ '4.1': "Instal·lació. Utilització de les aplicacions instal·lades.",
+ '4.2': "Gestió d'usuaris i permisos associats.",
+ '4.3': "Comprovació de la seguretat.",
+ '5.1': "Aplicacions de correu web. Instal·lació.",
+ '5.2': "Gestió d'usuaris.",
 }
 
 RA = {
@@ -91,6 +102,15 @@ MAP = {
  'RA1/activitats/a1-5-forum-amb-regles-d-acces':   (['1.2', '1.3'], ['1.2', '1.8']),
  'RA1/activitats/a1-6-actualitzar-protegir-i-copiar': (['1.5'], ['1.5', '1.7', '1.9', '1.10']),
  'RA1/practiques/p1-1-portal-wordpress':           (['1.1', '1.2', '1.3', '1.4', '1.5'], []),
+ 'RA2/teoria/t2-1-plataformes-d-aprenentatge':     (['2.1', '2.2'], ['2.3', '2.4']),
+ 'RA2/teoria/t2-2-un-moodle-per-dins':             (['2.2'], ['2.1', '2.2']),
+ 'RA2/teoria/t2-3-mantenir-un-moodle':             (['2.2'], ['2.5', '2.6', '2.7', '2.8']),
+ 'RA2/guies/g2-1-instal-lar-moodle':               (['2.2'], ['2.1']),
+ 'RA2/guies/g2-2-administrar-moodle':              (['2.2', '2.3'], ['2.2', '2.3', '2.4', '2.5', '2.6', '2.7', '2.8']),
+ 'RA2/activitats/a2-1-moodle-a-punt':              (['2.2'], ['2.1', '2.2']),
+ 'RA2/activitats/a2-2-cursos-usuaris-i-activitats': (['2.3'], ['2.3', '2.4']),
+ 'RA2/activitats/a2-3-copies-informes-i-seguretat': (['2.2'], ['2.5', '2.6', '2.7', '2.8']),
+ 'RA2/practiques/p2-1-portal-moodle':              (['2.1', '2.2', '2.3'], []),
 }
 
 # Rúbrica de cada pràctica principal: (nom, pes al RA, [(apartat, criteris, punts)]).
@@ -109,6 +129,18 @@ PRACTIQUES = {
    ("Mecanismes de seguretat del gestor activats i justificats", ['1.7'], 1),
    ("Còpia de seguretat completa i restauració provada", ['1.10'], 1),
    ("Llista de proves de funcionament passada abans i després dels canvis", ['1.4', '1.9'], 0.5),
+ ]),
+ 'RA2/practiques/p2-1-portal-moodle': ('Pràctica P2.1', 60, [
+   ("Instal·lació correcta i estructura del lloc i dels directoris explicada", ['2.1'], 1.5),
+   ("Configuració inicial del lloc: nom, idioma, zona horària i normatives", ['2.2'], 1),
+   ("Aparença personalitzada: tema, logotip, capçalera, peu i portada", ['2.2'], 1),
+   ("Usuaris manuals i massius, grups i perfils personalitzats", ['2.3'], 1.5),
+   ("Cursos amb els temes demanats, inscripcions i activació de funcionalitats", ['2.3'], 1),
+   ("Comunicació provada: fòrum, consulta i missatgeria", ['2.4'], 1),
+   ("Importació i exportació de cursos entre llocs", ['2.5'], 1),
+   ("Còpia de seguretat del lloc i restauració provada", ['2.6'], 1),
+   ("Informes d'accés i utilització interpretats", ['2.7'], 0.5),
+   ("Seguretat del lloc comprovada i justificada", ['2.8'], 0.5),
  ]),
 }
 

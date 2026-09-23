@@ -41,7 +41,7 @@ smx-m08/
 ├── _identitat/         sinapsi.css, quiz.js y web-marc.html
 ├── _aportacio/         material original en Markdown, no se publica
 ├── _pendent/           RA en borrador que las herramientas no ven (RA2)
-├── RA1/
+├── RA1/ · RA2/ …      un RA por carpeta
 │   ├── index.html      índice del RA: fuente de la navegación
 │   ├── teoria/ · guies/ · activitats/ · practiques/ · img/
 │   └── _identitat/ra1-web.html   GENERADO
@@ -280,8 +280,15 @@ sola vez, con su trazabilidad. `--check` falla si queda un criterio fuera.
   Los pasos de las guías están contrastados con documentación, **no probados
   en VM** (en particular MySQL 8.4 en 26.04 y los menús de User Role Editor,
   Groups y bbPress).
+- **RA2** (Moodle) revisado y publicado: 3 teorías, 2 guías, 3 actividades y
+  la práctica P2.1, hecha a partir de `pt-uf4.md`. Pendiente de confirmar: si
+  la versión de Moodle que se instale admite el PHP de Ubuntu 26.04; si no,
+  el escritorio se hace con 24.04 LTS, como avisan la G2.1 y la A2.1.
+- **RA3–RA5** sin material. Decidido con el profesorado: RA3 Nextcloud (de
+  `pt-uf2.md`), RA4 sin instalación, con las herramientas de Google de
+  `uf1-pt2` y `uf1-pt3`, y RA5 Roundcube con Postfix/Dovecot y el calendario
+  de Nextcloud.
 - **RAX** (HTML y CSS, complementario): 1 teoría, 4 actividades y 1 práctica.
   Las actividades citan una guía G4.3 de GitHub Pages que aún no existe.
 - **RA2** (Moodle) en `_pendent/`, sin revisar.
-- **RA3–RA5** (gestión de archivos, ofimática web, correo y calendario web)
-  sin material: el original de rusben no los cubre salvo `pt-uf2` y `uf1`.
+
