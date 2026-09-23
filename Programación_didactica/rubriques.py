@@ -231,6 +231,50 @@ RUBRIQUES = {
               "comparticions de l'A4.3.",
   },
  ],
+ 5: [
+  {
+   'nom': "Comprèn i descriu",
+   'nivells': {
+    '10': "Descriu les aplicacions web d'escriptori i explica el camí d'un correu i el funcionament d'una agenda amb autonomia.",
+    '7,5': "Descriu les aplicacions i explica el funcionament amb suport puntual.",
+    '5': "Reconeix les peces, però li costa explicar com encaixen sense ajuda.",
+    '0': "No distingeix el client del servidor ni amb el suport habitual.",
+   },
+   'ca': ['5.1'],
+   'reforc': [],
+   'cont': ['5.1'],
+   'observa': "Com explica a l'A5.1 per què encara no pot llegir el correu al "
+              "navegador, i les capçaleres que sap interpretar.",
+  },
+  {
+   'nom': "Instal·la i integra",
+   'nivells': {
+    '10': "Instal·la el servidor, el correu web i el calendari i els integra i verifica pel seu compte.",
+    '7,5': "Instal·la i integra les aplicacions amb suport puntual.",
+    '5': "Arriba a un servei funcional bàsic amb suport freqüent.",
+    '0': "No aconsegueix un correu web utilitzable ni amb el suport habitual.",
+   },
+   'ca': ['5.2', '5.3', '5.5', '5.6'],
+   'reforc': [],
+   'cont': ['5.1'],
+   'observa': "La integració del client amb el servidor a l'A5.2 i les proves "
+              "entre dos comptes; el calendari sincronitzat de l'A5.3.",
+  },
+  {
+   'nom': "Gestiona i aprofita",
+   'nivells': {
+    '10': "Gestiona els comptes i treu partit de les prestacions de cada aplicació amb autonomia.",
+    '7,5': "Gestiona els comptes i fa servir les prestacions principals amb suport puntual.",
+    '5': "Crea comptes i esdeveniments quan se li indica, amb suport freqüent.",
+    '0': "No sap donar d'alta ni de baixa un compte ni amb el suport habitual.",
+   },
+   'ca': ['5.4', '5.7'],
+   'reforc': [],
+   'cont': ['5.2'],
+   'observa': "Les altes, els àlies i la baixa de l'A5.1, i els convidats, les "
+              "repeticions i les tasques de l'A5.3.",
+  },
+ ],
 }
 
 PENDENT = ("Si no hi ha hagut prou ocasió d'observar una dimensió, no s'hi posa "

@@ -293,8 +293,13 @@ sola vez, con su trazabilidad. `--check` falla si queda un criterio fuera.
   herramientas de Google. El CA 4.3 («instal·la aplicacions d'ofimàtica web»)
   se cubre como despliegue del entorno (cuentas, carpetas, complementos y
   modo sin conexión), no como instalación en un servidor: conviene validarlo.
-- **RA5** pendiente. Decidido: Roundcube con Postfix/Dovecot y el calendario
-  de Nextcloud.
+- **RA5** (correo y calendario web) escrito: 3 teorías, 3 guías, 3
+  actividades y la práctica P5.1. El material original no cubría este RA, así
+  que la práctica es nueva, con la misma forma que P3.1 (dos manuales y
+  README). El servidor de correo es **solo interno**: no sale a Internet.
+- Todos los criterios de los cinco RA están cubiertos por una práctica; la
+  matriz `cobertura.html` no deja ninguno sin material. Nada de esto se ha
+  probado en una VM: las guías están contrastadas con documentación.
 - **RAX** (HTML y CSS, complementario): 1 teoría, 4 actividades y 1 práctica.
   Las actividades citan una guía G4.3 de GitHub Pages que aún no existe.
 

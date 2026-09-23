@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RA3 · Serveis de gestió d'arxius web — Aplicacions Web (0228)</title>
+<title>T5.2 · Com viatja un correu — Aplicacions Web (0228)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500;700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -526,155 +526,204 @@
 </style>
 </head>
 <body>
+
 <!-- === NAVEGACIÓ INICI === -->
 <nav class="cq-nav">
   <div class="inner">
-    <a href="../index.html">‹ Aplicacions Web (0228)</a>
-    <span class="pos">RA3 · 3/6</span>
+    <a href="../index.html">‹ RA5 · Instal·lació d'aplicacions web d'escriptori</a>
+    <span class="pos">T5.2 · 2/10</span>
   </div>
 </nav>
 <!-- === NAVEGACIÓ FI === -->
 
 <main>
+
 <header class="cq-header">
-  <div class="eyebrow">CFGM SMX · Mòdul 0228</div>
-  <h1>Aplicacions Web</h1>
-  <p class="lede">RA3 · Instal·lació de serveis de gestió d'arxius web</p>
+  <div class="eyebrow">0228 · Aplicacions Web · RA5 · T5.2</div>
+  <h1>Com viatja un correu</h1>
+  <p class="lede">Qui l'envia, qui el guarda i qui te'l mostra: tres programes i tres protocols.</p>
 </header>
 
+<!-- ============ 1 · OBJECTIUS ============ -->
+<div class="cq-block" data-kind="objectius">
+  <h2>Què sabràs fer en acabar</h2>
+  <ul>
+    <li>Explicar el camí d'un missatge des de qui l'escriu fins a qui el llegeix.</li>
+    <li>Distingir SMTP, IMAP i POP3 i dir quan es fa servir cadascun.</li>
+    <li>Explicar la diferència entre llegir el correu per IMAP i per POP3.</li>
+    <li>Dir on es guarden les bústies al servidor.</li>
+    <li>Relacionar cada port amb el seu servei i saber què comprovar quan alguna cosa no arriba.</li>
+  </ul>
+</div>
+
+<!-- ============ 2 · TEORIA ============ -->
 <div class="cq-block" data-kind="teoria">
-  <h2>Teoria</h2>
-  <p>Què és un servei de gestió d'arxius web, com es reparteixen els permisos i com es troba i es protegeix el que s'hi guarda.</p>
-  <ul class="cq-index">
-    <li><a href="teoria/t3-1-gestors-d-arxius-web.html">
-      <span class="ref">T3.1</span>
-      <span class="ttl">Serveis de gestió d'arxius web
-        <span class="sub">Utilitat, aplicacions, requeriments i on queda cada cosa</span></span></a></li>
-    <li><a href="teoria/t3-2-comptes-permisos-i-comparticio.html">
-      <span class="ref">T3.2</span>
-      <span class="ttl">Comptes, permisos i compartició
-        <span class="sub">Tipus d'usuari, grups, quotes i recursos compartits</span></span></a></li>
-    <li><a href="teoria/t3-3-trobar-ho-i-protegir-ho.html">
-      <span class="ref">T3.3</span>
-      <span class="ttl">Trobar-ho i protegir-ho
-        <span class="sub">Metadades, etiquetes, indexació i seguretat</span></span></a></li>
-  </ul>
-</div>
-
-<div class="cq-block" data-kind="guies">
-  <h2>Guies</h2>
-  <p>Els manuals pas a pas que tindràs oberts mentre fas les activitats i la pràctica.</p>
-  <ul class="cq-index">
-    <li><a href="guies/g3-1-instal-lar-nextcloud.html">
-      <span class="ref">G3.1</span>
-      <span class="ttl">Guia: instal·lar Nextcloud
-        <span class="sub">Requeriments, dades fora del web, cron, consola i còpies</span></span></a></li>
-    <li><a href="guies/g3-2-administrar-nextcloud.html">
-      <span class="ref">G3.2</span>
-      <span class="ttl">Guia: administrar Nextcloud
-        <span class="sub">Comptes, grups, quotes, compartició, etiquetes i seguretat</span></span></a></li>
-  </ul>
-</div>
-
-<div class="cq-block" data-kind="activitats">
-  <h2>Activitats</h2>
-  <p>Exercicis curts per assajar cada idea abans de la pràctica. L'<a class="cq-ref" href="activitats/a3-1-el-nuvol-a-punt.html">A3.1</a> prepara l'escriptori de proves que fan servir l'<a class="cq-ref" href="activitats/a3-2-comptes-grups-i-recursos.html">A3.2</a> i l'<a class="cq-ref" href="activitats/a3-3-ordenar-trobar-i-protegir.html">A3.3</a>.</p>
-  <ul class="cq-index">
-    <li><a href="activitats/a3-1-el-nuvol-a-punt.html">
-      <span class="ref">A3.1</span>
-      <span class="ttl">El núvol a punt
-        <span class="sub">Comparar, instal·lar, comprovar i entrar-hi des de la xarxa</span></span></a></li>
-    <li><a href="activitats/a3-2-comptes-grups-i-recursos.html">
-      <span class="ref">A3.2</span>
-      <span class="ttl">Comptes, grups i recursos compartits
-        <span class="sub">Qui entra, quant espai té i qui toca cada carpeta</span></span></a></li>
-    <li><a href="activitats/a3-3-ordenar-trobar-i-protegir.html">
-      <span class="ref">A3.3</span>
-      <span class="ttl">Ordenar, trobar i protegir
-        <span class="sub">Etiquetes, descripcions, cerca i revisió de seguretat</span></span></a></li>
-  </ul>
-</div>
-
-<div class="cq-block" data-kind="practiques">
-  <h2>Pràctica</h2>
-  <p>El servei d'arxius sencer en un escriptori nou, amb els dos manuals escrits. És la pràctica principal del RA i la part que <strong>més pesa</strong> a la nota.</p>
-  <ul class="cq-index">
-    <li><a href="practiques/p3-1-nuvol-de-l-aula.html">
-      <span class="ref">P3.1</span>
-      <span class="ttl">Pràctica: el núvol de l'aula
-        <span class="sub">Instal·lar, administrar, compartir, protegir i documentar</span></span></a></li>
-  </ul>
-</div>
-
-<div class="cq-block" data-kind="avaluació">
-  <h2>Com s'avalua</h2>
+  <h2>Tres programes</h2>
   <div class="cq-tablewrap">
     <table class="cq-table">
-      <thead><tr><th>Part</th><th>Què s'hi avalua</th><th>Pes</th></tr></thead>
+      <thead><tr><th>Sigla</th><th>Qui és</th><th>Què fa</th></tr></thead>
       <tbody>
-        <tr><td>Pràctica <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td><td>Demostració en directe i els manuals, amb la rúbrica de la pràctica</td><td>60 %</td></tr>
-        <tr><td>Examen tipus test</td><td>Prova a Moodle sobre tot el RA: teoria, guies i activitats</td><td>40 %</td></tr>
-        <tr><td>Activitats <a class="cq-ref" href="activitats/a3-1-el-nuvol-a-punt.html">A3.1</a>–<a class="cq-ref" href="activitats/a3-3-ordenar-trobar-i-protegir.html">A3.3</a></td><td>Són l'assaig de la pràctica i la preparació de l'examen: es comenten amb la rúbrica de seguiment</td><td>Sense pes</td></tr>
+        <tr><td><strong>MUA</strong></td><td>El client: correu web, Thunderbird, el mòbil</td><td>Escriure i llegir missatges</td></tr>
+        <tr><td><strong>MTA</strong></td><td>El servidor d'enviament, com Postfix</td><td>Rebre el missatge i portar-lo al servidor de destí</td></tr>
+        <tr><td><strong>MDA</strong></td><td>L'entregador, sovint dins de Dovecot</td><td>Deixar el missatge a la bústia de l'usuari</td></tr>
       </tbody>
     </table>
   </div>
+  <p>Un missatge passa pels tres: el client el dona al servidor d'enviament, aquest el porta fins al servidor del destinatari, i allà l'entregador el deixa a la bústia, on el client de l'altra persona el trobarà.</p>
 </div>
 
-<!-- === CURRÍCULUM DEL RA INICI === -->
+<!-- ============ 3 · REFERÈNCIA ============ -->
+<div class="cq-block" data-kind="referència">
+  <h2>Tres protocols i els seus ports</h2>
+  <div class="cq-tablewrap">
+    <table class="cq-table">
+      <thead><tr><th>Protocol</th><th>Serveix per</th><th>Port sense xifrar</th><th>Port xifrat</th></tr></thead>
+      <tbody>
+        <tr><td><strong>SMTP</strong></td><td>Enviar i transportar missatges entre servidors</td><td>25 (entre servidors) · 587 (enviament del client)</td><td>465</td></tr>
+        <tr><td><strong>IMAP</strong></td><td>Llegir la bústia deixant els missatges al servidor</td><td>143</td><td>993</td></tr>
+        <tr><td><strong>POP3</strong></td><td>Descarregar els missatges a l'equip</td><td>110</td><td>995</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>El port <strong>25</strong> és el que fan servir els servidors per parlar entre ells; el <strong>587</strong> és el que hauria de fer servir un client per enviar, perquè demana autenticació.</p>
+</div>
+
+<!-- ============ 4 · TEORIA ============ -->
+<div class="cq-block" data-kind="teoria">
+  <h2>IMAP o POP3</h2>
+  <p>Amb <strong>IMAP</strong> els missatges es queden al servidor i el client n'ensenya una vista: les carpetes, què has llegit i què has esborrat són iguals a tots els dispositius. És el que necessita qui llegeix el correu des de més d'un lloc, i és el que fa servir un correu web.</p>
+  <p>Amb <strong>POP3</strong> el client descarrega els missatges i, normalment, els esborra del servidor: queden en un sol equip. Encara té sentit quan es vol buidar el servidor i guardar-ho tot en local, però avui és l'excepció.</p>
+</div>
+
+<!-- ============ 5 · TEORIA ============ -->
+<div class="cq-block" data-kind="teoria">
+  <h2>On és la bústia</h2>
+  <p>Al servidor, els missatges es guarden en un format de bústia. El més habitual avui és <strong>Maildir</strong>: una carpeta per bústia i <strong>un fitxer per missatge</strong>, repartits en <code>new</code>, <code>cur</code> i <code>tmp</code>. L'alternativa antiga, <strong>mbox</strong>, posa tots els missatges en un sol fitxer i es corromp amb més facilitat.</p>
+  <p>Saber on són les bústies és el que permet comprovar de debò si un missatge ha arribat: si el fitxer hi és, el problema és del client; si no hi és, el problema és del servidor.</p>
+</div>
+
+<!-- ============ 6 · EXEMPLE ============ -->
+<div class="cq-block" data-kind="exemple">
+  <h2>D'una bústia a l'altra</h2>
+  <p>L'Anna escriu al Pau, tots dos del mateix servidor. El client de l'Anna dona el missatge al servidor d'enviament, que veu que el destinatari és seu i no l'ha de treure a Internet: l'entrega directament a la bústia del Pau. Quan el Pau obre el correu web, el client demana la bústia i el missatge hi surt.</p>
+</div>
+
+<!-- ============ 7 · OBSERVACIÓ ============ -->
+<div class="cq-block" data-kind="observació">
+  <h2>Mirar el camí d'un missatge</h2>
+  <p>Tot missatge porta capçaleres <code>Received</code> que diuen per quins servidors ha passat i quan, de baix a dalt. Obrir-les en un correu que ha trigat a arribar diu exactament on s'ha aturat. Al servidor, el registre del servei explica el mateix des de l'altre costat.</p>
+</div>
+
+<!-- ============ 8 · CAS REAL ============ -->
+<div class="cq-block" data-kind="cas real">
+  <h2>El correu que acaba a la brossa</h2>
+  <p>Un servidor acabat de muntar envia correu a l'exterior i tot va a la carpeta de brossa. No és cap error de configuració del client: els servidors de destí desconfien d'un domini nou sense registres que demostrin que pot enviar en nom seu. Per això, en un servidor real, el correu cap a fora demana feina de DNS i de reputació que va molt més enllà d'instal·lar el programari.</p>
+</div>
+
+<!-- ============ 9 · BONES PRÀCTIQUES ============ -->
+<div class="cq-block" data-kind="bones pràctiques">
+  <h2>Criteris professionals</h2>
+  <ul>
+    <li>IMAP per defecte; POP3 només si hi ha un motiu.</li>
+    <li>Els clients envien pel port d'enviament autenticat, no pel 25.</li>
+    <li>Res de contrasenyes sense xifrar fora de la mateixa màquina.</li>
+    <li>Al laboratori, correu només intern: no cal treure'l a Internet per aprendre com funciona.</li>
+    <li>Comprova sempre a la bústia del servidor abans de culpar el client.</li>
+  </ul>
+</div>
+
+<!-- ============ 10 · PROBLEMES ============ -->
+<div class="cq-block" data-kind="problemes">
+  <h2>Errors habituals</h2>
+  <dl class="cq-issues">
+    <dt>El client no connecta i diu «connection refused»</dt>
+    <dd>
+      <p><span class="lbl">Causa</span> El servei no escolta en aquell port o el tallafoc el tanca.</p>
+      <p><span class="lbl">Solució</span> Comprova quins ports estan oberts al servidor i si el servei està actiu.</p>
+    </dd>
+    <dt>El missatge s'envia però no arriba</dt>
+    <dd>
+      <p><span class="lbl">Causa</span> L'ha acceptat el servidor d'enviament però no s'ha entregat.</p>
+      <p><span class="lbl">Solució</span> Mira el registre del servidor i la bústia del destinatari: el missatge s'ha aturat en un dels dos punts.</p>
+    </dd>
+    <dt>Els missatges desapareixen d'un dispositiu</dt>
+    <dd>
+      <p><span class="lbl">Causa</span> Un client està configurat amb POP3 i se'ls descarrega.</p>
+      <p><span class="lbl">Solució</span> Configura'l amb IMAP.</p>
+    </dd>
+  </dl>
+</div>
+
+<!-- ============ 11 · RESUM ============ -->
+<div class="cq-block" data-kind="resum">
+  <h2>Resum</h2>
+  <ul>
+    <li>Client (MUA), servidor d'enviament (MTA) i entregador (MDA) es reparteixen la feina.</li>
+    <li>SMTP envia; IMAP i POP3 llegeixen.</li>
+    <li>IMAP deixa els missatges al servidor; POP3 se'ls emporta.</li>
+    <li>Les bústies es guarden en Maildir: un fitxer per missatge.</li>
+    <li>Si un correu no arriba, es mira el registre del servidor i la bústia del destinatari.</li>
+  </ul>
+</div>
+
+<!-- ============ 12 · QUIZ ============ -->
+<div class="cq-block" data-kind="quiz">
+  <h2>Comprova el que has après</h2>
+  <div class="cq-question" data-id="t5-2-imap" data-type="single">
+    <div class="statement">Una usuària llegeix el correu des de l'ordinador i des del mòbil. Quin protocol ha de fer servir?</div>
+    <button type="button" aria-pressed="false" class="cq-option" data-correct="true">IMAP</button>
+    <button type="button" aria-pressed="false" class="cq-option" data-correct="false">POP3</button>
+    <button type="button" aria-pressed="false" class="cq-option" data-correct="false">SMTP</button>
+    <button type="button" aria-pressed="false" class="cq-option" data-correct="false">HTTP</button>
+    <div><button type="button" class="cq-check-btn">Comprova la resposta</button></div>
+    <div class="cq-feedback" role="status" aria-live="polite"></div>
+  </div>
+  <div class="cq-question" data-id="t5-2-ports" data-type="single">
+    <div class="statement">Quin port fa servir un client per enviar correu amb autenticació?</div>
+    <button type="button" aria-pressed="false" class="cq-option" data-correct="false">25</button>
+    <button type="button" aria-pressed="false" class="cq-option" data-correct="true">587</button>
+    <button type="button" aria-pressed="false" class="cq-option" data-correct="false">143</button>
+    <button type="button" aria-pressed="false" class="cq-option" data-correct="false">110</button>
+    <div><button type="button" class="cq-check-btn">Comprova la resposta</button></div>
+    <div class="cq-feedback" role="status" aria-live="polite"></div>
+  </div>
+  <div class="cq-question" data-id="t5-2-maildir" data-type="single">
+    <div class="statement">Què és Maildir?</div>
+    <button type="button" aria-pressed="false" class="cq-option" data-correct="true">Un format de bústia amb un fitxer per missatge</button>
+    <button type="button" aria-pressed="false" class="cq-option" data-correct="false">Un protocol per enviar correu</button>
+    <button type="button" aria-pressed="false" class="cq-option" data-correct="false">El nom del client web</button>
+    <button type="button" aria-pressed="false" class="cq-option" data-correct="false">Una base de dades de missatges</button>
+    <div><button type="button" class="cq-check-btn">Comprova la resposta</button></div>
+    <div class="cq-feedback" role="status" aria-live="polite"></div>
+  </div>
+  <div class="cq-question" data-id="t5-2-diagnostic" data-type="single">
+    <div class="statement">Un usuari diu que no li arriba un correu intern. Per on comences?</div>
+    <button type="button" aria-pressed="false" class="cq-option" data-correct="false">Reinstal·lant el correu web</button>
+    <button type="button" aria-pressed="false" class="cq-option" data-correct="true">Mirant el registre del servidor i si el missatge és a la bústia del destinatari</button>
+    <button type="button" aria-pressed="false" class="cq-option" data-correct="false">Canviant la contrasenya de l'usuari</button>
+    <button type="button" aria-pressed="false" class="cq-option" data-correct="false">Passant de IMAP a POP3</button>
+    <div><button type="button" class="cq-check-btn">Comprova la resposta</button></div>
+    <div class="cq-feedback" role="status" aria-live="polite"></div>
+  </div>
+</div>
+
+
+<!-- ============ CURRÍCULUM ============ -->
 <div class="cq-block" data-kind="currículum">
   <h2>Al currículum</h2>
-  <p><span class="lbl">RA3</span> Instal·la serveis de gestió d&#x27;arxius web, identificant-ne les aplicacions i verificant-ne la integritat.</p>
-  <div class="cq-tablewrap">
-    <table class="cq-table">
-      <thead><tr><th>Criteri</th><th>Enunciat</th><th>On es treballa</th><th>Com s'avalua</th></tr></thead>
-      <tbody>
-        <tr><td><code>3.1</code></td><td>Estableix la utilitat d&#x27;un servei de gestió d&#x27;arxius web.</td><td><a class="cq-ref" href="teoria/t3-1-gestors-d-arxius-web.html">T3.1</a> · <a class="cq-ref" href="activitats/a3-1-el-nuvol-a-punt.html">A3.1</a> · <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td><td>Pràctica <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a> · Examen tipus test</td></tr>
-        <tr><td><code>3.2</code></td><td>Descriu diferents aplicacions de gestió d&#x27;arxius web.</td><td><a class="cq-ref" href="teoria/t3-1-gestors-d-arxius-web.html">T3.1</a> · <a class="cq-ref" href="activitats/a3-1-el-nuvol-a-punt.html">A3.1</a> · <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td><td>Pràctica <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a> · Examen tipus test</td></tr>
-        <tr><td><code>3.3</code></td><td>Instal·la i adapta una eina de gestió d&#x27;arxius web.</td><td><a class="cq-ref" href="guies/g3-1-instal-lar-nextcloud.html">G3.1</a> · <a class="cq-ref" href="activitats/a3-1-el-nuvol-a-punt.html">A3.1</a> · <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td><td>Pràctica <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a> · Examen tipus test</td></tr>
-        <tr><td><code>3.4</code></td><td>Crea i classifica comptes d&#x27;usuari en funció dels seus permisos.</td><td><a class="cq-ref" href="teoria/t3-2-comptes-permisos-i-comparticio.html">T3.2</a> · <a class="cq-ref" href="guies/g3-2-administrar-nextcloud.html">G3.2</a> · <a class="cq-ref" href="activitats/a3-2-comptes-grups-i-recursos.html">A3.2</a> · <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td><td>Pràctica <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a> · Examen tipus test</td></tr>
-        <tr><td><code>3.5</code></td><td>Gestiona arxius i directoris.</td><td><a class="cq-ref" href="teoria/t3-2-comptes-permisos-i-comparticio.html">T3.2</a> · <a class="cq-ref" href="guies/g3-2-administrar-nextcloud.html">G3.2</a> · <a class="cq-ref" href="activitats/a3-2-comptes-grups-i-recursos.html">A3.2</a> · <a class="cq-ref" href="activitats/a3-3-ordenar-trobar-i-protegir.html">A3.3</a> · <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td><td>Pràctica <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a> · Examen tipus test</td></tr>
-        <tr><td><code>3.6</code></td><td>Utilitza arxius d&#x27;informació addicional.</td><td><a class="cq-ref" href="teoria/t3-3-trobar-ho-i-protegir-ho.html">T3.3</a> · <a class="cq-ref" href="guies/g3-2-administrar-nextcloud.html">G3.2</a> · <a class="cq-ref" href="activitats/a3-3-ordenar-trobar-i-protegir.html">A3.3</a> · <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td><td>Pràctica <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a> · Examen tipus test</td></tr>
-        <tr><td><code>3.7</code></td><td>Aplica criteris d&#x27;indexació sobre els arxius i directoris.</td><td><a class="cq-ref" href="teoria/t3-3-trobar-ho-i-protegir-ho.html">T3.3</a> · <a class="cq-ref" href="guies/g3-2-administrar-nextcloud.html">G3.2</a> · <a class="cq-ref" href="activitats/a3-3-ordenar-trobar-i-protegir.html">A3.3</a> · <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td><td>Pràctica <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a> · Examen tipus test</td></tr>
-        <tr><td><code>3.8</code></td><td>Comprova la seguretat del gestor d&#x27;arxius.</td><td><a class="cq-ref" href="teoria/t3-3-trobar-ho-i-protegir-ho.html">T3.3</a> · <a class="cq-ref" href="guies/g3-1-instal-lar-nextcloud.html">G3.1</a> · <a class="cq-ref" href="guies/g3-2-administrar-nextcloud.html">G3.2</a> · <a class="cq-ref" href="activitats/a3-3-ordenar-trobar-i-protegir.html">A3.3</a> · <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td><td>Pràctica <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a> · Examen tipus test</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="cq-tablewrap">
-    <table class="cq-table">
-      <thead><tr><th>Contingut</th><th>Enunciat</th><th>On es treballa</th></tr></thead>
-      <tbody>
-        <tr><td><code>3.1</code></td><td>Instal·lació. Navegació i operacions bàsiques. Administració del gestor.</td><td><a class="cq-ref" href="teoria/t3-1-gestors-d-arxius-web.html">T3.1</a> · <a class="cq-ref" href="teoria/t3-3-trobar-ho-i-protegir-ho.html">T3.3</a> · <a class="cq-ref" href="guies/g3-1-instal-lar-nextcloud.html">G3.1</a> · <a class="cq-ref" href="guies/g3-2-administrar-nextcloud.html">G3.2</a> · <a class="cq-ref" href="activitats/a3-1-el-nuvol-a-punt.html">A3.1</a> · <a class="cq-ref" href="activitats/a3-3-ordenar-trobar-i-protegir.html">A3.3</a> · <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td></tr>
-        <tr><td><code>3.2</code></td><td>Usuaris i permisos. Tipus d&#x27;usuari.</td><td><a class="cq-ref" href="teoria/t3-2-comptes-permisos-i-comparticio.html">T3.2</a> · <a class="cq-ref" href="guies/g3-2-administrar-nextcloud.html">G3.2</a> · <a class="cq-ref" href="activitats/a3-2-comptes-grups-i-recursos.html">A3.2</a> · <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td></tr>
-        <tr><td><code>3.3</code></td><td>Creació de recursos compartits.</td><td><a class="cq-ref" href="teoria/t3-2-comptes-permisos-i-comparticio.html">T3.2</a> · <a class="cq-ref" href="guies/g3-2-administrar-nextcloud.html">G3.2</a> · <a class="cq-ref" href="activitats/a3-2-comptes-grups-i-recursos.html">A3.2</a> · <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td></tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-<!-- === CURRÍCULUM DEL RA FI === -->
-
-<div class="cq-block" data-kind="ordre recomanat">
-  <h2>En quin ordre fer-ho</h2>
-  <div class="cq-tablewrap">
-    <table class="cq-table">
-      <thead><tr><th>Llegeix</th><th>Tingues a mà</th><th>Fes</th></tr></thead>
-      <tbody>
-        <tr><td><a class="cq-ref" href="teoria/t3-1-gestors-d-arxius-web.html">T3.1</a></td><td><a class="cq-ref" href="../RA1/guies/g1-2-pila-lamp.html">G1.2</a> · <a class="cq-ref" href="guies/g3-1-instal-lar-nextcloud.html">G3.1</a></td><td><a class="cq-ref" href="activitats/a3-1-el-nuvol-a-punt.html">A3.1</a> — el núvol a punt</td></tr>
-        <tr><td><a class="cq-ref" href="teoria/t3-2-comptes-permisos-i-comparticio.html">T3.2</a></td><td><a class="cq-ref" href="guies/g3-2-administrar-nextcloud.html">G3.2</a></td><td><a class="cq-ref" href="activitats/a3-2-comptes-grups-i-recursos.html">A3.2</a> — comptes, grups i recursos</td></tr>
-        <tr><td><a class="cq-ref" href="teoria/t3-3-trobar-ho-i-protegir-ho.html">T3.3</a></td><td><a class="cq-ref" href="guies/g3-2-administrar-nextcloud.html">G3.2</a></td><td><a class="cq-ref" href="activitats/a3-3-ordenar-trobar-i-protegir.html">A3.3</a> — ordenar, trobar i protegir</td></tr>
-        <tr><td>Tot el RA</td><td><a class="cq-ref" href="guies/g3-1-instal-lar-nextcloud.html">G3.1</a> · <a class="cq-ref" href="guies/g3-2-administrar-nextcloud.html">G3.2</a></td><td><a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a> — pràctica del núvol</td></tr>
-      </tbody>
-    </table>
-  </div>
+  <p><span class="lbl">Contingut 5.1</span> Aplicacions de correu web. Instal·lació.</p>
+  <p><span class="lbl">CA 5.3</span> Configura les aplicacions per a integrar-les amb un servidor de correu.</p>
+  <p><span class="lbl">CA 5.5</span> Verifica l'accés al correu electrònic.</p>
 </div>
 
 <!-- === PEU DE NAVEGACIÓ INICI === -->
 <nav class="cq-pager">
-  <a class="prev" href="../RA2/index.html">
-    <span class="dir">Anterior · RA2</span>
-    <span class="ttl">RA2 · Instal·lació de sistemes de gestió d'aprenentatge</span></a>
-  <a class="next" href="../RA4/index.html">
-    <span class="dir">Següent · RA4</span>
-    <span class="ttl">RA4 · Aplicacions d'ofimàtica web</span></a>
+  <a class="prev" href="t5-1-aplicacions-web-d-escriptori.html">
+    <span class="dir">Anterior · T5.1</span>
+    <span class="ttl">Aplicacions web d'escriptori</span></a>
+  <a class="next" href="t5-3-calendaris-contactes-i-tasques.html">
+    <span class="dir">Següent · T5.3</span>
+    <span class="ttl">Calendaris, contactes i tasques</span></a>
 </nav>
 <!-- === PEU DE NAVEGACIÓ FI === -->
 

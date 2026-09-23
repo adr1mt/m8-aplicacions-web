@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RA3 · Serveis de gestió d'arxius web — Aplicacions Web (0228)</title>
+<title>G5.2 · Guia: correu web amb Roundcube — Aplicacions Web (0228)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500;700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -526,142 +526,193 @@
 </style>
 </head>
 <body>
+
 <!-- === NAVEGACIÓ INICI === -->
 <nav class="cq-nav">
   <div class="inner">
-    <a href="../index.html">‹ Aplicacions Web (0228)</a>
-    <span class="pos">RA3 · 3/6</span>
+    <a href="../index.html">‹ RA5 · Instal·lació d'aplicacions web d'escriptori</a>
+    <span class="pos">G5.2 · 5/10</span>
   </div>
 </nav>
 <!-- === NAVEGACIÓ FI === -->
 
 <main>
+
 <header class="cq-header">
-  <div class="eyebrow">CFGM SMX · Mòdul 0228</div>
-  <h1>Aplicacions Web</h1>
-  <p class="lede">RA3 · Instal·lació de serveis de gestió d'arxius web</p>
+  <div class="eyebrow">0228 · Aplicacions Web · RA5 · G5.2</div>
+  <h1>Guia: correu web amb Roundcube</h1>
+  <p class="lede">Instal·lar el client web, connectar-lo al servidor de correu i deixar-lo a punt per a l'usuari.</p>
 </header>
 
-<div class="cq-block" data-kind="teoria">
-  <h2>Teoria</h2>
-  <p>Què és un servei de gestió d'arxius web, com es reparteixen els permisos i com es troba i es protegeix el que s'hi guarda.</p>
-  <ul class="cq-index">
-    <li><a href="teoria/t3-1-gestors-d-arxius-web.html">
-      <span class="ref">T3.1</span>
-      <span class="ttl">Serveis de gestió d'arxius web
-        <span class="sub">Utilitat, aplicacions, requeriments i on queda cada cosa</span></span></a></li>
-    <li><a href="teoria/t3-2-comptes-permisos-i-comparticio.html">
-      <span class="ref">T3.2</span>
-      <span class="ttl">Comptes, permisos i compartició
-        <span class="sub">Tipus d'usuari, grups, quotes i recursos compartits</span></span></a></li>
-    <li><a href="teoria/t3-3-trobar-ho-i-protegir-ho.html">
-      <span class="ref">T3.3</span>
-      <span class="ttl">Trobar-ho i protegir-ho
-        <span class="sub">Metadades, etiquetes, indexació i seguretat</span></span></a></li>
+<!-- ============ 1 · OBJECTIUS ============ -->
+<div class="cq-block" data-kind="objectius">
+  <h2>Què hi ha en aquesta guia</h2>
+  <p>Documentació oficial: <a href="https://roundcube.net/doc/">Roundcube</a> · <a href="https://github.com/roundcube/roundcubemail/wiki">wiki del projecte</a></p>
+  <ul>
+    <li>Punt de partida: el servidor de correu de <a class="cq-ref" href="g5-1-servidor-de-correu-intern.html">G5.1</a> a la mateixa màquina, i la pila LAMP de <a class="cq-ref" href="../../RA1/guies/g1-2-pila-lamp.html">G1.2</a>.</li>
+    <li>Resultat: <code>http://correu.internal/roundcube</code>, amb els comptes del servidor de correu.</li>
+    <li>Cobreix la instal·lació, la connexió amb IMAP i SMTP, les preferències de l'usuari, els filtres i la llibreta d'adreces.</li>
   </ul>
 </div>
 
-<div class="cq-block" data-kind="guies">
-  <h2>Guies</h2>
-  <p>Els manuals pas a pas que tindràs oberts mentre fas les activitats i la pràctica.</p>
-  <ul class="cq-index">
-    <li><a href="guies/g3-1-instal-lar-nextcloud.html">
-      <span class="ref">G3.1</span>
-      <span class="ttl">Guia: instal·lar Nextcloud
-        <span class="sub">Requeriments, dades fora del web, cron, consola i còpies</span></span></a></li>
-    <li><a href="guies/g3-2-administrar-nextcloud.html">
-      <span class="ref">G3.2</span>
-      <span class="ttl">Guia: administrar Nextcloud
-        <span class="sub">Comptes, grups, quotes, compartició, etiquetes i seguretat</span></span></a></li>
-  </ul>
+<!-- ============ 2 · PAS A PAS ============ -->
+<div class="cq-block" data-kind="pas a pas">
+  <h2>Instal·lar Roundcube</h2>
+  <ol class="cq-steps">
+    <li>
+      <p><strong>Instal·la els paquets.</strong> L'assistent demana si vol configurar la base de dades: respon que <strong>sí</strong> i apunta la contrasenya.</p>
+<pre>sudo apt update
+sudo apt install -y roundcube roundcube-mysql</pre>
+    </li>
+    <li>
+      <p><strong>Comprova que Apache ja el serveix</strong>: el paquet deixa la configuració activada.</p>
+<pre>ls /etc/apache2/conf-enabled/ | grep roundcube
+sudo apache2ctl configtest
+sudo systemctl reload apache2</pre>
+    </li>
+    <li>
+      <p><strong>Obre <code>http://correu.internal/roundcube</code></strong>: ha de sortir la pantalla d'inici de sessió.</p>
+    </li>
+  </ol>
 </div>
 
-<div class="cq-block" data-kind="activitats">
-  <h2>Activitats</h2>
-  <p>Exercicis curts per assajar cada idea abans de la pràctica. L'<a class="cq-ref" href="activitats/a3-1-el-nuvol-a-punt.html">A3.1</a> prepara l'escriptori de proves que fan servir l'<a class="cq-ref" href="activitats/a3-2-comptes-grups-i-recursos.html">A3.2</a> i l'<a class="cq-ref" href="activitats/a3-3-ordenar-trobar-i-protegir.html">A3.3</a>.</p>
-  <ul class="cq-index">
-    <li><a href="activitats/a3-1-el-nuvol-a-punt.html">
-      <span class="ref">A3.1</span>
-      <span class="ttl">El núvol a punt
-        <span class="sub">Comparar, instal·lar, comprovar i entrar-hi des de la xarxa</span></span></a></li>
-    <li><a href="activitats/a3-2-comptes-grups-i-recursos.html">
-      <span class="ref">A3.2</span>
-      <span class="ttl">Comptes, grups i recursos compartits
-        <span class="sub">Qui entra, quant espai té i qui toca cada carpeta</span></span></a></li>
-    <li><a href="activitats/a3-3-ordenar-trobar-i-protegir.html">
-      <span class="ref">A3.3</span>
-      <span class="ttl">Ordenar, trobar i protegir
-        <span class="sub">Etiquetes, descripcions, cerca i revisió de seguretat</span></span></a></li>
-  </ul>
+<!-- ============ 3 · PAS A PAS ============ -->
+<div class="cq-block" data-kind="pas a pas">
+  <h2>Connectar-lo amb el servidor de correu</h2>
+  <ol class="cq-steps">
+    <li>
+      <p><strong>Edita la configuració</strong> del client:</p>
+<pre>sudo nano /etc/roundcube/config.inc.php</pre>
+    </li>
+    <li>
+      <p><strong>Digues a quin servidor IMAP i SMTP s'ha de connectar</strong> i quin domini s'afegeix a l'usuari:</p>
+<pre>$config['imap_host'] = 'localhost:143';
+$config['smtp_host'] = 'localhost:25';
+$config['mail_domain'] = 'correu.internal';
+$config['product_name'] = 'Correu del centre';</pre>
+    </li>
+    <li>
+      <p><strong>Inicia sessió</strong> amb un dels comptes creats a <a class="cq-ref" href="g5-1-servidor-de-correu-intern.html">G5.1</a>: el nom d'usuari i la contrasenya del sistema.</p>
+    </li>
+    <li>
+      <p><strong>Envia un missatge</strong> a un altre compte del servidor i comprova que arriba a la bústia.</p>
+    </li>
+    <li>
+      <p><strong>Si alguna cosa falla</strong>, mira el registre del client i el del correu alhora:</p>
+<pre>sudo tail -f /var/log/roundcube/errors.log /var/log/mail.log</pre>
+    </li>
+  </ol>
 </div>
 
-<div class="cq-block" data-kind="practiques">
-  <h2>Pràctica</h2>
-  <p>El servei d'arxius sencer en un escriptori nou, amb els dos manuals escrits. És la pràctica principal del RA i la part que <strong>més pesa</strong> a la nota.</p>
-  <ul class="cq-index">
-    <li><a href="practiques/p3-1-nuvol-de-l-aula.html">
-      <span class="ref">P3.1</span>
-      <span class="ttl">Pràctica: el núvol de l'aula
-        <span class="sub">Instal·lar, administrar, compartir, protegir i documentar</span></span></a></li>
-  </ul>
+<!-- ============ 4 · PAS A PAS ============ -->
+<div class="cq-block" data-kind="pas a pas">
+  <h2>Deixar-lo a punt per a l'usuari</h2>
+  <ol class="cq-steps">
+    <li>
+      <p><strong>Identitat i signatura:</strong> a <strong>Configuració → Identitats</strong>, posa el nom que veuran els destinataris i una signatura.</p>
+    </li>
+    <li>
+      <p><strong>Carpetes:</strong> a <strong>Configuració → Carpetes</strong>, crea les que calguin i marca quines es veuen a la llista.</p>
+    </li>
+    <li>
+      <p><strong>Preferències:</strong> idioma, zona horària, com es marquen els missatges com a llegits i què passa en esborrar.</p>
+    </li>
+    <li>
+      <p><strong>Llibreta d'adreces:</strong> afegeix contactes i grups des de <strong>Contactes</strong>; es poden importar i exportar en format <code>.vcf</code>.</p>
+    </li>
+    <li>
+      <p><strong>Filtres</strong> (cal el mòdul del servidor):</p>
+<pre>sudo apt install -y dovecot-sieve dovecot-managesieved</pre>
+      <p>Afegeix <code>managesieve</code> a la llista de connectors de la configuració del client i crea una regla a <strong>Configuració → Filtres</strong>, per exemple moure a una carpeta tot el que porti una paraula a l'assumpte.</p>
+    </li>
+  </ol>
 </div>
 
-<div class="cq-block" data-kind="avaluació">
-  <h2>Com s'avalua</h2>
+<!-- ============ 5 · REFERÈNCIA ============ -->
+<div class="cq-block" data-kind="referència">
+  <h2>Opcions de configuració útils</h2>
   <div class="cq-tablewrap">
     <table class="cq-table">
-      <thead><tr><th>Part</th><th>Què s'hi avalua</th><th>Pes</th></tr></thead>
+      <thead><tr><th>Opció</th><th>Per a què</th></tr></thead>
       <tbody>
-        <tr><td>Pràctica <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td><td>Demostració en directe i els manuals, amb la rúbrica de la pràctica</td><td>60 %</td></tr>
-        <tr><td>Examen tipus test</td><td>Prova a Moodle sobre tot el RA: teoria, guies i activitats</td><td>40 %</td></tr>
-        <tr><td>Activitats <a class="cq-ref" href="activitats/a3-1-el-nuvol-a-punt.html">A3.1</a>–<a class="cq-ref" href="activitats/a3-3-ordenar-trobar-i-protegir.html">A3.3</a></td><td>Són l'assaig de la pràctica i la preparació de l'examen: es comenten amb la rúbrica de seguiment</td><td>Sense pes</td></tr>
+        <tr><td><code>imap_host</code></td><td>Servidor i port de les bústies</td></tr>
+        <tr><td><code>smtp_host</code></td><td>Servidor i port d'enviament</td></tr>
+        <tr><td><code>mail_domain</code></td><td>Domini que s'afegeix al nom d'usuari</td></tr>
+        <tr><td><code>plugins</code></td><td>Connectors actius: <code>archive</code>, <code>zipdownload</code>, <code>managesieve</code></td></tr>
+        <tr><td><code>support_url</code></td><td>Enllaç d'ajuda de l'organització</td></tr>
+        <tr><td><code>skin</code></td><td>Aparença del client</td></tr>
       </tbody>
     </table>
   </div>
+  <div class="cq-note"><span class="lbl">Compte</span>
+    El client no té comptes propis: no s'hi crea cap usuari. Qui pot entrar-hi és qui té compte al servidor de correu.</div>
 </div>
 
-<!-- === CURRÍCULUM DEL RA INICI === -->
-<div class="cq-block" data-kind="currículum">
-  <h2>Al currículum</h2>
-  <p><span class="lbl">RA3</span> Instal·la serveis de gestió d&#x27;arxius web, identificant-ne les aplicacions i verificant-ne la integritat.</p>
-  <div class="cq-tablewrap">
-    <table class="cq-table">
-      <thead><tr><th>Criteri</th><th>Enunciat</th><th>On es treballa</th><th>Com s'avalua</th></tr></thead>
-      <tbody>
-        <tr><td><code>3.1</code></td><td>Estableix la utilitat d&#x27;un servei de gestió d&#x27;arxius web.</td><td><a class="cq-ref" href="teoria/t3-1-gestors-d-arxius-web.html">T3.1</a> · <a class="cq-ref" href="activitats/a3-1-el-nuvol-a-punt.html">A3.1</a> · <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td><td>Pràctica <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a> · Examen tipus test</td></tr>
-        <tr><td><code>3.2</code></td><td>Descriu diferents aplicacions de gestió d&#x27;arxius web.</td><td><a class="cq-ref" href="teoria/t3-1-gestors-d-arxius-web.html">T3.1</a> · <a class="cq-ref" href="activitats/a3-1-el-nuvol-a-punt.html">A3.1</a> · <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td><td>Pràctica <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a> · Examen tipus test</td></tr>
-        <tr><td><code>3.3</code></td><td>Instal·la i adapta una eina de gestió d&#x27;arxius web.</td><td><a class="cq-ref" href="guies/g3-1-instal-lar-nextcloud.html">G3.1</a> · <a class="cq-ref" href="activitats/a3-1-el-nuvol-a-punt.html">A3.1</a> · <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td><td>Pràctica <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a> · Examen tipus test</td></tr>
-        <tr><td><code>3.4</code></td><td>Crea i classifica comptes d&#x27;usuari en funció dels seus permisos.</td><td><a class="cq-ref" href="teoria/t3-2-comptes-permisos-i-comparticio.html">T3.2</a> · <a class="cq-ref" href="guies/g3-2-administrar-nextcloud.html">G3.2</a> · <a class="cq-ref" href="activitats/a3-2-comptes-grups-i-recursos.html">A3.2</a> · <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td><td>Pràctica <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a> · Examen tipus test</td></tr>
-        <tr><td><code>3.5</code></td><td>Gestiona arxius i directoris.</td><td><a class="cq-ref" href="teoria/t3-2-comptes-permisos-i-comparticio.html">T3.2</a> · <a class="cq-ref" href="guies/g3-2-administrar-nextcloud.html">G3.2</a> · <a class="cq-ref" href="activitats/a3-2-comptes-grups-i-recursos.html">A3.2</a> · <a class="cq-ref" href="activitats/a3-3-ordenar-trobar-i-protegir.html">A3.3</a> · <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td><td>Pràctica <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a> · Examen tipus test</td></tr>
-        <tr><td><code>3.6</code></td><td>Utilitza arxius d&#x27;informació addicional.</td><td><a class="cq-ref" href="teoria/t3-3-trobar-ho-i-protegir-ho.html">T3.3</a> · <a class="cq-ref" href="guies/g3-2-administrar-nextcloud.html">G3.2</a> · <a class="cq-ref" href="activitats/a3-3-ordenar-trobar-i-protegir.html">A3.3</a> · <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td><td>Pràctica <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a> · Examen tipus test</td></tr>
-        <tr><td><code>3.7</code></td><td>Aplica criteris d&#x27;indexació sobre els arxius i directoris.</td><td><a class="cq-ref" href="teoria/t3-3-trobar-ho-i-protegir-ho.html">T3.3</a> · <a class="cq-ref" href="guies/g3-2-administrar-nextcloud.html">G3.2</a> · <a class="cq-ref" href="activitats/a3-3-ordenar-trobar-i-protegir.html">A3.3</a> · <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td><td>Pràctica <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a> · Examen tipus test</td></tr>
-        <tr><td><code>3.8</code></td><td>Comprova la seguretat del gestor d&#x27;arxius.</td><td><a class="cq-ref" href="teoria/t3-3-trobar-ho-i-protegir-ho.html">T3.3</a> · <a class="cq-ref" href="guies/g3-1-instal-lar-nextcloud.html">G3.1</a> · <a class="cq-ref" href="guies/g3-2-administrar-nextcloud.html">G3.2</a> · <a class="cq-ref" href="activitats/a3-3-ordenar-trobar-i-protegir.html">A3.3</a> · <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td><td>Pràctica <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a> · Examen tipus test</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="cq-tablewrap">
-    <table class="cq-table">
-      <thead><tr><th>Contingut</th><th>Enunciat</th><th>On es treballa</th></tr></thead>
-      <tbody>
-        <tr><td><code>3.1</code></td><td>Instal·lació. Navegació i operacions bàsiques. Administració del gestor.</td><td><a class="cq-ref" href="teoria/t3-1-gestors-d-arxius-web.html">T3.1</a> · <a class="cq-ref" href="teoria/t3-3-trobar-ho-i-protegir-ho.html">T3.3</a> · <a class="cq-ref" href="guies/g3-1-instal-lar-nextcloud.html">G3.1</a> · <a class="cq-ref" href="guies/g3-2-administrar-nextcloud.html">G3.2</a> · <a class="cq-ref" href="activitats/a3-1-el-nuvol-a-punt.html">A3.1</a> · <a class="cq-ref" href="activitats/a3-3-ordenar-trobar-i-protegir.html">A3.3</a> · <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td></tr>
-        <tr><td><code>3.2</code></td><td>Usuaris i permisos. Tipus d&#x27;usuari.</td><td><a class="cq-ref" href="teoria/t3-2-comptes-permisos-i-comparticio.html">T3.2</a> · <a class="cq-ref" href="guies/g3-2-administrar-nextcloud.html">G3.2</a> · <a class="cq-ref" href="activitats/a3-2-comptes-grups-i-recursos.html">A3.2</a> · <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td></tr>
-        <tr><td><code>3.3</code></td><td>Creació de recursos compartits.</td><td><a class="cq-ref" href="teoria/t3-2-comptes-permisos-i-comparticio.html">T3.2</a> · <a class="cq-ref" href="guies/g3-2-administrar-nextcloud.html">G3.2</a> · <a class="cq-ref" href="activitats/a3-2-comptes-grups-i-recursos.html">A3.2</a> · <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td></tr>
-      </tbody>
-    </table>
-  </div>
+<!-- ============ 6 · COMPROVACIÓ ============ -->
+<div class="cq-block" data-kind="comprovació">
+  <h2>Comprovació de conjunt</h2>
+  <ul>
+    <li>Cada compte del servidor de correu pot iniciar sessió al client web.</li>
+    <li>Un missatge enviat des del client arriba a la bústia de l'altre usuari i es veu al seu correu web.</li>
+    <li>El missatge enviat queda a la carpeta d'elements enviats.</li>
+    <li>Un missatge enviat des del terminal amb <code>mail</code> apareix al client web.</li>
+    <li>El filtre mou a la carpeta esperada un missatge de prova.</li>
+    <li>Un compte desactivat al sistema ja no pot iniciar sessió.</li>
+  </ul>
 </div>
-<!-- === CURRÍCULUM DEL RA FI === -->
 
-<div class="cq-block" data-kind="ordre recomanat">
-  <h2>En quin ordre fer-ho</h2>
+<!-- ============ 7 · BONES PRÀCTIQUES ============ -->
+<div class="cq-block" data-kind="bones pràctiques">
+  <h2>Criteris professionals</h2>
+  <ul>
+    <li>Els comptes es gestionen al servidor de correu, no al client.</li>
+    <li>HTTPS abans de donar-lo a ningú: hi viatgen contrasenyes.</li>
+    <li>Només els connectors que facin falta.</li>
+    <li>Prova sempre amb dos comptes: enviar-te un correu a tu mateix amaga la meitat dels problemes.</li>
+    <li>Mira els dos registres alhora, el del client i el del correu.</li>
+  </ul>
+</div>
+
+<!-- ============ 8 · PROBLEMES ============ -->
+<div class="cq-block" data-kind="problemes">
+  <h2>Errors habituals</h2>
+  <dl class="cq-issues">
+    <dt>«Connexió al servidor fallida»</dt>
+    <dd>
+      <p><span class="lbl">Causa</span> <code>imap_host</code> apunta a un servidor o a un port on no hi ha ningú.</p>
+      <p><span class="lbl">Solució</span> Comprova amb <code>ss -tlnp</code> que el 143 escolta i revisa la configuració.</p>
+    </dd>
+    <dt>Entra però la safata és buida i el terminal diu que hi ha missatges</dt>
+    <dd>
+      <p><span class="lbl">Causa</span> Dovecot busca les bústies en un altre lloc.</p>
+      <p><span class="lbl">Solució</span> Revisa <code>mail_location</code> a <a class="cq-ref" href="g5-1-servidor-de-correu-intern.html">G5.1</a>.</p>
+    </dd>
+    <dt>No deixa enviar: «relay access denied»</dt>
+    <dd>
+      <p><span class="lbl">Causa</span> S'envia a un domini que el servidor no serveix.</p>
+      <p><span class="lbl">Solució</span> Al laboratori, envia només a adreces internes.</p>
+    </dd>
+    <dt>No surt la pestanya de filtres</dt>
+    <dd>
+      <p><span class="lbl">Causa</span> Falta el connector o el mòdul del servidor.</p>
+      <p><span class="lbl">Solució</span> Instal·la els paquets del pas 5 i afegeix el connector a la configuració.</p>
+    </dd>
+  </dl>
+</div>
+
+<!-- ============ 9 · RESUM ============ -->
+<div class="cq-block" data-kind="resum">
+  <h2>Fitxa ràpida</h2>
   <div class="cq-tablewrap">
     <table class="cq-table">
-      <thead><tr><th>Llegeix</th><th>Tingues a mà</th><th>Fes</th></tr></thead>
+      <thead><tr><th>Vull</th><th>On</th></tr></thead>
       <tbody>
-        <tr><td><a class="cq-ref" href="teoria/t3-1-gestors-d-arxius-web.html">T3.1</a></td><td><a class="cq-ref" href="../RA1/guies/g1-2-pila-lamp.html">G1.2</a> · <a class="cq-ref" href="guies/g3-1-instal-lar-nextcloud.html">G3.1</a></td><td><a class="cq-ref" href="activitats/a3-1-el-nuvol-a-punt.html">A3.1</a> — el núvol a punt</td></tr>
-        <tr><td><a class="cq-ref" href="teoria/t3-2-comptes-permisos-i-comparticio.html">T3.2</a></td><td><a class="cq-ref" href="guies/g3-2-administrar-nextcloud.html">G3.2</a></td><td><a class="cq-ref" href="activitats/a3-2-comptes-grups-i-recursos.html">A3.2</a> — comptes, grups i recursos</td></tr>
-        <tr><td><a class="cq-ref" href="teoria/t3-3-trobar-ho-i-protegir-ho.html">T3.3</a></td><td><a class="cq-ref" href="guies/g3-2-administrar-nextcloud.html">G3.2</a></td><td><a class="cq-ref" href="activitats/a3-3-ordenar-trobar-i-protegir.html">A3.3</a> — ordenar, trobar i protegir</td></tr>
-        <tr><td>Tot el RA</td><td><a class="cq-ref" href="guies/g3-1-instal-lar-nextcloud.html">G3.1</a> · <a class="cq-ref" href="guies/g3-2-administrar-nextcloud.html">G3.2</a></td><td><a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a> — pràctica del núvol</td></tr>
+        <tr><td>Configurar el client</td><td><code>/etc/roundcube/config.inc.php</code></td></tr>
+        <tr><td>Adreça del correu web</td><td><code>http://correu.internal/roundcube</code></td></tr>
+        <tr><td>Identitat i signatura</td><td>Configuració → Identitats</td></tr>
+        <tr><td>Filtres</td><td>Configuració → Filtres</td></tr>
+        <tr><td>Contactes</td><td>Pestanya Contactes, importa i exporta <code>.vcf</code></td></tr>
+        <tr><td>Errors del client</td><td><code>/var/log/roundcube/errors.log</code></td></tr>
       </tbody>
     </table>
   </div>
@@ -669,12 +720,12 @@
 
 <!-- === PEU DE NAVEGACIÓ INICI === -->
 <nav class="cq-pager">
-  <a class="prev" href="../RA2/index.html">
-    <span class="dir">Anterior · RA2</span>
-    <span class="ttl">RA2 · Instal·lació de sistemes de gestió d'aprenentatge</span></a>
-  <a class="next" href="../RA4/index.html">
-    <span class="dir">Següent · RA4</span>
-    <span class="ttl">RA4 · Aplicacions d'ofimàtica web</span></a>
+  <a class="prev" href="g5-1-servidor-de-correu-intern.html">
+    <span class="dir">Anterior · G5.1</span>
+    <span class="ttl">Guia: servidor de correu intern</span></a>
+  <a class="next" href="g5-3-calendari-contactes-i-tasques.html">
+    <span class="dir">Següent · G5.3</span>
+    <span class="ttl">Guia: calendari, contactes i tasques web</span></a>
 </nav>
 <!-- === PEU DE NAVEGACIÓ FI === -->
 
