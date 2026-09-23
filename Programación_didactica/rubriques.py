@@ -187,6 +187,50 @@ RUBRIQUES = {
               "seguretat de l'A3.3.",
   },
  ],
+ 4: [
+  {
+   'nom': "Comprèn i tria",
+   'nivells': {
+    '10': "Explica la utilitat de l'ofimàtica web, descriu les aplicacions i justifica la suite triada amb autonomia.",
+    '7,5': "Descriu les aplicacions i justifica la tria amb suport puntual.",
+    '5': "Reconeix per a què serveix cada aplicació, però li costa justificar la tria.",
+    '0': "No distingeix l'ofimàtica web de la d'escriptori ni amb el suport habitual.",
+   },
+   'ca': ['4.1', '4.2'],
+   'reforc': [],
+   'cont': ['4.1'],
+   'observa': "La taula comparativa i la recomanació de l'A4.1, i com respon "
+              "la pregunta final de cada lliurament.",
+  },
+  {
+   'nom': "Desplega i treballa en equip",
+   'nivells': {
+    '10': "Desplega l'entorn, domina les prestacions de cada aplicació i treballa de manera col·laborativa amb autonomia.",
+    '7,5': "Fa servir les aplicacions i treballa amb els companys amb suport puntual.",
+    '5': "Aconsegueix el resultat bàsic amb suport freqüent i poca col·laboració real.",
+    '0': "No arriba a fer servir les aplicacions de manera col·laborativa ni amb el suport habitual.",
+   },
+   'ca': ['4.3', '4.6', '4.7'],
+   'reforc': [],
+   'cont': ['4.1'],
+   'observa': "L'entorn i el complement de l'A4.1, i els suggeriments, els "
+              "comentaris i l'historial de l'A4.2.",
+  },
+  {
+   'nom': "Gestiona accessos i protegeix",
+   'nivells': {
+    '10': "Gestiona comptes i permisos i aplica criteris de seguretat i de protecció de dades pel seu compte.",
+    '7,5': "Gestiona els permisos i aplica les mesures de seguretat amb suport puntual.",
+    '5': "Comparteix i protegeix quan se li recorda i amb suport freqüent.",
+    '0': "No controla qui accedeix als documents ni amb el suport habitual.",
+   },
+   'ca': ['4.4', '4.5'],
+   'reforc': [],
+   'cont': ['4.2', '4.3'],
+   'observa': "La taula d'accessos, la matriu de proves i l'auditoria de "
+              "comparticions de l'A4.3.",
+  },
+ ],
 }
 
 PENDENT = ("Si no hi ha hagut prou ocasió d'observar una dimensió, no s'hi posa "

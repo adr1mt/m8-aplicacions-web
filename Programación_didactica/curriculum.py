@@ -120,6 +120,15 @@ MAP = {
  'RA3/activitats/a3-2-comptes-grups-i-recursos':   (['3.2', '3.3'], ['3.4', '3.5']),
  'RA3/activitats/a3-3-ordenar-trobar-i-protegir':  (['3.1'], ['3.5', '3.6', '3.7', '3.8']),
  'RA3/practiques/p3-1-nuvol-de-l-aula':            (['3.1', '3.2', '3.3'], []),
+ 'RA4/teoria/t4-1-ofimatica-web':                  (['4.1'], ['4.1', '4.2', '4.3']),
+ 'RA4/teoria/t4-2-treballar-hi-entre-diversos':    (['4.1'], ['4.6', '4.7']),
+ 'RA4/teoria/t4-3-comptes-permisos-i-seguretat':   (['4.2', '4.3'], ['4.4', '4.5']),
+ 'RA4/guies/g4-1-documents-fulls-i-formularis':    (['4.1'], ['4.3', '4.6', '4.7']),
+ 'RA4/guies/g4-2-presentacions-i-llocs-web':       (['4.1'], ['4.6', '4.7']),
+ 'RA4/activitats/a4-1-l-oficina-al-navegador':     (['4.1'], ['4.1', '4.2', '4.3']),
+ 'RA4/activitats/a4-2-document-full-i-formulari':  (['4.1'], ['4.6', '4.7']),
+ 'RA4/activitats/a4-3-comptes-permisos-i-seguretat': (['4.2', '4.3'], ['4.4', '4.5']),
+ 'RA4/practiques/p4-1-projecte-digital-del-grup':  (['4.1', '4.2', '4.3'], []),
 }
 
 # Rúbrica de cada pràctica principal: (nom, pes al RA, [(apartat, criteris, punts)]).
@@ -160,6 +169,17 @@ PRACTIQUES = {
    ("Informació addicional: etiquetes, comentaris i descripcions de carpeta", ['3.6'], 1),
    ("Criteris d'indexació escrits, aplicats i demostrats amb cerques", ['3.7'], 1),
    ("Revisió de seguretat amb informe, còpia i restauració provada", ['3.8'], 1.5),
+ ]),
+ 'RA4/practiques/p4-1-projecte-digital-del-grup': ('Pràctica P4.1', 60, [
+   ("Utilitat de la suite justificada i aplicacions triades per a cada feina", ['4.1', '4.2'], 1),
+   ("Entorn desplegat: carpetes, compartició, complements i document de treball", ['4.3'], 1),
+   ("Presentació amb patró, notes i recursos citats", ['4.6'], 1.5),
+   ("Enquesta: formulari amb tipus i validació, i finalitat explicada", ['4.6'], 1),
+   ("Full de resultats amb fórmules, validació i gràfics", ['4.6'], 1.5),
+   ("Informe escrit entre tots, amb estils, índex i gràfics enllaçats", ['4.7'], 1.5),
+   ("Lloc web publicat amb les seccions i els documents incrustats", ['4.6'], 1),
+   ("Taula d'accessos aplicada i comptes gestionats", ['4.4'], 0.75),
+   ("Seguretat: dos passos, restriccions i auditoria de comparticions", ['4.5'], 0.75),
  ]),
 }
 

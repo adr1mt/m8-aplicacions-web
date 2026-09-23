@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RA3 · Serveis de gestió d'arxius web — Aplicacions Web (0228)</title>
+<title>A4.1 · L'oficina al navegador — Aplicacions Web (0228)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500;700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -526,155 +526,134 @@
 </style>
 </head>
 <body>
+
 <!-- === NAVEGACIÓ INICI === -->
 <nav class="cq-nav">
   <div class="inner">
-    <a href="../index.html">‹ Aplicacions Web (0228)</a>
-    <span class="pos">RA3 · 3/5</span>
+    <a href="../index.html">‹ RA4 · Aplicacions d'ofimàtica web</a>
+    <span class="pos">A4.1 · 6/9</span>
   </div>
 </nav>
 <!-- === NAVEGACIÓ FI === -->
 
 <main>
+
 <header class="cq-header">
-  <div class="eyebrow">CFGM SMX · Mòdul 0228</div>
-  <h1>Aplicacions Web</h1>
-  <p class="lede">RA3 · Instal·lació de serveis de gestió d'arxius web</p>
+  <div class="eyebrow">0228 · Aplicacions Web · RA4 · A4.1</div>
+  <h1>L'oficina al navegador</h1>
+  <p class="lede">Comparar suites, desplegar l'entorn de treball i posar-hi les eines que faran falta.</p>
 </header>
 
-<div class="cq-block" data-kind="teoria">
-  <h2>Teoria</h2>
-  <p>Què és un servei de gestió d'arxius web, com es reparteixen els permisos i com es troba i es protegeix el que s'hi guarda.</p>
-  <ul class="cq-index">
-    <li><a href="teoria/t3-1-gestors-d-arxius-web.html">
-      <span class="ref">T3.1</span>
-      <span class="ttl">Serveis de gestió d'arxius web
-        <span class="sub">Utilitat, aplicacions, requeriments i on queda cada cosa</span></span></a></li>
-    <li><a href="teoria/t3-2-comptes-permisos-i-comparticio.html">
-      <span class="ref">T3.2</span>
-      <span class="ttl">Comptes, permisos i compartició
-        <span class="sub">Tipus d'usuari, grups, quotes i recursos compartits</span></span></a></li>
-    <li><a href="teoria/t3-3-trobar-ho-i-protegir-ho.html">
-      <span class="ref">T3.3</span>
-      <span class="ttl">Trobar-ho i protegir-ho
-        <span class="sub">Metadades, etiquetes, indexació i seguretat</span></span></a></li>
-  </ul>
+<!-- ============ 1 · OBJECTIUS ============ -->
+<div class="cq-block" data-kind="objectius">
+  <h2>Què has de saber abans de començar</h2>
+  <p>Teoria <a class="cq-ref" href="../teoria/t4-1-ofimatica-web.html">T4.1</a> (utilitat, aplicacions, suites allotjades i autoallotjades, posada en marxa). La guia <a class="cq-ref" href="../guies/g4-1-documents-fulls-i-formularis.html">G4.1</a>, apartat de posada en marxa, és el manual que consultaràs.</p>
+  <p>Compararàs tres suites d'ofimàtica web, decidiràs quina encaixa amb un encàrrec i deixaràs l'entorn desplegat: carpetes, permisos, complements i mode fora de línia. Aquest entorn és el que faràs servir a l'<a class="cq-ref" href="a4-2-document-full-i-formulari.html">A4.2</a> i a l'<a class="cq-ref" href="a4-3-comptes-permisos-i-seguretat.html">A4.3</a>.</p>
 </div>
 
-<div class="cq-block" data-kind="guies">
-  <h2>Guies</h2>
-  <p>Els manuals pas a pas que tindràs oberts mentre fas les activitats i la pràctica.</p>
-  <ul class="cq-index">
-    <li><a href="guies/g3-1-instal-lar-nextcloud.html">
-      <span class="ref">G3.1</span>
-      <span class="ttl">Guia: instal·lar Nextcloud
-        <span class="sub">Requeriments, dades fora del web, cron, consola i còpies</span></span></a></li>
-    <li><a href="guies/g3-2-administrar-nextcloud.html">
-      <span class="ref">G3.2</span>
-      <span class="ttl">Guia: administrar Nextcloud
-        <span class="sub">Comptes, grups, quotes, compartició, etiquetes i seguretat</span></span></a></li>
-  </ul>
+<!-- ============ 2 · ESCENARI ============ -->
+<div class="cq-block" data-kind="escenari">
+  <h2>Amb què treballaràs</h2>
+  <p>El compte del centre i un navegador actualitzat. No hi ha cap servidor a instal·lar.</p>
+  <p>Un centre cívic amb vuit treballadors vol deixar d'enviar-se fitxers per correu. Fan actes de reunió, pressupostos, enquestes als usuaris i una cartellera d'activitats. Dues persones treballen des de casa.</p>
 </div>
 
-<div class="cq-block" data-kind="activitats">
-  <h2>Activitats</h2>
-  <p>Exercicis curts per assajar cada idea abans de la pràctica. L'<a class="cq-ref" href="activitats/a3-1-el-nuvol-a-punt.html">A3.1</a> prepara l'escriptori de proves que fan servir l'<a class="cq-ref" href="activitats/a3-2-comptes-grups-i-recursos.html">A3.2</a> i l'<a class="cq-ref" href="activitats/a3-3-ordenar-trobar-i-protegir.html">A3.3</a>.</p>
-  <ul class="cq-index">
-    <li><a href="activitats/a3-1-el-nuvol-a-punt.html">
-      <span class="ref">A3.1</span>
-      <span class="ttl">El núvol a punt
-        <span class="sub">Comparar, instal·lar, comprovar i entrar-hi des de la xarxa</span></span></a></li>
-    <li><a href="activitats/a3-2-comptes-grups-i-recursos.html">
-      <span class="ref">A3.2</span>
-      <span class="ttl">Comptes, grups i recursos compartits
-        <span class="sub">Qui entra, quant espai té i qui toca cada carpeta</span></span></a></li>
-    <li><a href="activitats/a3-3-ordenar-trobar-i-protegir.html">
-      <span class="ref">A3.3</span>
-      <span class="ttl">Ordenar, trobar i protegir
-        <span class="sub">Etiquetes, descripcions, cerca i revisió de seguretat</span></span></a></li>
-  </ul>
+<!-- ============ 3 · ENUNCIAT ============ -->
+<div class="cq-block" data-kind="enunciat">
+  <h2>Què has de fer</h2>
+  <ol>
+    <li>Fes una <strong>taula comparativa</strong> de tres suites d'ofimàtica web: una d'allotjada que facis servir, una altra d'allotjada i una d'autoallotjada. Compara aplicacions incloses, espai, treball fora de línia, on són les dades i què costa mantenir-la. Posa l'enllaç de cada dada.</li>
+    <li><strong>Recomana'n una</strong> per al centre cívic amb tres arguments, i digues en quin cas canviaries de recomanació.</li>
+    <li>Descriu, per a cada aplicació de la suite que faràs servir, <strong>quina feina del centre resol</strong>: textos, full de càlcul, presentacions, formularis, lloc web i emmagatzematge.</li>
+    <li><strong>Desplega l'entorn</strong>: crea l'estructura de carpetes del centre, comparteix la carpeta principal amb dos companys i documenta quins permisos els dones.</li>
+    <li><strong>Instal·la un complement</strong> del mercat d'aplicacions que serveixi per a alguna d'aquestes feines. Anota quins permisos demana, què fa i si el recomanaries.</li>
+    <li><strong>Activa el mode fora de línia</strong> i comprova què pots fer amb la connexió tallada i què no.</li>
+    <li>Comprova l'espai disponible del compte i explica què passaria si s'omplís.</li>
+  </ol>
 </div>
 
-<div class="cq-block" data-kind="practiques">
-  <h2>Pràctica</h2>
-  <p>El servei d'arxius sencer en un escriptori nou, amb els dos manuals escrits. És la pràctica principal del RA i la part que <strong>més pesa</strong> a la nota.</p>
-  <ul class="cq-index">
-    <li><a href="practiques/p3-1-nuvol-de-l-aula.html">
-      <span class="ref">P3.1</span>
-      <span class="ttl">Pràctica: el núvol de l'aula
-        <span class="sub">Instal·lar, administrar, compartir, protegir i documentar</span></span></a></li>
-  </ul>
-</div>
-
-<div class="cq-block" data-kind="avaluació">
-  <h2>Com s'avalua</h2>
+<!-- ============ 4 · ENUNCIAT ============ -->
+<div class="cq-block" data-kind="enunciat">
+  <h2>D'on has de treure cada cosa</h2>
   <div class="cq-tablewrap">
     <table class="cq-table">
-      <thead><tr><th>Part</th><th>Què s'hi avalua</th><th>Pes</th></tr></thead>
+      <thead><tr><th>Què has de fer</th><th>On ho tens</th></tr></thead>
       <tbody>
-        <tr><td>Pràctica <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td><td>Demostració en directe i els manuals, amb la rúbrica de la pràctica</td><td>60 %</td></tr>
-        <tr><td>Examen tipus test</td><td>Prova a Moodle sobre tot el RA: teoria, guies i activitats</td><td>40 %</td></tr>
-        <tr><td>Activitats <a class="cq-ref" href="activitats/a3-1-el-nuvol-a-punt.html">A3.1</a>–<a class="cq-ref" href="activitats/a3-3-ordenar-trobar-i-protegir.html">A3.3</a></td><td>Són l'assaig de la pràctica i la preparació de l'examen: es comenten amb la rúbrica de seguiment</td><td>Sense pes</td></tr>
+        <tr><td>Què comparar i com decidir</td><td>Teoria <a class="cq-ref" href="../teoria/t4-1-ofimatica-web.html">T4.1</a>, «Allotjada o autoallotjada»</td></tr>
+        <tr><td>Què fa cada aplicació</td><td>Teoria <a class="cq-ref" href="../teoria/t4-1-ofimatica-web.html">T4.1</a>, «Què hi ha a una suite»</td></tr>
+        <tr><td>Carpetes, permisos i complements</td><td>Guia <a class="cq-ref" href="../guies/g4-1-documents-fulls-i-formularis.html">G4.1</a>, «Posar en marxa l'entorn»</td></tr>
+        <tr><td>Nivells d'accés en compartir</td><td>Guia <a class="cq-ref" href="../guies/g4-1-documents-fulls-i-formularis.html">G4.1</a>, «Compartir un document»</td></tr>
       </tbody>
     </table>
   </div>
 </div>
 
-<!-- === CURRÍCULUM DEL RA INICI === -->
+<!-- ============ 5 · RECORDATORI ============ -->
+<div class="cq-block" data-kind="recordatori">
+  <h2>Els complements veuen els teus documents</h2>
+  <p>Un complement s'instal·la al compte i demana permisos: llegir els documents oberts, veure el correu, accedir a tot el Drive. Llegeix-los abans d'acceptar i no n'instal·lis cap que demani més del que necessita per a la seva feina.</p>
+</div>
+
+<!-- ============ 6 · OBSERVACIÓ ============ -->
+<div class="cq-block" data-kind="observació">
+  <h2>Tallar la connexió</h2>
+  <p>Amb el document obert, desactiva la xarxa de l'equip i continua escrivint. Mira què diu la interfície i torna a connectar: els canvis s'envien tot sols. Prova també d'obrir un document que no havies obert abans, i anota la diferència.</p>
+</div>
+
+<!-- ============ 7 · COMPROVACIÓ ============ -->
+<div class="cq-block" data-kind="comprovació">
+  <h2>Com sabràs que ho has fet bé</h2>
+  <ul>
+    <li>La taula comparativa té una font enllaçada per a cada dada, no impressions.</li>
+    <li>Un document creat dins de la carpeta compartida ja el veuen els companys, sense compartir-lo a part.</li>
+    <li>Un company amb permís de lectura no pot editar-hi.</li>
+    <li>El complement instal·lat apareix al menú d'extensions i fa alguna cosa que puguis ensenyar.</li>
+    <li>Amb la connexió tallada pots continuar editant un document obert.</li>
+  </ul>
+</div>
+
+<!-- ============ 8 · PROBLEMES ============ -->
+<div class="cq-block" data-kind="problemes">
+  <h2>Si alguna cosa no va</h2>
+  <dl class="cq-issues">
+    <dt>El company diu que no pot obrir la carpeta</dt>
+    <dd>
+      <p><span class="lbl">Causa</span> S'ha compartit amb una adreça equivocada o amb un compte personal.</p>
+      <p><span class="lbl">Solució</span> Revisa l'adreça exacta del seu compte del centre.</p>
+    </dd>
+    <dt>No es pot instal·lar el complement</dt>
+    <dd>
+      <p><span class="lbl">Causa</span> L'administració del domini no ho permet.</p>
+      <p><span class="lbl">Solució</span> Tria'n un d'aprovat i documenta la restricció: també és una decisió de desplegament.</p>
+    </dd>
+  </dl>
+</div>
+
+<!-- ============ 9 · LLIURAMENT ============ -->
+<div class="cq-block" data-kind="lliurament">
+  <h2>Què has d'entregar</h2>
+  <p>Un document de la suite, compartit amb el professorat i exportat en PDF, amb la taula comparativa, la recomanació argumentada, la taula d'aplicacions i feines, l'esquema de carpetes i permisos, la fitxa del complement i les proves del mode fora de línia amb captures.</p>
+  <p>Respon-hi també: <strong>què perdria el centre cívic si un dia el proveïdor tanqués el servei, i què hauria de tenir preparat per no quedar-se sense res?</strong></p>
+</div>
+
+
+<!-- ============ CURRÍCULUM ============ -->
 <div class="cq-block" data-kind="currículum">
   <h2>Al currículum</h2>
-  <p><span class="lbl">RA3</span> Instal·la serveis de gestió d&#x27;arxius web, identificant-ne les aplicacions i verificant-ne la integritat.</p>
-  <div class="cq-tablewrap">
-    <table class="cq-table">
-      <thead><tr><th>Criteri</th><th>Enunciat</th><th>On es treballa</th><th>Com s'avalua</th></tr></thead>
-      <tbody>
-        <tr><td><code>3.1</code></td><td>Estableix la utilitat d&#x27;un servei de gestió d&#x27;arxius web.</td><td><a class="cq-ref" href="teoria/t3-1-gestors-d-arxius-web.html">T3.1</a> · <a class="cq-ref" href="activitats/a3-1-el-nuvol-a-punt.html">A3.1</a> · <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td><td>Pràctica <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a> · Examen tipus test</td></tr>
-        <tr><td><code>3.2</code></td><td>Descriu diferents aplicacions de gestió d&#x27;arxius web.</td><td><a class="cq-ref" href="teoria/t3-1-gestors-d-arxius-web.html">T3.1</a> · <a class="cq-ref" href="activitats/a3-1-el-nuvol-a-punt.html">A3.1</a> · <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td><td>Pràctica <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a> · Examen tipus test</td></tr>
-        <tr><td><code>3.3</code></td><td>Instal·la i adapta una eina de gestió d&#x27;arxius web.</td><td><a class="cq-ref" href="guies/g3-1-instal-lar-nextcloud.html">G3.1</a> · <a class="cq-ref" href="activitats/a3-1-el-nuvol-a-punt.html">A3.1</a> · <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td><td>Pràctica <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a> · Examen tipus test</td></tr>
-        <tr><td><code>3.4</code></td><td>Crea i classifica comptes d&#x27;usuari en funció dels seus permisos.</td><td><a class="cq-ref" href="teoria/t3-2-comptes-permisos-i-comparticio.html">T3.2</a> · <a class="cq-ref" href="guies/g3-2-administrar-nextcloud.html">G3.2</a> · <a class="cq-ref" href="activitats/a3-2-comptes-grups-i-recursos.html">A3.2</a> · <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td><td>Pràctica <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a> · Examen tipus test</td></tr>
-        <tr><td><code>3.5</code></td><td>Gestiona arxius i directoris.</td><td><a class="cq-ref" href="teoria/t3-2-comptes-permisos-i-comparticio.html">T3.2</a> · <a class="cq-ref" href="guies/g3-2-administrar-nextcloud.html">G3.2</a> · <a class="cq-ref" href="activitats/a3-2-comptes-grups-i-recursos.html">A3.2</a> · <a class="cq-ref" href="activitats/a3-3-ordenar-trobar-i-protegir.html">A3.3</a> · <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td><td>Pràctica <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a> · Examen tipus test</td></tr>
-        <tr><td><code>3.6</code></td><td>Utilitza arxius d&#x27;informació addicional.</td><td><a class="cq-ref" href="teoria/t3-3-trobar-ho-i-protegir-ho.html">T3.3</a> · <a class="cq-ref" href="guies/g3-2-administrar-nextcloud.html">G3.2</a> · <a class="cq-ref" href="activitats/a3-3-ordenar-trobar-i-protegir.html">A3.3</a> · <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td><td>Pràctica <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a> · Examen tipus test</td></tr>
-        <tr><td><code>3.7</code></td><td>Aplica criteris d&#x27;indexació sobre els arxius i directoris.</td><td><a class="cq-ref" href="teoria/t3-3-trobar-ho-i-protegir-ho.html">T3.3</a> · <a class="cq-ref" href="guies/g3-2-administrar-nextcloud.html">G3.2</a> · <a class="cq-ref" href="activitats/a3-3-ordenar-trobar-i-protegir.html">A3.3</a> · <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td><td>Pràctica <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a> · Examen tipus test</td></tr>
-        <tr><td><code>3.8</code></td><td>Comprova la seguretat del gestor d&#x27;arxius.</td><td><a class="cq-ref" href="teoria/t3-3-trobar-ho-i-protegir-ho.html">T3.3</a> · <a class="cq-ref" href="guies/g3-1-instal-lar-nextcloud.html">G3.1</a> · <a class="cq-ref" href="guies/g3-2-administrar-nextcloud.html">G3.2</a> · <a class="cq-ref" href="activitats/a3-3-ordenar-trobar-i-protegir.html">A3.3</a> · <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td><td>Pràctica <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a> · Examen tipus test</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="cq-tablewrap">
-    <table class="cq-table">
-      <thead><tr><th>Contingut</th><th>Enunciat</th><th>On es treballa</th></tr></thead>
-      <tbody>
-        <tr><td><code>3.1</code></td><td>Instal·lació. Navegació i operacions bàsiques. Administració del gestor.</td><td><a class="cq-ref" href="teoria/t3-1-gestors-d-arxius-web.html">T3.1</a> · <a class="cq-ref" href="teoria/t3-3-trobar-ho-i-protegir-ho.html">T3.3</a> · <a class="cq-ref" href="guies/g3-1-instal-lar-nextcloud.html">G3.1</a> · <a class="cq-ref" href="guies/g3-2-administrar-nextcloud.html">G3.2</a> · <a class="cq-ref" href="activitats/a3-1-el-nuvol-a-punt.html">A3.1</a> · <a class="cq-ref" href="activitats/a3-3-ordenar-trobar-i-protegir.html">A3.3</a> · <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td></tr>
-        <tr><td><code>3.2</code></td><td>Usuaris i permisos. Tipus d&#x27;usuari.</td><td><a class="cq-ref" href="teoria/t3-2-comptes-permisos-i-comparticio.html">T3.2</a> · <a class="cq-ref" href="guies/g3-2-administrar-nextcloud.html">G3.2</a> · <a class="cq-ref" href="activitats/a3-2-comptes-grups-i-recursos.html">A3.2</a> · <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td></tr>
-        <tr><td><code>3.3</code></td><td>Creació de recursos compartits.</td><td><a class="cq-ref" href="teoria/t3-2-comptes-permisos-i-comparticio.html">T3.2</a> · <a class="cq-ref" href="guies/g3-2-administrar-nextcloud.html">G3.2</a> · <a class="cq-ref" href="activitats/a3-2-comptes-grups-i-recursos.html">A3.2</a> · <a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a></td></tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-<!-- === CURRÍCULUM DEL RA FI === -->
-
-<div class="cq-block" data-kind="ordre recomanat">
-  <h2>En quin ordre fer-ho</h2>
-  <div class="cq-tablewrap">
-    <table class="cq-table">
-      <thead><tr><th>Llegeix</th><th>Tingues a mà</th><th>Fes</th></tr></thead>
-      <tbody>
-        <tr><td><a class="cq-ref" href="teoria/t3-1-gestors-d-arxius-web.html">T3.1</a></td><td><a class="cq-ref" href="../RA1/guies/g1-2-pila-lamp.html">G1.2</a> · <a class="cq-ref" href="guies/g3-1-instal-lar-nextcloud.html">G3.1</a></td><td><a class="cq-ref" href="activitats/a3-1-el-nuvol-a-punt.html">A3.1</a> — el núvol a punt</td></tr>
-        <tr><td><a class="cq-ref" href="teoria/t3-2-comptes-permisos-i-comparticio.html">T3.2</a></td><td><a class="cq-ref" href="guies/g3-2-administrar-nextcloud.html">G3.2</a></td><td><a class="cq-ref" href="activitats/a3-2-comptes-grups-i-recursos.html">A3.2</a> — comptes, grups i recursos</td></tr>
-        <tr><td><a class="cq-ref" href="teoria/t3-3-trobar-ho-i-protegir-ho.html">T3.3</a></td><td><a class="cq-ref" href="guies/g3-2-administrar-nextcloud.html">G3.2</a></td><td><a class="cq-ref" href="activitats/a3-3-ordenar-trobar-i-protegir.html">A3.3</a> — ordenar, trobar i protegir</td></tr>
-        <tr><td>Tot el RA</td><td><a class="cq-ref" href="guies/g3-1-instal-lar-nextcloud.html">G3.1</a> · <a class="cq-ref" href="guies/g3-2-administrar-nextcloud.html">G3.2</a></td><td><a class="cq-ref" href="practiques/p3-1-nuvol-de-l-aula.html">P3.1</a> — pràctica del núvol</td></tr>
-      </tbody>
-    </table>
-  </div>
+  <p><span class="lbl">Contingut 4.1</span> Instal·lació. Utilització de les aplicacions instal·lades.</p>
+  <p><span class="lbl">CA 4.1</span> Estableix la utilitat de les aplicacions d'ofimàtica web.</p>
+  <p><span class="lbl">CA 4.2</span> Descriu diferents aplicacions d'ofimàtica web (processador de textos, full de càlcul, entre altres).</p>
+  <p><span class="lbl">CA 4.3</span> Instal·la aplicacions d'ofimàtica web.</p>
 </div>
 
 <!-- === PEU DE NAVEGACIÓ INICI === -->
 <nav class="cq-pager">
-  <a class="prev" href="../RA2/index.html">
-    <span class="dir">Anterior · RA2</span>
-    <span class="ttl">RA2 · Instal·lació de sistemes de gestió d'aprenentatge</span></a>
-  <a class="next" href="../RA4/index.html">
-    <span class="dir">Següent · RA4</span>
-    <span class="ttl">RA4 · Aplicacions d'ofimàtica web</span></a>
+  <a class="prev" href="../guies/g4-2-presentacions-i-llocs-web.html">
+    <span class="dir">Anterior · G4.2</span>
+    <span class="ttl">Guia: presentacions i llocs web</span></a>
+  <a class="next" href="a4-2-document-full-i-formulari.html">
+    <span class="dir">Següent · A4.2</span>
+    <span class="ttl">Document, full i formulari a quatre mans</span></a>
 </nav>
 <!-- === PEU DE NAVEGACIÓ FI === -->
 

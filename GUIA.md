@@ -287,9 +287,14 @@ sola vez, con su trazabilidad. `--check` falla si queda un criterio fuera.
 - **RA3** (Nextcloud) escrito: 3 teorías, 2 guías, 3 actividades y la
   práctica P3.1, hecha a partir de `pt-uf2.md`, que conserva la entrega en
   `INSTALLATION.md`, `CONFIGURATION.md` y `README.md`. Sin probar en VM.
-- **RA4 y RA5** pendientes. Decidido con el profesorado: RA4 sin instalación,
-  con las herramientas de Google de `uf1-pt2` y `uf1-pt3`, y RA5 Roundcube con
-  Postfix/Dovecot y el calendario de Nextcloud.
+- **RA4** (ofimática web) escrito: 3 teorías, 2 guías, 3 actividades y la
+  práctica P4.1, hecha a partir de `uf1-pt2.md` y `uf1-pt3.md`. Por decisión
+  del profesorado **no se instala ningún servidor**: se trabaja con las
+  herramientas de Google. El CA 4.3 («instal·la aplicacions d'ofimàtica web»)
+  se cubre como despliegue del entorno (cuentas, carpetas, complementos y
+  modo sin conexión), no como instalación en un servidor: conviene validarlo.
+- **RA5** pendiente. Decidido: Roundcube con Postfix/Dovecot y el calendario
+  de Nextcloud.
 - **RAX** (HTML y CSS, complementario): 1 teoría, 4 actividades y 1 práctica.
   Las actividades citan una guía G4.3 de GitHub Pages que aún no existe.
 
