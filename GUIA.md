@@ -40,7 +40,7 @@ smx-m08/
 │   └── curriculum-oficial/    el currículum de la Generalitat
 ├── _identitat/         sinapsi.css, quiz.js y web-marc.html
 ├── _aportacio/         material original en Markdown, no se publica
-├── _pendent/           RA en borrador que las herramientas no ven (RA2)
+├── _pendent/           RA en borrador que las herramientas no ven
 ├── RA1/ · RA2/ …      un RA por carpeta
 │   ├── index.html      índice del RA: fuente de la navegación
 │   ├── teoria/ · guies/ · activitats/ · practiques/ · img/
@@ -284,11 +284,12 @@ sola vez, con su trazabilidad. `--check` falla si queda un criterio fuera.
   la práctica P2.1, hecha a partir de `pt-uf4.md`. Pendiente de confirmar: si
   la versión de Moodle que se instale admite el PHP de Ubuntu 26.04; si no,
   el escritorio se hace con 24.04 LTS, como avisan la G2.1 y la A2.1.
-- **RA3–RA5** sin material. Decidido con el profesorado: RA3 Nextcloud (de
-  `pt-uf2.md`), RA4 sin instalación, con las herramientas de Google de
-  `uf1-pt2` y `uf1-pt3`, y RA5 Roundcube con Postfix/Dovecot y el calendario
-  de Nextcloud.
+- **RA3** (Nextcloud) escrito: 3 teorías, 2 guías, 3 actividades y la
+  práctica P3.1, hecha a partir de `pt-uf2.md`, que conserva la entrega en
+  `INSTALLATION.md`, `CONFIGURATION.md` y `README.md`. Sin probar en VM.
+- **RA4 y RA5** pendientes. Decidido con el profesorado: RA4 sin instalación,
+  con las herramientas de Google de `uf1-pt2` y `uf1-pt3`, y RA5 Roundcube con
+  Postfix/Dovecot y el calendario de Nextcloud.
 - **RAX** (HTML y CSS, complementario): 1 teoría, 4 actividades y 1 práctica.
   Las actividades citan una guía G4.3 de GitHub Pages que aún no existe.
-- **RA2** (Moodle) en `_pendent/`, sin revisar.
 

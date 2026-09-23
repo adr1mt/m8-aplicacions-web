@@ -3,7 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cobertura del currículum — 0228 Aplicacions web</title>
+<title>G3.2 · Guia: administrar Nextcloud — Aplicacions Web (0228)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500;700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 /* === SINAPSI-CSS INICI =======================================
    0228 · Aplicacions Web — Identitat visual del mòdul
@@ -520,123 +523,345 @@
   }
 
 /* === SINAPSI-CSS FI ======================================== */
-
 </style>
 </head>
 <body>
+
+<!-- === NAVEGACIÓ INICI === -->
+<nav class="cq-nav">
+  <div class="inner">
+    <a href="../index.html">‹ RA3 · Instal·lació de serveis de gestió d'arxius web</a>
+    <span class="pos">G3.2 · 5/9</span>
+  </div>
+</nav>
+<!-- === NAVEGACIÓ FI === -->
+
+<main>
+
 <header class="cq-header">
-  <div class="eyebrow">CFGM SMX · Mòdul 0228 · ús intern</div>
-  <h1>Cobertura del currículum</h1>
-  <p class="lede">Cada criteri d'avaluació i cada contingut del currículum de la Generalitat, amb les pàgines que el treballen. Document de programació: no es publica al web de l'alumnat.</p>
+  <div class="eyebrow">0228 · Aplicacions Web · RA3 · G3.2</div>
+  <h1>Guia: administrar Nextcloud</h1>
+  <p class="lede">Comptes, grups, quotes, carpetes d'equip, comparticions, etiquetes i seguretat, des del navegador.</p>
 </header>
 
-<div class="cq-block" data-kind="RA1">
-  <h2>RA1 · Gestors de continguts</h2>
-  <div class="cq-tablewrap"><table class="cq-table">
-    <thead><tr><th>Criteri</th><th>Enunciat</th><th>On es treballa</th><th>Instrument</th></tr></thead><tbody>
-    <tr><td><code>1.1</code></td><td>Identifica els requeriments necessaris per instal·lar gestors de continguts.</td><td>T1.1 · T1.3 · G1.1 · G1.2 · A1.1 · A1.2 · P1.1</td><td>Pràctica P1.1 · Examen tipus test</td></tr>
-    <tr><td><code>1.2</code></td><td>Gestiona usuaris amb rols diferents.</td><td>T1.4 · G1.3 · A1.3 · A1.5 · P1.1</td><td>Pràctica P1.1 · Examen tipus test</td></tr>
-    <tr><td><code>1.3</code></td><td>Personalitza la interfície del gestor de continguts.</td><td>T1.2 · T1.3 · G1.3 · A1.4 · P1.1</td><td>Pràctica P1.1 · Examen tipus test</td></tr>
-    <tr><td><code>1.4</code></td><td>Realitza proves de funcionament.</td><td>T1.5 · G1.2 · G1.4 · A1.1 · A1.2 · P1.1</td><td>Pràctica P1.1 · Examen tipus test</td></tr>
-    <tr><td><code>1.5</code></td><td>Realitza tasques d&#x27;actualització del gestor de continguts, especialment les de seguretat.</td><td>T1.5 · G1.3 · A1.6 · P1.1</td><td>Pràctica P1.1 · Examen tipus test</td></tr>
-    <tr><td><code>1.6</code></td><td>Instal·la i configura els mòduls i menús necessaris.</td><td>T1.3 · G1.3 · A1.4 · P1.1</td><td>Pràctica P1.1 · Examen tipus test</td></tr>
-    <tr><td><code>1.7</code></td><td>Activa i configura els mecanismes de seguretat proporcionats pel propi gestor de continguts.</td><td>T1.5 · G1.3 · A1.6 · P1.1</td><td>Pràctica P1.1 · Examen tipus test</td></tr>
-    <tr><td><code>1.8</code></td><td>Habilita fòrums i estableix regles d&#x27;accés.</td><td>T1.4 · G1.3 · A1.5 · P1.1</td><td>Pràctica P1.1 · Examen tipus test</td></tr>
-    <tr><td><code>1.9</code></td><td>Realitza proves de funcionament.</td><td>T1.5 · G1.3 · G1.4 · A1.6 · P1.1</td><td>Pràctica P1.1 · Examen tipus test</td></tr>
-    <tr><td><code>1.10</code></td><td>Realitza còpies de seguretat dels continguts del gestor.</td><td>T1.5 · G1.3 · G1.4 · A1.6 · P1.1</td><td>Pràctica P1.1 · Examen tipus test</td></tr>
-    <tr><td><code>C 1.1</code></td><td>Instal·lació en sistemes operatius lliures i propietaris.</td><td>T1.1 · T1.3 · G1.1 · G1.2 · G1.3 · G1.4 · A1.1 · A1.2 · P1.1</td><td>—</td></tr>
-    <tr><td><code>C 1.2</code></td><td>Creació d&#x27;usuaris i grups d&#x27;usuaris.</td><td>T1.4 · G1.3 · A1.3 · A1.5 · P1.1</td><td>—</td></tr>
-    <tr><td><code>C 1.3</code></td><td>Utilització de la interfície gràfica. Personalització de l&#x27;entorn. Funcionalitats proporcionades pel gestor de continguts. Sindicació.</td><td>T1.2 · T1.3 · G1.3 · A1.4 · A1.5 · P1.1</td><td>—</td></tr>
-    <tr><td><code>C 1.4</code></td><td>Funcionament dels gestors de continguts.</td><td>T1.1 · T1.3 · A1.1 · A1.2 · P1.1</td><td>—</td></tr>
-    <tr><td><code>C 1.5</code></td><td>Actualitzacions del gestor de continguts. Configuració de mòduls i menús.</td><td>T1.3 · T1.5 · G1.3 · A1.4 · A1.6 · P1.1</td><td>—</td></tr>
-    </tbody></table></div>
+<!-- ============ 1 · OBJECTIUS ============ -->
+<div class="cq-block" data-kind="objectius">
+  <h2>Què hi ha en aquesta guia</h2>
+  <p>Documentació oficial: <a href="https://docs.nextcloud.com/server/latest/admin_manual/">Administration Manual</a> · <a href="https://docs.nextcloud.com/server/latest/user_manual/">User Manual</a></p>
+  <ul>
+    <li>Punt de partida: Nextcloud instal·lat i funcionant (<a class="cq-ref" href="g3-1-instal-lar-nextcloud.html">G3.1</a>).</li>
+    <li>Cobreix comptes, grups i quotes, operacions amb fitxers, compartició, carpetes d'equip, etiquetes i cerca, aplicacions i seguretat.</li>
+  </ul>
 </div>
 
-<div class="cq-block" data-kind="RA2">
-  <h2>RA2 · Sistemes de gestió d'aprenentatge</h2>
-  <div class="cq-tablewrap"><table class="cq-table">
-    <thead><tr><th>Criteri</th><th>Enunciat</th><th>On es treballa</th><th>Instrument</th></tr></thead><tbody>
-    <tr><td><code>2.1</code></td><td>Reconeix l&#x27;estructura del lloc i la jerarquia de directoris generada.</td><td>T2.2 · G2.1 · A2.1 · P2.1</td><td>Pràctica P2.1 · Examen tipus test</td></tr>
-    <tr><td><code>2.2</code></td><td>Realitza modificacions en l&#x27;estètica o aspecte del lloc.</td><td>T2.2 · G2.2 · A2.1 · P2.1</td><td>Pràctica P2.1 · Examen tipus test</td></tr>
-    <tr><td><code>2.3</code></td><td>Manipula i genera perfils personalitzats.</td><td>T2.1 · G2.2 · A2.2 · P2.1</td><td>Pràctica P2.1 · Examen tipus test</td></tr>
-    <tr><td><code>2.4</code></td><td>Comprova la funcionalitat de les comunicacions mitjançant fòrums, consultes, entre d&#x27;altres.</td><td>T2.1 · G2.2 · A2.2 · P2.1</td><td>Pràctica P2.1 · Examen tipus test</td></tr>
-    <tr><td><code>2.5</code></td><td>Importa i exporta continguts en diferents formats.</td><td>T2.3 · G2.2 · A2.3 · P2.1</td><td>Pràctica P2.1 · Examen tipus test</td></tr>
-    <tr><td><code>2.6</code></td><td>Realitza còpies de seguretat i restauracions.</td><td>T2.3 · G2.2 · A2.3 · P2.1</td><td>Pràctica P2.1 · Examen tipus test</td></tr>
-    <tr><td><code>2.7</code></td><td>Realitza informes d&#x27;accés i utilització del lloc.</td><td>T2.3 · G2.2 · A2.3 · P2.1</td><td>Pràctica P2.1 · Examen tipus test</td></tr>
-    <tr><td><code>2.8</code></td><td>Comprova la seguretat del lloc.</td><td>T2.3 · G2.2 · A2.3 · P2.1</td><td>Pràctica P2.1 · Examen tipus test</td></tr>
-    <tr><td><code>C 2.1</code></td><td>Elements lògics: comunicació, materials i activitats.</td><td>T2.1 · P2.1</td><td>—</td></tr>
-    <tr><td><code>C 2.2</code></td><td>Instal·lació en sistemes operatius lliures i propietaris. Modes de registre. Interfície gràfica associada. Personalització de l&#x27;entorn. Navegació i edició.</td><td>T2.1 · T2.2 · T2.3 · G2.1 · G2.2 · A2.1 · A2.3 · P2.1</td><td>—</td></tr>
-    <tr><td><code>C 2.3</code></td><td>Creació de cursos seguint especificacions. Gestió d&#x27;usuaris i grups. Activació de funcionalitats.</td><td>G2.2 · A2.2 · P2.1</td><td>—</td></tr>
-    </tbody></table></div>
+<!-- ============ 2 · REFERÈNCIA ============ -->
+<div class="cq-block" data-kind="referència">
+  <h2>On és cada cosa</h2>
+  <div class="cq-tablewrap">
+    <table class="cq-table">
+      <thead><tr><th>Vull</th><th>On</th></tr></thead>
+      <tbody>
+        <tr><td>Comptes, grups i quotes</td><td>Menú del perfil → <strong>Comptes</strong></td></tr>
+        <tr><td>Aplicacions</td><td>Menú del perfil → <strong>Aplicacions</strong></td></tr>
+        <tr><td>Estat, avisos i seguretat</td><td><strong>Configuració → Administració → Visió general</strong></td></tr>
+        <tr><td>Registres del servei</td><td><strong>Configuració → Administració → Registre</strong></td></tr>
+        <tr><td>Normes de compartició</td><td><strong>Configuració → Administració → Compartició</strong></td></tr>
+        <tr><td>Fitxers, etiquetes i comparticions</td><td>Aplicació <strong>Fitxers</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
-<div class="cq-block" data-kind="RA3">
-  <h2>RA3 · Serveis de gestió d'arxius web</h2>
-  <div class="cq-tablewrap"><table class="cq-table">
-    <thead><tr><th>Criteri</th><th>Enunciat</th><th>On es treballa</th><th>Instrument</th></tr></thead><tbody>
-    <tr><td><code>3.1</code></td><td>Estableix la utilitat d&#x27;un servei de gestió d&#x27;arxius web.</td><td>T3.1 · A3.1 · P3.1</td><td>Pràctica P3.1 · Examen tipus test</td></tr>
-    <tr><td><code>3.2</code></td><td>Descriu diferents aplicacions de gestió d&#x27;arxius web.</td><td>T3.1 · A3.1 · P3.1</td><td>Pràctica P3.1 · Examen tipus test</td></tr>
-    <tr><td><code>3.3</code></td><td>Instal·la i adapta una eina de gestió d&#x27;arxius web.</td><td>G3.1 · A3.1 · P3.1</td><td>Pràctica P3.1 · Examen tipus test</td></tr>
-    <tr><td><code>3.4</code></td><td>Crea i classifica comptes d&#x27;usuari en funció dels seus permisos.</td><td>T3.2 · G3.2 · A3.2 · P3.1</td><td>Pràctica P3.1 · Examen tipus test</td></tr>
-    <tr><td><code>3.5</code></td><td>Gestiona arxius i directoris.</td><td>T3.2 · G3.2 · A3.2 · A3.3 · P3.1</td><td>Pràctica P3.1 · Examen tipus test</td></tr>
-    <tr><td><code>3.6</code></td><td>Utilitza arxius d&#x27;informació addicional.</td><td>T3.3 · G3.2 · A3.3 · P3.1</td><td>Pràctica P3.1 · Examen tipus test</td></tr>
-    <tr><td><code>3.7</code></td><td>Aplica criteris d&#x27;indexació sobre els arxius i directoris.</td><td>T3.3 · G3.2 · A3.3 · P3.1</td><td>Pràctica P3.1 · Examen tipus test</td></tr>
-    <tr><td><code>3.8</code></td><td>Comprova la seguretat del gestor d&#x27;arxius.</td><td>T3.3 · G3.1 · G3.2 · A3.3 · P3.1</td><td>Pràctica P3.1 · Examen tipus test</td></tr>
-    <tr><td><code>C 3.1</code></td><td>Instal·lació. Navegació i operacions bàsiques. Administració del gestor.</td><td>T3.1 · T3.3 · G3.1 · G3.2 · A3.1 · A3.3 · P3.1</td><td>—</td></tr>
-    <tr><td><code>C 3.2</code></td><td>Usuaris i permisos. Tipus d&#x27;usuari.</td><td>T3.2 · G3.2 · A3.2 · P3.1</td><td>—</td></tr>
-    <tr><td><code>C 3.3</code></td><td>Creació de recursos compartits.</td><td>T3.2 · G3.2 · A3.2 · P3.1</td><td>—</td></tr>
-    </tbody></table></div>
+<!-- ============ 3 · PAS A PAS ============ -->
+<div class="cq-block" data-kind="pas a pas">
+  <h2>Comptes, grups i quotes</h2>
+  <ol class="cq-steps">
+    <li>
+      <p><strong>Crea un grup</strong> a <strong>Comptes</strong>, amb el botó d'afegir grup: per exemple <code>professorat</code> i <code>1r-smx</code>.</p>
+    </li>
+    <li>
+      <p><strong>Crea els comptes</strong> amb <strong>Compte nou</strong>: nom d'usuari, nom que es veurà, contrasenya o correu, grup i <strong>quota</strong>.</p>
+    </li>
+    <li>
+      <p><strong>Fixa la quota per defecte</strong> dels comptes nous a <strong>Configuració → Administració → Comptes</strong>.</p>
+    </li>
+    <li>
+      <p><strong>Nomena un administrador de grup</strong> des de la fila del compte, a la columna de grups d'administració: gestionarà només el seu grup.</p>
+    </li>
+    <li>
+      <p><strong>Des del terminal</strong>, per crear-ne molts de cop:</p>
+<pre>cd /var/www/nuvol.internal
+sudo -u www-data php occ group:add 1r-smx
+sudo -u www-data php occ user:add --group=1r-smx apinyol
+sudo -u www-data php occ user:setting apinyol files quota 5GB</pre>
+    </li>
+    <li>
+      <p><strong>Desactiva un compte</strong> en lloc d'esborrar-lo quan algú marxa: els fitxers es mantenen.</p>
+    </li>
+  </ol>
 </div>
 
-<div class="cq-block" data-kind="RA4">
-  <h2>RA4 · Aplicacions d'ofimàtica web</h2>
-  <div class="cq-tablewrap"><table class="cq-table">
-    <thead><tr><th>Criteri</th><th>Enunciat</th><th>On es treballa</th><th>Instrument</th></tr></thead><tbody>
-    <tr><td><code>4.1</code></td><td>Estableix la utilitat de les aplicacions d&#x27;ofimàtica web.</td><td><strong>sense cobrir</strong></td><td><em>Examen tipus test</em></td></tr>
-    <tr><td><code>4.2</code></td><td>Descriu diferents aplicacions d&#x27;ofimàtica web (processador de textos, full de càlcul, entre altres).</td><td><strong>sense cobrir</strong></td><td><em>Examen tipus test</em></td></tr>
-    <tr><td><code>4.3</code></td><td>Instal·la aplicacions d&#x27;ofimàtica web.</td><td><strong>sense cobrir</strong></td><td><em>Examen tipus test</em></td></tr>
-    <tr><td><code>4.4</code></td><td>Gestiona els comptes d&#x27;usuari.</td><td><strong>sense cobrir</strong></td><td><em>Examen tipus test</em></td></tr>
-    <tr><td><code>4.5</code></td><td>Aplica criteris de seguretat en l&#x27;accés dels usuaris.</td><td><strong>sense cobrir</strong></td><td><em>Examen tipus test</em></td></tr>
-    <tr><td><code>4.6</code></td><td>Reconeix les prestacions específiques de cadascuna de les aplicacions instal·lades.</td><td><strong>sense cobrir</strong></td><td><em>Examen tipus test</em></td></tr>
-    <tr><td><code>4.7</code></td><td>Utilitza les aplicacions de forma col·laborativa.</td><td><strong>sense cobrir</strong></td><td><em>Examen tipus test</em></td></tr>
-    <tr><td><code>C 4.1</code></td><td>Instal·lació. Utilització de les aplicacions instal·lades.</td><td><strong>sense cobrir</strong></td><td>—</td></tr>
-    <tr><td><code>C 4.2</code></td><td>Gestió d&#x27;usuaris i permisos associats.</td><td><strong>sense cobrir</strong></td><td>—</td></tr>
-    <tr><td><code>C 4.3</code></td><td>Comprovació de la seguretat.</td><td><strong>sense cobrir</strong></td><td>—</td></tr>
-    </tbody></table></div>
+<!-- ============ 4 · PAS A PAS ============ -->
+<div class="cq-block" data-kind="pas a pas">
+  <h2>Fitxers i carpetes</h2>
+  <ol class="cq-steps">
+    <li>
+      <p><strong>Puja fitxers</strong> arrossegant-los a la finestra o amb el botó <strong>+</strong>, que també crea carpetes i documents.</p>
+    </li>
+    <li>
+      <p><strong>Mou i reanomena</strong> amb el menú de tres punts de cada fila. Les operacions es poden fer en bloc seleccionant diverses files.</p>
+    </li>
+    <li>
+      <p><strong>Recupera</strong> el que s'ha esborrat a <strong>Fitxers esborrats</strong>, i les versions anteriors d'un fitxer al panell lateral, pestanya <strong>Versions</strong>.</p>
+    </li>
+    <li>
+      <p><strong>Escriu la descripció de la carpeta</strong>: obre-la i clica a l'espai de text de sobre de la llista. Es guarda com un fitxer <code>Readme.md</code> dins de la carpeta.</p>
+    </li>
+  </ol>
 </div>
 
-<div class="cq-block" data-kind="RA5">
-  <h2>RA5 · Aplicacions web d'escriptori</h2>
-  <div class="cq-tablewrap"><table class="cq-table">
-    <thead><tr><th>Criteri</th><th>Enunciat</th><th>On es treballa</th><th>Instrument</th></tr></thead><tbody>
-    <tr><td><code>5.1</code></td><td>Descriu diferents aplicacions web d&#x27;escriptori.</td><td><strong>sense cobrir</strong></td><td><em>Examen tipus test</em></td></tr>
-    <tr><td><code>5.2</code></td><td>Instal·la aplicacions per a proveir d&#x27;accés web al servei de correu electrònic.</td><td><strong>sense cobrir</strong></td><td><em>Examen tipus test</em></td></tr>
-    <tr><td><code>5.3</code></td><td>Configura les aplicacions per a integrar-les amb un servidor de correu.</td><td><strong>sense cobrir</strong></td><td><em>Examen tipus test</em></td></tr>
-    <tr><td><code>5.4</code></td><td>Gestiona els comptes d&#x27;usuari.</td><td><strong>sense cobrir</strong></td><td><em>Examen tipus test</em></td></tr>
-    <tr><td><code>5.5</code></td><td>Verifica l&#x27;accés al correu electrònic.</td><td><strong>sense cobrir</strong></td><td><em>Examen tipus test</em></td></tr>
-    <tr><td><code>5.6</code></td><td>Instal·la aplicacions de calendari web.</td><td><strong>sense cobrir</strong></td><td><em>Examen tipus test</em></td></tr>
-    <tr><td><code>5.7</code></td><td>Reconeix les prestacions específiques de les aplicacions instal·lades (cites, tasques, entre altres).</td><td><strong>sense cobrir</strong></td><td><em>Examen tipus test</em></td></tr>
-    <tr><td><code>C 5.1</code></td><td>Aplicacions de correu web. Instal·lació.</td><td><strong>sense cobrir</strong></td><td>—</td></tr>
-    <tr><td><code>C 5.2</code></td><td>Gestió d&#x27;usuaris.</td><td><strong>sense cobrir</strong></td><td>—</td></tr>
-    </tbody></table></div>
+<!-- ============ 5 · PAS A PAS ============ -->
+<div class="cq-block" data-kind="pas a pas">
+  <h2>Compartir</h2>
+  <ol class="cq-steps">
+    <li>
+      <p><strong>Obre el panell de compartició</strong> amb la icona de compartir de la fila.</p>
+    </li>
+    <li>
+      <p><strong>Amb una persona o un grup:</strong> escriu-ne el nom i tria els permisos al menú de tres punts: <em>permet editar</em>, <em>permet crear</em>, <em>permet esborrar</em>, <em>permet tornar a compartir</em>.</p>
+    </li>
+    <li>
+      <p><strong>Amb un enllaç:</strong> crea l'enllaç i, al seu menú, activa <strong>contrasenya</strong> i <strong>data de caducitat</strong>. Tria què permet: només llegir, pujar i editar, o <strong>només pujar</strong> (bústia d'entregues).</p>
+    </li>
+    <li>
+      <p><strong>Posa les normes del lloc</strong> a <strong>Configuració → Administració → Compartició</strong>: obligar contrasenya als enllaços, caducitat màxima i si es pot tornar a compartir.</p>
+    </li>
+    <li>
+      <p><strong>Revisa les comparticions</strong> obertes a l'apartat <strong>Compartits</strong> de l'aplicació Fitxers.</p>
+    </li>
+  </ol>
 </div>
 
-<div class="cq-block" data-kind="proves">
-  <h2>Què exercita cada pràctica</h2>
-  <p>La nota de cada RA és la pràctica principal (60 %), corregida amb demostració en directe i README, i un examen tipus test a Moodle (40 %) que abasta tot el RA. Les activitats no tenen pes. Aquesta taula documenta què posa a prova cada pràctica; la resta de criteris queden per a l'examen.</p>
-  <div class="cq-tablewrap"><table class="cq-table">
-    <thead><tr><th>Pràctica</th><th>Criteris que exercita</th></tr></thead><tbody>
-    <tr><td>Pràctica P1.1</td><td><code>1.1</code> · <code>1.2</code> · <code>1.3</code> · <code>1.4</code> · <code>1.5</code> · <code>1.6</code> · <code>1.7</code> · <code>1.8</code> · <code>1.9</code> · <code>1.10</code></td></tr>
-    <tr><td>Pràctica P2.1</td><td><code>2.1</code> · <code>2.2</code> · <code>2.3</code> · <code>2.4</code> · <code>2.5</code> · <code>2.6</code> · <code>2.7</code> · <code>2.8</code></td></tr>
-    <tr><td>Pràctica P3.1</td><td><code>3.1</code> · <code>3.2</code> · <code>3.3</code> · <code>3.4</code> · <code>3.5</code> · <code>3.6</code> · <code>3.7</code> · <code>3.8</code></td></tr>
-    </tbody></table></div>
+<!-- ============ 6 · PAS A PAS ============ -->
+<div class="cq-block" data-kind="pas a pas">
+  <h2>Carpetes d'equip</h2>
+  <ol class="cq-steps">
+    <li>
+      <p><strong>Activa l'aplicació</strong> <em>Team folders</em> (abans <em>Group folders</em>) des d'<strong>Aplicacions</strong>.</p>
+    </li>
+    <li>
+      <p><strong>Crea la carpeta</strong> a <strong>Configuració → Administració → Carpetes d'equip</strong>, dona-li nom i assigna-hi els grups.</p>
+    </li>
+    <li>
+      <p><strong>Ajusta els permisos</strong> de cada grup sobre la carpeta i, si cal, posa-li quota pròpia.</p>
+    </li>
+    <li>
+      <p><strong>Comprova</strong> que els membres del grup la veuen a l'arrel dels seus fitxers, sense que ningú n'hagi de ser el propietari.</p>
+    </li>
+  </ol>
 </div>
 
+<!-- ============ 7 · PAS A PAS ============ -->
+<div class="cq-block" data-kind="pas a pas">
+  <h2>Etiquetes, comentaris i cerca</h2>
+  <ol class="cq-steps">
+    <li>
+      <p><strong>Etiqueta un fitxer</strong> des del panell lateral, pestanya d'etiquetes. Les etiquetes són del lloc: si una altra persona té accés al fitxer, també les veu.</p>
+    </li>
+    <li>
+      <p><strong>Gestiona la llista d'etiquetes</strong> a <strong>Configuració → Administració → Etiquetes</strong>: crea les acordades i esborra les repetides.</p>
+    </li>
+    <li>
+      <p><strong>Escriu comentaris</strong> a la pestanya de comentaris del mateix panell.</p>
+    </li>
+    <li>
+      <p><strong>Cerca</strong> amb la lupa de dalt: per nom, per tipus i per etiqueta. A l'aplicació Fitxers hi ha el filtre per etiquetes.</p>
+    </li>
+    <li>
+      <p><strong>Si has tocat fitxers per fora</strong>, refés l'índex:</p>
+<pre>cd /var/www/nuvol.internal
+sudo -u www-data php occ files:scan --all</pre>
+    </li>
+  </ol>
+</div>
+
+<!-- ============ 8 · PAS A PAS ============ -->
+<div class="cq-block" data-kind="pas a pas">
+  <h2>Seguretat i manteniment</h2>
+  <ol class="cq-steps">
+    <li>
+      <p><strong>Llegeix la visió general</strong>: resol els avisos de seguretat i de configuració que hi surten.</p>
+    </li>
+    <li>
+      <p><strong>Activa la verificació en dos passos</strong> per als administradors des d'<strong>Aplicacions</strong> (Two-Factor TOTP) i configura-la al teu perfil.</p>
+    </li>
+    <li>
+      <p><strong>Revisa els intents fallits</strong> i les IP bloquejades per la protecció contra força bruta al registre del servei.</p>
+    </li>
+    <li>
+      <p><strong>Actualitza</strong> el servei i les aplicacions: a <strong>Visió general</strong> hi surt si hi ha versió nova; fes la còpia abans.</p>
+    </li>
+    <li>
+      <p><strong>Mira l'espai i les quotes</strong> a <strong>Comptes</strong>, ordenant per espai utilitzat.</p>
+    </li>
+  </ol>
+</div>
+
+<!-- ============ 9 · COMPROVACIÓ ============ -->
+<div class="cq-block" data-kind="comprovació">
+  <h2>Comprovació de conjunt</h2>
+  <ul>
+    <li>Un usuari del grup veu la carpeta d'equip acabada de crear.</li>
+    <li>Un usuari amb permís de només lectura no pot desar cap canvi.</li>
+    <li>L'enllaç públic demana contrasenya i deixa de funcionar passada la data.</li>
+    <li>La cerca per etiqueta troba fitxers de carpetes diferents.</li>
+    <li><code>sudo -u www-data php occ user:list</code> mostra els comptes creats.</li>
+    <li>La visió general no té avisos de seguretat.</li>
+  </ul>
+</div>
+
+<!-- ============ 10 · BONES PRÀCTIQUES ============ -->
+<div class="cq-block" data-kind="bones pràctiques">
+  <h2>Criteris professionals</h2>
+  <ul>
+    <li>Comparteix amb grups i carpetes d'equip; deixa el compte personal per al que és personal.</li>
+    <li>Obliga contrasenya i caducitat als enllaços públics des de la configuració del lloc.</li>
+    <li>Llista d'etiquetes tancada i descripció a cada carpeta d'equip.</li>
+    <li>Desactiva els comptes, no els esborris, fins que sàpigues on van els seus fitxers.</li>
+    <li>Repassa la visió general cada vegada que actualitzis.</li>
+  </ul>
+</div>
+
+<!-- ============ 11 · PROBLEMES ============ -->
+<div class="cq-block" data-kind="problemes">
+  <h2>Errors habituals</h2>
+  <dl class="cq-issues">
+    <dt>Un usuari no veu la carpeta compartida</dt>
+    <dd>
+      <p><span class="lbl">Causa</span> S'ha compartit amb un altre compte o el grup no és el seu.</p>
+      <p><span class="lbl">Solució</span> Revisa el panell de compartició i els grups del compte.</p>
+    </dd>
+    <dt>No deixa crear enllaços públics</dt>
+    <dd>
+      <p><span class="lbl">Causa</span> Estan desactivats a la configuració de compartició del lloc.</p>
+      <p><span class="lbl">Solució</span> Activa'ls i posa-hi les normes de contrasenya i caducitat.</p>
+    </dd>
+    <dt>Un compte no pot pujar res</dt>
+    <dd>
+      <p><span class="lbl">Causa</span> Ha arribat a la quota.</p>
+      <p><span class="lbl">Solució</span> Puja-li la quota o demana-li que buidi els fitxers esborrats, que també ocupen.</p>
+    </dd>
+  </dl>
+</div>
+
+<!-- ============ 12 · RESUM ============ -->
 <div class="cq-block" data-kind="resum">
-  <h2>Què queda per cobrir</h2>
-  <p>Criteris sense cap pàgina: <code>4.1</code>, <code>4.2</code>, <code>4.3</code>, <code>4.4</code>, <code>4.5</code>, <code>4.6</code>, <code>4.7</code>, <code>5.1</code>, <code>5.2</code>, <code>5.3</code>, <code>5.4</code>, <code>5.5</code>, <code>5.6</code>, <code>5.7</code>.</p>
-  <p>Criteris que cap pràctica no exercita i que, per tant, <strong>només es qualifiquen a l'examen</strong>: <code>4.1</code>, <code>4.2</code>, <code>4.3</code>, <code>4.4</code>, <code>4.5</code>, <code>4.6</code>, <code>4.7</code>, <code>5.1</code>, <code>5.2</code>, <code>5.3</code>, <code>5.4</code>, <code>5.5</code>, <code>5.6</code>, <code>5.7</code>. Les preguntes de l'examen d'aquell RA els han de cobrir.</p>
-  <p>Criteris que només es treballen fora del seu nucli formatiu: cap. L'evidència s'utilitza per avaluar-los al RA que els conté.</p>
+  <h2>Fitxa ràpida</h2>
+  <div class="cq-tablewrap">
+    <table class="cq-table">
+      <thead><tr><th>Vull</th><th>On o quina ordre</th></tr></thead>
+      <tbody>
+        <tr><td>Crear grup i compte</td><td>Comptes → Compte nou · <code>occ group:add</code> · <code>occ user:add</code></td></tr>
+        <tr><td>Posar quota</td><td>Comptes → columna Quota · <code>occ user:setting … files quota</code></td></tr>
+        <tr><td>Carpeta d'equip</td><td>Administració → Carpetes d'equip</td></tr>
+        <tr><td>Enllaç amb contrasenya</td><td>Panell de compartició → Enllaç → menú</td></tr>
+        <tr><td>Etiquetes del lloc</td><td>Administració → Etiquetes</td></tr>
+        <tr><td>Refer l'índex</td><td><code>occ files:scan --all</code></td></tr>
+        <tr><td>Estat i seguretat</td><td>Administració → Visió general</td></tr>
+      </tbody>
+    </table>
+  </div>
 </div>
+
+<!-- === PEU DE NAVEGACIÓ INICI === -->
+<nav class="cq-pager">
+  <a class="prev" href="g3-1-instal-lar-nextcloud.html">
+    <span class="dir">Anterior · G3.1</span>
+    <span class="ttl">Guia: instal·lar Nextcloud</span></a>
+  <a class="next" href="../activitats/a3-1-el-nuvol-a-punt.html">
+    <span class="dir">Següent · A3.1</span>
+    <span class="ttl">El núvol a punt</span></a>
+</nav>
+<!-- === PEU DE NAVEGACIÓ FI === -->
+
+</main>
+<script>
+  // Dissuasió de la còpia: mai al codi, a les taules ni dins de l'editor.
+  // L'alumnat treballa per SSH i ha de poder enganxar les ordres.
+  (function () {
+    var LLIURE = 'pre, code, .cq-table, [contenteditable="true"]';
+    function copiable(node) {
+      if (node && node.nodeType !== 1) { node = node.parentNode; }
+      return !!(node && node.closest && node.closest(LLIURE));
+    }
+    function seleccioCopiable() {
+      var s = document.getSelection();
+      if (!s || s.rangeCount === 0) { return false; }
+      return copiable(s.getRangeAt(0).commonAncestorContainer);
+    }
+    ['copy', 'cut'].forEach(function (nom) {
+      document.addEventListener(nom, function (e) {
+        if (!seleccioCopiable()) { e.preventDefault(); }
+      });
+    });
+    document.addEventListener('dragstart', function (e) {
+      if (!copiable(e.target)) { e.preventDefault(); }
+    });
+  })();
+
+  // Motor únic per a totes les preguntes single i multi.
+  document.querySelectorAll('.cq-question').forEach(function (question) {
+    var id = question.dataset.id;
+    if (!id) {
+      throw new Error('Falta data-id a una pregunta del quiz.');
+    }
+    var type = question.dataset.type;
+    if (type !== 'single' && type !== 'multi') {
+      throw new Error('data-type invàlid ("' + type + '") a la pregunta "' + id + '".');
+    }
+
+    var options = question.querySelectorAll('.cq-option');
+    var checkBtn = question.querySelector('.cq-check-btn');
+    var feedback = question.querySelector('.cq-feedback');
+
+    options.forEach(function (opt) {
+      opt.addEventListener('click', function () {
+        if (type === 'single') {
+          options.forEach(function (o) { o.classList.remove('cq-selected'); });
+          opt.classList.add('cq-selected');
+        } else {
+          opt.classList.toggle('cq-selected');
+        }
+        options.forEach(function (o) {
+          o.setAttribute('aria-pressed',
+            o.classList.contains('cq-selected') ? 'true' : 'false');
+        });
+      });
+    });
+
+    checkBtn.addEventListener('click', function () {
+      var allCorrect = true;
+      options.forEach(function (opt) {
+        var isCorrect = opt.dataset.correct === 'true';
+        var isSelected = opt.classList.contains('cq-selected');
+        opt.classList.remove('cq-selected');
+        opt.setAttribute('aria-pressed', 'false');
+        if (isCorrect) {
+          opt.classList.add('cq-correct');
+        } else if (isSelected) {
+          opt.classList.add('cq-incorrect');
+        }
+        opt.disabled = true;
+        if (isCorrect !== isSelected) {
+          allCorrect = false;
+        }
+      });
+      feedback.textContent = allCorrect ? 'Correcte!' : 'Incorrecte, revisa les respostes marcades.';
+      feedback.className = 'cq-feedback ' + (allCorrect ? 'ok' : 'ko');
+      checkBtn.disabled = true;
+    });
+  });
+</script>
+
 </body>
 </html>

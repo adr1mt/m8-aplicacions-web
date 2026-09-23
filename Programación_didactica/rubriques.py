@@ -143,6 +143,50 @@ RUBRIQUES = {
               "bloqueig d'IP.",
   },
  ],
+ 3: [
+  {
+   'nom': "Comprèn i justifica",
+   'nivells': {
+    '10': "Explica la utilitat d'un servei de gestió d'arxius web, compara aplicacions i justifica la triada amb autonomia.",
+    '7,5': "Explica la utilitat del servei i compara aplicacions amb suport puntual.",
+    '5': "Reconeix per a què serveix, però li costa comparar-lo amb altres solucions.",
+    '0': "No distingeix un gestor d'arxius web d'una carpeta compartida ni amb el suport habitual.",
+   },
+   'ca': ['3.1', '3.2'],
+   'reforc': [],
+   'cont': ['3.1'],
+   'observa': "La taula comparativa de l'A3.1 i com respon la pregunta final "
+              "de cada lliurament.",
+  },
+  {
+   'nom': "Instal·la i comparteix",
+   'nivells': {
+    '10': "Instal·la i adapta el gestor, crea comptes i grups i munta els recursos compartits amb autonomia.",
+    '7,5': "Instal·la el gestor i configura comptes i comparticions amb suport puntual.",
+    '5': "Arriba a un servei funcional bàsic amb suport freqüent.",
+    '0': "No aconsegueix un servei utilitzable ni amb el suport habitual.",
+   },
+   'ca': ['3.3', '3.4', '3.5'],
+   'reforc': [],
+   'cont': ['3.1', '3.2', '3.3'],
+   'observa': "La instal·lació amb les dades fora del web de l'A3.1 i la "
+              "matriu de permisos de l'A3.2.",
+  },
+  {
+   'nom': "Ordena, troba i protegeix",
+   'nivells': {
+    '10': "Aplica criteris d'indexació i informació addicional i comprova la seguretat del gestor pel seu compte.",
+    '7,5': "Etiqueta, documenta i fa les comprovacions de seguretat amb suport puntual.",
+    '5': "Ordena i comprova quan se li recorda i amb suport freqüent.",
+    '0': "No aplica cap criteri d'ordre ni comprova la seguretat ni amb el suport habitual.",
+   },
+   'ca': ['3.6', '3.7', '3.8'],
+   'reforc': [],
+   'cont': [],
+   'observa': "Els criteris d'indexació, les etiquetes i l'informe de "
+              "seguretat de l'A3.3.",
+  },
+ ],
 }
 
 PENDENT = ("Si no hi ha hagut prou ocasió d'observar una dimensió, no s'hi posa "

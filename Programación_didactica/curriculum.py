@@ -111,6 +111,15 @@ MAP = {
  'RA2/activitats/a2-2-cursos-usuaris-i-activitats': (['2.3'], ['2.3', '2.4']),
  'RA2/activitats/a2-3-copies-informes-i-seguretat': (['2.2'], ['2.5', '2.6', '2.7', '2.8']),
  'RA2/practiques/p2-1-portal-moodle':              (['2.1', '2.2', '2.3'], []),
+ 'RA3/teoria/t3-1-gestors-d-arxius-web':           (['3.1'], ['3.1', '3.2']),
+ 'RA3/teoria/t3-2-comptes-permisos-i-comparticio': (['3.2', '3.3'], ['3.4', '3.5']),
+ 'RA3/teoria/t3-3-trobar-ho-i-protegir-ho':        (['3.1'], ['3.6', '3.7', '3.8']),
+ 'RA3/guies/g3-1-instal-lar-nextcloud':            (['3.1'], ['3.3', '3.8']),
+ 'RA3/guies/g3-2-administrar-nextcloud':           (['3.1', '3.2', '3.3'], ['3.4', '3.5', '3.6', '3.7', '3.8']),
+ 'RA3/activitats/a3-1-el-nuvol-a-punt':            (['3.1'], ['3.1', '3.2', '3.3']),
+ 'RA3/activitats/a3-2-comptes-grups-i-recursos':   (['3.2', '3.3'], ['3.4', '3.5']),
+ 'RA3/activitats/a3-3-ordenar-trobar-i-protegir':  (['3.1'], ['3.5', '3.6', '3.7', '3.8']),
+ 'RA3/practiques/p3-1-nuvol-de-l-aula':            (['3.1', '3.2', '3.3'], []),
 }
 
 # Rúbrica de cada pràctica principal: (nom, pes al RA, [(apartat, criteris, punts)]).
@@ -141,6 +150,16 @@ PRACTIQUES = {
    ("Còpia de seguretat del lloc i restauració provada", ['2.6'], 1),
    ("Informes d'accés i utilització interpretats", ['2.7'], 0.5),
    ("Seguretat del lloc comprovada i justificada", ['2.8'], 0.5),
+ ]),
+ 'RA3/practiques/p3-1-nuvol-de-l-aula': ('Pràctica P3.1', 60, [
+   ("Utilitat del servei justificada per a l'organització triada", ['3.1'], 0.5),
+   ("Comparació raonada de dues aplicacions de gestió d'arxius web", ['3.2'], 1),
+   ("Instal·lació i adaptació: requeriments, dades fora del web, límits i cron", ['3.3'], 2),
+   ("Comptes classificats per permisos, grups i quotes, amb l'efecte demostrat", ['3.4'], 1.5),
+   ("Jerarquia de carpetes, operacions amb fitxers i recursos compartits", ['3.5'], 1.5),
+   ("Informació addicional: etiquetes, comentaris i descripcions de carpeta", ['3.6'], 1),
+   ("Criteris d'indexació escrits, aplicats i demostrats amb cerques", ['3.7'], 1),
+   ("Revisió de seguretat amb informe, còpia i restauració provada", ['3.8'], 1.5),
  ]),
 }
 
