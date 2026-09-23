@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Rúbriques d'avaluació continuada del mòdul (40 % de la nota del RA: les activitats).
+"""Rúbriques de seguiment del mòdul (sense pes: les activitats no es qualifiquen).
 
     python3 Programación_didactica/rubriques.py            # regenera la pàgina
     python3 Programación_didactica/rubriques.py --check    # comprova la cobertura
@@ -198,7 +198,7 @@ def moodle():
     """El text exacte de la rúbrica, per enganxar-lo al formulari de Moodle."""
     for ra in sorted(RUBRIQUES):
         print(f'\n=== RA{ra} · {CUR.RA_NOM[str(ra)]} '
-              f'— rúbrica d\'avaluació continuada (40 %) ===')
+              f'— rúbrica de seguiment (sense pes) ===')
         for d in RUBRIQUES[ra]:
             print(f'\n{d["nom"]}')
             for punts, nom in NIVELLS:
@@ -279,15 +279,16 @@ def pagina():
     out = ['<!DOCTYPE html>', '<html lang="ca">', '<head>',
            '<meta charset="utf-8">',
            '<meta name="viewport" content="width=device-width, initial-scale=1">',
-           '<title>Rúbriques d\'avaluació continuada — 0228 Aplicacions web</title>',
+           '<title>Rúbriques de seguiment — 0228 Aplicacions web</title>',
            '<style>', css, CSS_EXTRA, '</style>', '</head>', '<body>',
            '<header class="cq-header">',
            '  <div class="eyebrow">CFGM SMX · Mòdul 0228 · ús intern</div>',
-           '  <h1>Rúbriques d\'avaluació continuada</h1>',
+           '  <h1>Rúbriques de seguiment</h1>',
            '  <p class="lede">Una rúbrica per resultat d\'aprenentatge i alumne. '
-           'Val el 40 % de la nota del RA i s\'aplica a les activitats. La '
-           'pràctica principal (60 %) es qualifica amb la seva pròpia rúbrica, '
-           'que és a la pàgina de la pràctica.</p>',
+           'No té pes a la nota: serveix per al seguiment de les activitats '
+           'i per a la retroacció a l\'alumnat. La nota del RA són la '
+           'pràctica principal (60 %), amb la rúbrica de la seva pàgina, i '
+           'l\'examen tipus test a Moodle (40 %).</p>',
            '</header>',
            '\n<div class="rub-avis"><strong>Document de programació.</strong> '
            'La rúbrica es qualifica a Moodle, no en aquesta pàgina: aquí hi ha '

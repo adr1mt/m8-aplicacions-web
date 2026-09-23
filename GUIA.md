@@ -245,8 +245,10 @@ editor sigue funcionando con normalidad.
   **práctica principal** (una por RA, en `practiques/`) es una actividad grande
   de instalación y configuración, con demostración en directo y `README.md` en
   GitHub.
-- Pesos del RA1 (a validar con el departamento): actividades A1.1–A1.6 40 %,
-  práctica P1.1 60 %.
+- Pesos de cada RA: **práctica principal 60 %** y **examen tipo test en
+  Moodle 40 %**. Las actividades no tienen peso: son el ensayo de la práctica
+  y la preparación del examen. Los exámenes se generarán en formato GIFT más
+  adelante, cuando el profesorado lo pida.
 
 ### Atadura curricular
 
@@ -258,8 +260,8 @@ Todo sale de `Programación_didactica/curriculum.py`; nada se escribe a mano:
 | `PRACTIQUES`: apartados, criterios y puntos de cada práctica | Bloque `rúbrica` de la práctica; criterios de su bloque `currículum`; tabla de pruebas |
 | `RA`, `CA`, `CONT` | Bloque «Al currículum» de `RA1/index.html` (entre los marcadores `CURRÍCULUM DEL RA`) |
 
-`rubriques.py` genera la rúbrica de evaluación continuada de las actividades
-(40 %): tres dimensiones que recogen los diez criterios del RA1, cada uno una
+`rubriques.py` genera la rúbrica de seguimiento de las actividades, que **no
+tiene peso** en la nota: tres dimensiones que recogen los diez criterios del RA1, cada uno una
 sola vez, con su trazabilidad. `--check` falla si queda un criterio fuera.
 - Entorno: escritorios de IsardVDI con Ubuntu 26.04 LTS, pila LAMP con
   MySQL y PHP, nombres `.internal` resueltos con `/etc/hosts`. No se usan

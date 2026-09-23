@@ -136,19 +136,20 @@ def pagines_de(codi, contingut=False):
     return out
 
 
-def instrument(ca):
-    """Amb què s'avalua realment un criteri, sense etiquetes genèriques.
+EXAMEN = 'Examen tipus test'
 
-    Si cap prova no l'exercita i el criteri es treballa en alguna activitat,
-    hi ha rúbrica i document entregat. Si només es treballa a la teoria no hi
-    ha cap entrega: l'evidència és l'observació del professor durant el RA i
-    la rúbrica és on es registra. No s'inventa cap paper per omplir la casella.
+
+def instrument(ca):
+    """Amb què es qualifica un criteri: la pràctica del RA i l'examen.
+
+    La nota de cada RA són dues coses: la pràctica principal (60 %) i un
+    examen tipus test a Moodle (40 %), que abasta tot el RA. Les activitats
+    no tenen pes: són l'assaig de la pràctica i es comenten amb la rúbrica
+    de seguiment. Un criteri que la pràctica no exercita només s'avalua a
+    l'examen, i això es veu a la matriu.
     """
-    if proves := [nom for nom, cas in PROVA.items() if ca in cas]:
-        return ' · '.join(proves)
-    hi_ha_activitat = any(ca in crit for key, (_, crit) in MAP.items()
-                          if '/activitats/' in key)
-    return 'rúbrica i entrega' if hi_ha_activitat else 'rúbrica'
+    proves = [nom for nom, cas in PROVA.items() if ca in cas]
+    return ' · '.join(proves + [EXAMEN])
 
 
 BLOCK_RE = re.compile(
@@ -256,9 +257,11 @@ def matriu():
 
     out += ['\n<div class="cq-block" data-kind="proves">',
             '  <h2>Què exercita cada pràctica</h2>',
-            '  <p>Cada RA té una pràctica principal, que és la part que més '
-            'pesa a la seva nota. Es corregeix amb demostració en directe i '
-            'README. Aquesta taula documenta què s\'hi posa a prova.</p>',
+            '  <p>La nota de cada RA és la pràctica principal (60 %), '
+            'corregida amb demostració en directe i README, i un examen tipus '
+            'test a Moodle (40 %) que abasta tot el RA. Les activitats no '
+            'tenen pes. Aquesta taula documenta què posa a prova cada '
+            'pràctica; la resta de criteris queden per a l\'examen.</p>',
             '  <div class="cq-tablewrap"><table class="cq-table">',
             '    <thead><tr><th>Pràctica</th><th>Criteris que exercita</th>'
             '</tr></thead><tbody>']
@@ -271,20 +274,12 @@ def matriu():
             '  <p>Criteris sense cap pàgina: ' +
             (', '.join(f'<code>{c}</code>' for c in sorted(sense)) or 'cap') +
             '.</p>',
-            '  <p>Criteris que es treballen només a la teoria i que, per tant, '
-            '<strong>no generen cap evidència documental pròpia</strong>: ' +
+            '  <p>Criteris que cap pràctica no exercita i que, per tant, '
+            '<strong>només es qualifiquen a l\'examen</strong>: ' +
             (', '.join(f'<code>{c}</code>' for c in sorted(
-                (c for c in nomes_rubrica if instrument(c) == 'rúbrica'),
+                nomes_rubrica,
                 key=lambda x: tuple(map(int, x.split('.'))))) or 'cap') +
-            '. L\'evidència és l\'observació del professor de l\'aprenentatge '
-            'durant el RA, i la rúbrica és l\'instrument on es registra aquesta '
-            'valoració. No s\'hi afegeixen activitats per produir paper.</p>',
-            '  <p>Criteris sense prova però amb activitat, avaluats amb la '
-            'rúbrica i el document entregat: ' +
-            (', '.join(f'<code>{c}</code>' for c in sorted(
-                (c for c in nomes_rubrica if instrument(c) == 'rúbrica i entrega'),
-                key=lambda x: tuple(map(int, x.split('.'))))) or 'cap') +
-            '.</p>',
+            '. Les preguntes de l\'examen d\'aquell RA els han de cobrir.</p>',
             '  <p>Criteris que només es treballen fora del seu nucli formatiu: ' +
             (', '.join(f'<code>{c}</code>' for c in sorted(
                 forans, key=lambda x: tuple(map(int, x.split('.'))))) or 'cap') +
@@ -294,7 +289,8 @@ def matriu():
     sortida = pathlib.Path(__file__).with_name('cobertura.html')
     sortida.write_text('\n'.join(out) + '\n')
     print(f'{sortida}  ·  {len(sense)} criteris sense cobrir  ·  '
-          f'{len(nomes_rubrica)} sense prova  ·  {len(forans)} fora del seu NF')
+          f'{len(nomes_rubrica)} només a l\'examen  ·  '
+          f'{len(forans)} fora del seu NF')
 
 
 def punts(x):
@@ -315,7 +311,8 @@ def rubrica(key):
     return ('\n<!-- ============ RÚBRICA ============ -->\n'
             '<div class="cq-block" data-kind="rúbrica">\n'
             '  <h2>Com es qualifica</h2>\n'
-            f'  <p>Aquesta pràctica és el {pes} % de la nota del {key.split("/")[0]}. Cada apartat '
+            f'  <p>Aquesta pràctica és el {pes} % de la nota del {key.split("/")[0]}; '
+            f'l\'altre {100 - pes} % és l\'examen tipus test. Cada apartat '
             'es puntua a la demostració i amb les evidències del README: la '
             'puntuació sencera si funciona, la meitat si funciona amb mancances '
             'i zero si no es pot demostrar.</p>\n'
@@ -331,9 +328,8 @@ IDX_RE = re.compile(r'<!-- === CURRÍCULUM DEL RA INICI === -->.*?'
 
 
 def avalua(ca):
-    """Instruments d'un criteri al quadre del RA: pràctiques i rúbrica contínua."""
-    parts = [nom for nom, cas in PROVA.items() if ca in cas]
-    return ' · '.join(parts + ['rúbrica contínua'])
+    """Instruments d'un criteri al quadre del RA: la pràctica i l'examen."""
+    return instrument(ca)
 
 
 def index_ra(ra):
